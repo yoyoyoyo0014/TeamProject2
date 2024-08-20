@@ -1,0 +1,10 @@
+*.class
+.classpath
+.project
+.settings/
+
+java_jik/.gitignore
+
+MANIFEST.MF
+
+*.jar
