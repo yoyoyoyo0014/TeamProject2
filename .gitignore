@@ -2,6 +2,7 @@
 .classpath
 .project
 .settings/
+Servers/
 
 java_jik/.gitignore
 
@@ -9,5 +10,3 @@ MANIFEST.MF
 
 *.jar
 /.metadata/
-.policy
-.xml
