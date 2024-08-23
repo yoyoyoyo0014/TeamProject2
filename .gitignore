@@ -9,6 +9,5 @@ MANIFEST.MF
 
 *.jar
 /.metadata/
-
-Servers/*
-/apache-tomcat-9.0.86 at localhost-config/*
+.policy
+.xml
