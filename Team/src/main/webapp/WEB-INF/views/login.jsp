@@ -38,7 +38,9 @@
             <div class="form_input_item">
               <i class="ic_password"></i>
               <input type="password" name="me_pw" value="" id="me_pw" placeholder="비밀번호를 입력해주세요.">
-              <button><i class="ic_invisible"></i></button>
+              <button type="button" class="btn btn_invisible">
+                <i class="ic_invisible"></i>
+              </button>
             </div>
           </div>
           <div class="form-group form-check">
