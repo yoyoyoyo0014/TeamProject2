@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.kh.app.model.vo.MemberVO;
+
 
 @WebServlet("/main")
 public class Main extends HttpServlet {
@@ -15,6 +17,9 @@ public class Main extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
+		
+		request.setAttribute("user", user);
 		request.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(request, response);
 	}
 

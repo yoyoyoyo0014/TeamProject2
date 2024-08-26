@@ -5,18 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<jsp:include page="/WEB-INF/views/common/head.jsp"/>
+<title>메인</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	<ul class="navbar-nav">
-		<li class="nav-item">
-			<a class="navbar-brand" href="<c:url value="/"/>">Home</a>
-		</li>
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-	</ul>
-	
+<h1>메인 페이지</h1>
 
-</nav>
 </body>
 </html>

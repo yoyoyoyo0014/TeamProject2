@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kh.app.dao.GradeDAO">
+	
+	<select id="selectGradeListByStudent" resultType="GradeVO">
+		select le_year, le_semester, su_name, su_point, co_grade
+		from course
+		join lecture on co_le_num = le_num
+		join subject on le_su_num = su_num
+		where co_me_id = #{me_id}
+	</select>
+	
+	<select id="selectGradeListByYearAndSemester" resultType="GradeVO">
+		select le_year, le_semester, su_name, su_point, co_grade
+		from course
+		join lecture on co_le_num = le_num
+		join subject on le_su_num = su_num
+		where co_me_id = #{me_id} and le_year = #{le_year} and le_semester and #{le_semester}
+	</select>
+
+</mapper>
