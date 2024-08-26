@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
   <!-- css -->
-  <link rel="stylesheet" href="/Team/resource/css/font.css">
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css">
 
   <!-- js -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/popper.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
-
+  
+  <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
   <title>로그인</title>
 </head>
 <body>
@@ -37,7 +38,7 @@
             <div class="form_input_item">
               <i class="ic_password"></i>
               <input type="password" name="me_pw" value="" id="me_pw" placeholder="비밀번호를 입력해주세요.">
-              <i class="ic_invisible"></i>
+              <button><i class="ic_invisible"></i></button>
             </div>
           </div>
           <div class="form-group form-check">
