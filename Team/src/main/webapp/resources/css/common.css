@@ -134,3 +134,14 @@ i{
   outline: #FF432A;
 }
 /* 로그인(login) 페이지 끝 */
+
+/* 버튼 시작 */
+.btn_invisible{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+}
+/* 버튼 끝 */
