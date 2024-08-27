@@ -27,7 +27,12 @@
 				<tr>
 					<td>${course.co_me_id}</td>
 					<td>${course.member.me_name}</td>
-					<td>${course.co_grade}</td>
+					<c:if test="${course.co_grade != null}">
+						<td>${course.co_grade}</td>
+					</c:if>
+					<c:if test="${course.co_grade == null}">
+						<td>N/A</td>
+					</c:if>
 					<td>${course.member.me_email}</td>
 				</tr>
 			</c:forEach>
