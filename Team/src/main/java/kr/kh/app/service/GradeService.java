@@ -13,4 +13,6 @@ public interface GradeService {
 
 	boolean updateGrade(String co_num, String co_grade);
 
+	List<GradeVO> getGradeListByAdmin(String type, String search);
+
 }

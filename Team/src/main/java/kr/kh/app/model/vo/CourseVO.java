@@ -13,4 +13,5 @@ public class CourseVO {
 	private String co_me_id;
 	
 	private MemberVO member;
+	private LectureVO lecture;
 }

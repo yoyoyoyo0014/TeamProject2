@@ -14,4 +14,6 @@ public interface GradeDAO {
 
 	boolean updateGrade(@Param("co_num")String co_num, @Param("co_grade")String co_grade);
 
+	List<GradeVO> selectGradeListByAdmin(@Param("type")String type, @Param("search")String search);
+
 }

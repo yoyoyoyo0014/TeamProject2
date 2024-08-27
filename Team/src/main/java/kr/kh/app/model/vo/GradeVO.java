@@ -13,4 +13,6 @@ public class GradeVO {
 	private int su_point;
 	private String co_grade;
 	
+	private MemberVO member;
+	
 }

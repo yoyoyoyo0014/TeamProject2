@@ -57,4 +57,9 @@ public class GradeServiceImp implements GradeService {
 		
 		return gradeDao.updateGrade(co_num, co_grade);
 	}
+
+	@Override
+	public List<GradeVO> getGradeListByAdmin(String type, String search) {
+		return gradeDao.selectGradeListByAdmin(type, search);
+	}
 }

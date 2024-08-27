@@ -47,7 +47,7 @@
 				<a class="nav-link" href="<c:url value="/"/>">강의조회</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/"/>">성적조회</a>
+				<a class="nav-link" href="<c:url value="/admin/gradelist"/>">성적조회</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/"/>">회원등록</a>
