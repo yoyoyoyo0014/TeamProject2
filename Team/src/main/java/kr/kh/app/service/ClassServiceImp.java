@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.ClassDAO;
 import kr.kh.app.dao.GradeDAO;
+import kr.kh.app.model.vo.CourseVO;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 
@@ -38,5 +39,10 @@ public class ClassServiceImp implements ClassService {
 			return null;
 		}
 		return classDao.selectLectureList(user.getMe_id());
+	}
+
+	@Override
+	public List<CourseVO> getStudentList(String le_num) {
+		return classDao.selectStudentList(le_num);
 	}
 }

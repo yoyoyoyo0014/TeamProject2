@@ -11,4 +11,6 @@ public class CourseVO {
 	private String co_grade;
 	private int co_le_num;
 	private String co_me_id;
+	
+	private MemberVO member;
 }

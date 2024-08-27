@@ -24,8 +24,27 @@
     </resultMap>
 
 	<select id="selectLectureList" resultMap="LectureMap">
-		select lecture.*, subject.* from lecture 
+		select * from lecture 
 		join subject on le_su_num = su_num	
 		where le_me_id = #{me_id}
+	</select>
+	
+	<resultMap id="CourseMap" type="CourseVO">
+        <id property="co_num" column="co_num" />
+        <result property="co_grade" column="co_grade" />
+        <result property="co_le_num" column="co_le_num" />
+        <result property="co_me_id" column="co_me_id" />
+
+        <association property="member" javaType="kr.kh.app.model.vo.MemberVO">
+            <id property="me_id" column="me_id" />
+            <result property="me_name" column="me_name" />
+            <result property="me_email" column="me_email" />
+        </association>
+    </resultMap>
+	
+	<select id="selectStudentList" resultMap="CourseMap">
+		select * from course
+		join member on co_me_id = me_id
+		where co_le_num = #{le_num}
 	</select>
 </mapper>

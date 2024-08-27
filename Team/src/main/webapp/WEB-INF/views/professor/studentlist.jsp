@@ -6,33 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
-<title>강의 목록</title>
+<title>수강생 목록</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="container">
-	<h1>강의 목록</h1>
+	<h1>수강생 목록</h1>
 	<table class="table">
 		<thead>
 			<tr>
-				<th>연도</th>
-				<th>학기</th>
-				<th>강의명</th>
-				<th>강의시간</th>
-				<th>강의실</th>
+				<th>학번</th>
+				<th>이름</th>
+				<th>학점</th>
+				<th>이메일</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="lecture" items="${list}">
+			<c:forEach var="course" items="${list}">
 				<tr>
-					<td>${lecture.le_year}</td>
-					<td>${lecture.le_semester}</td>
-					<td>
-						<a href="<c:url value="/professor/gradeinsert?le_num=${lecture.le_num}"/>">${lecture.subject.su_name}</a>
-					</td>
-					<td>${lecture.le_schedule}</td>
-					<td>${lecture.le_room}</td>
+					<td>${course.co_me_id}</td>
+					<td>${course.member.me_name}</td>
+					<td>${course.co_grade}</td>
+					<td>${course.member.me_email}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
