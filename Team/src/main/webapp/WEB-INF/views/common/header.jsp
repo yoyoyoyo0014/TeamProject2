@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-between">
+	<nav class="navbar navbar-expand-sm bg-kh-main navbar-light justify-content-between">
 		<div class="d-flex">
 			<!-- 로고 -->
 			<a class="navbar-brand" href="<c:url value="/" />" >메인</a>
