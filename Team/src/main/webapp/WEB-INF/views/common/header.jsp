@@ -33,10 +33,7 @@
 				<a class="nav-link" href="<c:url value="/"/>">과목조회</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/"/>">강의조회</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/"/>">성적입력</a>
+				<a class="nav-link" href="<c:url value="/professor/lecturelist"/>">강의조회</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/"/>">개인정보수정</a>

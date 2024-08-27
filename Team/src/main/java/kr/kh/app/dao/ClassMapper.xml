@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kh.app.dao.ClassDAO">
+
+    <resultMap id="LectureMap" type="LectureVO">
+        <id property="le_num" column="le_num" />
+        <result property="le_room" column="le_room" />
+        <result property="le_schedule" column="le_schedule" />
+        <result property="le_year" column="le_year" />
+        <result property="le_semester" column="le_semester" />
+        <result property="le_su_num" column="le_su_num" />
+        <result property="le_me_id" column="le_me_id" />
+
+        <association property="subject" javaType="kr.kh.app.model.vo.SubjectVO">
+            <id property="su_num" column="su_num" />
+            <result property="su_name" column="su_name" />
+            <result property="su_time" column="su_time" />
+            <result property="su_point" column="su_point" />
+            <result property="su_status" column="su_status" />
+            <result property="su_ma_num" column="su_ma_num" />
+        </association>
+    </resultMap>
+
+	<select id="selectLectureList" resultMap="LectureMap">
+		select lecture.*, subject.* from lecture 
+		join subject on le_su_num = su_num	
+		where le_me_id = #{me_id}
+	</select>
+</mapper>
