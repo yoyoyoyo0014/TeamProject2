@@ -29,7 +29,7 @@
 					<td>${lecture.le_year}</td>
 					<td>${lecture.le_semester}</td>
 					<td>
-						<a href="<c:url value="/professor/studentlist?le_num=${lecture.le_num}"/>">${lecture.subject.su_name}</a>
+						<a href="<c:url value="/professor/studentlist?le_num=${lecture.le_num}&su_name=${lecture.subject.su_name}"/>">${lecture.subject.su_name}</a>
 					</td>
 					<td>${lecture.le_schedule}</td>
 					<td>${lecture.le_room}</td>

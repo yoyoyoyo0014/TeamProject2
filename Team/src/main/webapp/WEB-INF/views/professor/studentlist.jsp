@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <div class="container">
-	<h1>수강생 목록</h1>
+	<h1>${su_name} 수강생 목록</h1>
 	<table class="table">
 		<thead>
 			<tr>

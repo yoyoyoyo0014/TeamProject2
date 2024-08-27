@@ -21,11 +21,12 @@ public class ProfessorStudentList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String le_num = request.getParameter("le_num");
+		String su_name = request.getParameter("su_name");
 		
 		List<CourseVO> list = classService.getStudentList(le_num);
 		
 		request.setAttribute("list", list);
-		
+		request.setAttribute("su_name", su_name);
 		request.getRequestDispatcher("/WEB-INF/views/professor/studentlist.jsp").forward(request, response);
 	}
 
