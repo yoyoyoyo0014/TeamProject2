@@ -30,8 +30,4 @@ public class ProfessorStudentList extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/professor/studentlist.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

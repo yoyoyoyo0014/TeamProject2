@@ -19,5 +19,9 @@
 		join subject on le_su_num = su_num
 		where co_me_id = #{me_id} and le_year = #{le_year} and le_semester and #{le_semester}
 	</select>
+	
+	<update id="updateGrade">
+		update course set co_grade = #{co_grade} where co_num = #{co_num}
+	</update>
 
 </mapper>

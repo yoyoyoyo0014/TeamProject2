@@ -38,7 +38,9 @@ public class StudentGradeList extends HttpServlet {
 		List<GradeVO> list = gradeService.getGradeListByYearAndSemester(user, le_year, le_semester);
 		
 		request.setAttribute("list", list);
-		
+	    request.setAttribute("selectedYear", le_year);
+	    request.setAttribute("selectedSemester", le_semester);
+	    
 		request.getRequestDispatcher("/WEB-INF/views/student/gradelist.jsp").forward(request, response);
 	}
 

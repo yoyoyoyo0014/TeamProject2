@@ -12,4 +12,6 @@ public interface GradeDAO {
 
 	List<GradeVO> selectGradeListByYearAndSemester(@Param("me_id")String me_id, @Param("le_year")String le_year, @Param("le_semester")String le_semester);
 
+	boolean updateGrade(@Param("co_num")String co_num, @Param("co_grade")String co_grade);
+
 }

@@ -17,11 +17,20 @@
 		<div class="form-group">
 			<label for="year">연도:</label>
 			<select id="yearSelect" name="year">
+				<option value="2024" <c:if test="${selectedYear == '2024'}">selected</c:if>>2024</option>
+				<option value="2023" <c:if test="${selectedYear == '2023'}">selected</c:if>>2023</option>
+				<option value="2022" <c:if test="${selectedYear == '2022'}">selected</c:if>>2022</option>
+				<option value="2021" <c:if test="${selectedYear == '2021'}">selected</c:if>>2021</option>
+				<option value="2020" <c:if test="${selectedYear == '2020'}">selected</c:if>>2020</option>
 			</select>
 			
-			<label for="semester">학기:</label>
-			<select id="semesterSelect" name="semester">
-			</select>
+        <label for="semester">학기:</label>
+        <select id="semesterSelect" name="semester">
+            <option value="1학기" <c:if test="${selectedSemester == '1학기'}">selected</c:if>>1학기</option>
+            <option value="2학기" <c:if test="${selectedSemester == '2학기'}">selected</c:if>>2학기</option>
+            <option value="여름방학" <c:if test="${selectedSemester == '여름방학'}">selected</c:if>>여름방학</option>
+            <option value="겨울방학" <c:if test="${selectedSemester == '겨울방학'}">selected</c:if>>겨울방학</option>
+        </select>
 			
 			<button type="submit" class="btn btn-primary">조회</button>
 		</div>
@@ -84,35 +93,5 @@
 		
 	</table>
 </div>
-
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function() {
-    const yearSelect = document.getElementById("yearSelect");
-    const semesterSelect = document.getElementById("semesterSelect");
-
-    const uniqueYears = new Set();
-    const uniqueSemesters = new Set();
-
-    <c:forEach var="grade" items="${list}">
-        uniqueYears.add("${grade.le_year}");
-        uniqueSemesters.add("${grade.le_semester}");
-    </c:forEach>;
-
-    uniqueYears.forEach(year => {
-        const option = document.createElement("option");
-        option.value = year;
-        option.textContent = year;
-        yearSelect.appendChild(option);
-    });
-
-    uniqueSemesters.forEach(semester => {
-        const option = document.createElement("option");
-        option.value = semester;
-        option.textContent = semester;
-        semesterSelect.appendChild(option);
-    });
-});
-</script>
-
 </body>
 </html>

@@ -11,4 +11,6 @@ public interface GradeService {
 
 	List<GradeVO> getGradeListByYearAndSemester(MemberVO user, String le_year, String le_semester);
 
+	boolean updateGrade(String co_num, String co_grade);
+
 }

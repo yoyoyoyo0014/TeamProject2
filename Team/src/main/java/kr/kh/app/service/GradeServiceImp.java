@@ -48,4 +48,13 @@ public class GradeServiceImp implements GradeService {
 		}
 		return gradeDao.selectGradeListByYearAndSemester(user.getMe_id(), le_year, le_semester);
 	}
+
+	@Override
+	public boolean updateGrade(String co_num, String co_grade) {
+		if(co_num == null || co_grade == null) {
+			return false;
+		}
+		
+		return gradeDao.updateGrade(co_num, co_grade);
+	}
 }
