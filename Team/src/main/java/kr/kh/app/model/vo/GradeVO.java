@@ -5,12 +5,14 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class SubjectVO {
+public class GradeVO {
 
-	private int su_num;
+	private int le_year;
+	private String le_semester;
 	private String su_name;
-	private int su_time;
 	private int su_point;
-	private String su_status;
-	private int su_ma_num;
+	private String co_grade;
+	
+	private MemberVO member;
+	
 }
