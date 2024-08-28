@@ -16,12 +16,12 @@
 		<div class="login_group">
 			<div class="login_wrap">
 				<h3 class="h3 kh_title">KH UNIVERSITY</h3>
-				<form action="<c:url value="/login" />" method="post" class="form_wrap">
+				<form action="<c:url value="/" />" method="post" class="form_wrap">
 					<div class="form-group">
 						<label for="me_id" class="form-text-label">학번</label>
 						<div class="form_input_item">
 							<i class="ic_people"></i>
-							<input type="text" name="me_id" value="" id="me_id" placeholder="학번을 입력해주세요." maxlength="8">
+							<input type="text" name="me_id" value="" id="me_id" placeholder="학번을 입력해주세요." maxlength="9">
 						</div>
 					</div>
 					<div class="form-group mb-3">
@@ -43,7 +43,7 @@
 						</div>
 					</div>
 					<div class="btn_wrap">
-						<button type="button" class="btn btn-warning btn_login">로그인</button>
+						<button type="submit" class="btn btn-warning btn_login">로그인</button>
 					</div>
 				</form>
 			</div>
