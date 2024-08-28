@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class SubjectVO {
+
 	private int su_num;
 	private String su_name;
 	private int su_time;
