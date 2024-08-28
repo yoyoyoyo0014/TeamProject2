@@ -50,6 +50,9 @@
 		<if test="type == 'me_id'">
 			and me_id like concat('%', #{search}, '%')
 		</if>
+		<if test="type == 'me_name'">
+			and me_name like concat('%', #{search}, '%')
+		</if>
 		<if test="type == 'su_name'">
 			and su_name like concat('%', #{search}, '%')
 		</if>

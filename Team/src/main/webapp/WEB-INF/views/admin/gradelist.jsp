@@ -17,6 +17,7 @@
 		<div class="input-group-prepend">
 			<select class="form-control" name="type">
 				<option value="me_id" <c:if test="${param.type == 'me_id'}">selected</c:if>>학번</option>
+				<option value="me_name" <c:if test="${param.type == 'me_name'}">selected</c:if>>학생 이름</option>
 				<option value="su_name" <c:if test="${param.type == 'su_name'}">selected</c:if>>과목 이름</option>
 			</select>
 		</div>
