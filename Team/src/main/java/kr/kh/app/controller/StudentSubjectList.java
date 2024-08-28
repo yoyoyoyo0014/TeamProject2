@@ -15,19 +15,18 @@ import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
-@WebServlet("/subject/subjectList")
-public class subjectList extends HttpServlet {
+@WebServlet("/student/subjectlist")
+public class StudentSubjectList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("subjectList 커민~");
 		//등록된 커뮤니티 목록을 가져와서 화면에 전달
     	List<SubjectVO> subjectList = subjectService.getSubjectList();
     	request.setAttribute("subjectList", subjectList);
 		
-		request.getRequestDispatcher("/WEB-INF/views/subject/subjectList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
 	}
 
 	

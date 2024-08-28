@@ -16,7 +16,7 @@
 		</li>
 		<c:if test="${user.me_authority == 'STUDENT'}">
 			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/"/>">과목조회</a>
+				<a class="nav-link" href="<c:url value="/student/subjectlist"/>">과목조회</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/"/>">수강신청</a>
@@ -30,7 +30,7 @@
 		</c:if>
 		<c:if test="${user.me_authority == 'PROFESSOR'}">
 			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/"/>">과목조회</a>
+				<a class="nav-link" href="<c:url value="/professor/subjectlist"/>">과목조회</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/professor/lecturelist"/>">강의조회</a>
@@ -41,7 +41,7 @@
 		</c:if>
 		<c:if test="${user.me_authority == 'ADMIN'}">
 			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/"/>">과목조회</a>
+				<a class="nav-link" href="<c:url value="/admin/subjectlist"/>">과목조회</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/"/>">강의조회</a>

@@ -13,12 +13,12 @@
 
 /* 색상 시작 */
 .bg-kh-main{
-    background-color: #FF432A;
+  background-color: #FF432A;
 }
 .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link{
-    color: #fff;
-    transition: .3s;
+  color: #fff;
+  transition: .3s;
 }
 /* 색상 끝 */
 
