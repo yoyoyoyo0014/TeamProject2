@@ -58,7 +58,7 @@ i{
   font-family: 'notosans', sans-serif;
 }
 .kh_logo{
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
   font-weight: bold;
