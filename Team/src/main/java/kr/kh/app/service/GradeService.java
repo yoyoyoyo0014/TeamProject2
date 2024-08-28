@@ -4,6 +4,8 @@ import java.util.List;
 
 import kr.kh.app.model.vo.GradeVO;
 import kr.kh.app.model.vo.MemberVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 
 public interface GradeService {
 
@@ -13,6 +15,8 @@ public interface GradeService {
 
 	boolean updateGrade(String co_num, String co_grade);
 
-	List<GradeVO> getGradeListByAdmin(String type, String search);
+	List<GradeVO> getGradeListByAdmin(Criteria cri);
+
+	PageMaker getPageMaker(Criteria cri, int i);
 
 }

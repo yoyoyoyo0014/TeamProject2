@@ -13,6 +13,8 @@ import kr.kh.app.dao.GradeDAO;
 import kr.kh.app.dao.MemberDAO;
 import kr.kh.app.model.vo.GradeVO;
 import kr.kh.app.model.vo.MemberVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 
 public class GradeServiceImp implements GradeService {
 
@@ -59,7 +61,19 @@ public class GradeServiceImp implements GradeService {
 	}
 
 	@Override
-	public List<GradeVO> getGradeListByAdmin(String type, String search) {
-		return gradeDao.selectGradeListByAdmin(type, search);
+	public List<GradeVO> getGradeListByAdmin(Criteria cri) {
+		if(cri == null) {
+			throw new RuntimeException();
+		}
+		return gradeDao.selectGradeListByAdmin(cri);
+	}
+
+	@Override
+	public PageMaker getPageMaker(Criteria cri, int displayPageNum) {
+		if(cri == null) {
+			throw new RuntimeException();
+		}
+		int totalCount = gradeDao.selectGradeTotalCount(cri);
+		return new PageMaker(totalCount, displayPageNum, cri);
 	}
 }
