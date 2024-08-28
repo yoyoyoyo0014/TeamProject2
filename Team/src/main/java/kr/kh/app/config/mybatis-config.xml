@@ -29,5 +29,6 @@
 		<mapper resource="kr/kh/app/dao/MemberMapper.xml"/>
 		<mapper resource="kr/kh/app/dao/GradeMapper.xml"/>
 		<mapper resource="kr/kh/app/dao/ClassMapper.xml"/>
+		<mapper resource="kr/kh/app/dao/SubjectMapper.xml"/>
 	</mappers>
 </configuration>

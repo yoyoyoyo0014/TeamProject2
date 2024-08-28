@@ -15,7 +15,7 @@ import kr.kh.app.service.MemberServiceImp;
 
 
 @WebServlet("/")
-public class login extends HttpServlet {
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberServiceImp();
        

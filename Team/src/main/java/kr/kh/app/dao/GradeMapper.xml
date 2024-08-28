@@ -17,7 +17,7 @@
 		from course
 		join lecture on co_le_num = le_num
 		join subject on le_su_num = su_num
-		where co_me_id = #{me_id} and le_year = #{le_year} and le_semester and #{le_semester}
+		where co_me_id = #{me_id} and le_year = #{le_year} and le_semester = #{le_semester}
 	</select>
 	
 	<update id="updateGrade">

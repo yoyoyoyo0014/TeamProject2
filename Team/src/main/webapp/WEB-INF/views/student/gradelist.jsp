@@ -24,13 +24,13 @@
 				<option value="2020" <c:if test="${selectedYear == '2020'}">selected</c:if>>2020</option>
 			</select>
 			
-        <label for="semester">학기:</label>
-        <select id="semesterSelect" name="semester">
-            <option value="1학기" <c:if test="${selectedSemester == '1학기'}">selected</c:if>>1학기</option>
-            <option value="2학기" <c:if test="${selectedSemester == '2학기'}">selected</c:if>>2학기</option>
-            <option value="여름방학" <c:if test="${selectedSemester == '여름방학'}">selected</c:if>>여름방학</option>
-            <option value="겨울방학" <c:if test="${selectedSemester == '겨울방학'}">selected</c:if>>겨울방학</option>
-        </select>
+	        <label for="semester">학기:</label>
+	        <select id="semesterSelect" name="semester">
+	            <option value="1학기" <c:if test="${selectedSemester == '1학기'}">selected</c:if>>1학기</option>
+	            <option value="2학기" <c:if test="${selectedSemester == '2학기'}">selected</c:if>>2학기</option>
+	            <option value="여름방학" <c:if test="${selectedSemester == '여름방학'}">selected</c:if>>여름방학</option>
+	            <option value="겨울방학" <c:if test="${selectedSemester == '겨울방학'}">selected</c:if>>겨울방학</option>
+	        </select>
 			
 			<button type="submit" class="btn btn-primary">조회</button>
 		</div>
