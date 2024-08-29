@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.util.List;
 
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.NoticeVO;
 import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
@@ -17,5 +18,7 @@ public interface NoticeService {
 	NoticeVO getNotice(String no_num);
 
 	boolean insertNotice(NoticeVO notice);
+
+	boolean updateNotice(NoticeVO notice);
 
 }

@@ -49,4 +49,8 @@
 		insert into notice(no_title, no_content, no_me_id)
 		values(#{no.no_title}, #{no.no_content}, #{no.member.me_id})
 	</insert>
+	<update id="updateNotice">
+		update notice set no_title = #{no.no_title}, no_content = #{no.no_content}
+		where no_num = #{no.no_num}
+	</update>
 </mapper>

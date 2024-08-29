@@ -19,4 +19,6 @@ public interface NoticeDAO {
 
 	boolean insertNotice(@Param("no")NoticeVO notice);
 
+	boolean updateNotice(@Param("no")NoticeVO notice);
+
 }

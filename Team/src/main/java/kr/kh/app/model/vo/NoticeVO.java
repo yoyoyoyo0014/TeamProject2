@@ -23,5 +23,16 @@ public class NoticeVO {
 		this.no_content = no_content;
 		this.member = user;
 	}
+
+	public NoticeVO(String no_num, String no_title, String no_content, MemberVO user) {
+		try {
+			this.no_num = Integer.parseInt(no_num);			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		this.no_title = no_title;
+		this.no_content = no_content;
+		this.member = user;
+	}
 	
 }

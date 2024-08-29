@@ -44,6 +44,10 @@
 			<c:param name="page" value="${page}"/>
 		</c:url>
 		<a href="${url}" class="btn btn-outline-info">목록</a>
+		<c:if test="${user.me_id == notice.no_me_id}">
+			<a href="<c:url value="/notice/update?no_num=${notice.no_num}"/>" class="btn btn-outline-success">수정</a>
+			<a href="<c:url value="/notice/delete?no_num=${notice.no_num}"/>" class="btn btn-outline-danger">삭제</a>		
+		</c:if>
 	</div>
 </body>
 </html>

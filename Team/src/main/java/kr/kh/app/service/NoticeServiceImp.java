@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.NoticeDAO;
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.NoticeVO;
 import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
@@ -78,5 +79,26 @@ public class NoticeServiceImp implements NoticeService{
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public boolean updateNotice(NoticeVO notice) {
+		if(notice == null) {
+			return false;
+		}
+		if(notice.getNo_title() == null || notice.getNo_title().trim().length() == 0) {
+			return false;
+		}
+		if(notice.getNo_content() == null || notice.getNo_content().trim().length() == 0) {
+			return false;
+		}
+		if(notice.getMember() == null) {
+			return false;
+		}
+		
+		if(noticeDao.updateNotice(notice)) {
+			return true;
+		}
+		return false;
 	}
 }
