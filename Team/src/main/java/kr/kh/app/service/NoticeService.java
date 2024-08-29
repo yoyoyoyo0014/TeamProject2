@@ -16,4 +16,6 @@ public interface NoticeService {
 
 	NoticeVO getNotice(String no_num);
 
+	boolean insertNotice(NoticeVO notice);
+
 }

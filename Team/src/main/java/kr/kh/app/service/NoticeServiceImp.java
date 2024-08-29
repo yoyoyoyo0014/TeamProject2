@@ -57,4 +57,26 @@ public class NoticeServiceImp implements NoticeService{
 	public NoticeVO getNotice(String no_num) {
 		return noticeDao.selectNotice(no_num);
 	}
+
+	@Override
+	public boolean insertNotice(NoticeVO notice) {
+		if(notice == null) {
+			return false;
+		}
+		if(notice.getNo_title() == null || notice.getNo_title().trim().length() == 0) {
+			return false;
+		}
+		if(notice.getNo_content() == null || notice.getNo_content().trim().length() == 0) {
+			return false;
+		}
+		if(notice.getMember() == null) {
+			return false;
+		}
+		
+		try {
+			return noticeDao.insertNotice(notice);
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

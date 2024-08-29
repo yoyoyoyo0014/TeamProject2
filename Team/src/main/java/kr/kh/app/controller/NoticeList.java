@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.NoticeVO;
 import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
@@ -31,6 +32,8 @@ public class NoticeList extends HttpServlet {
 			}
 			String search = request.getParameter("search");
 			
+			MemberVO user = (MemberVO)request.getSession().getAttribute("user");
+			
 			Criteria cri = new Criteria(page, 5, search);
 			PageMaker pm = noticeService.getPageMaker(cri, 2);
 			
@@ -38,6 +41,7 @@ public class NoticeList extends HttpServlet {
 			
 			request.setAttribute("list", list);
 			request.setAttribute("pm", pm);
+			request.setAttribute("user", user);
 			request.getRequestDispatcher("/WEB-INF/views/notice/list.jsp").forward(request, response);
 		} catch(Exception e) {
 			e.printStackTrace();

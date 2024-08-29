@@ -17,4 +17,11 @@ public class NoticeVO {
 	private String no_me_id;
 	
 	private MemberVO member;
+	
+	public NoticeVO(String no_title, String no_content, MemberVO user) {
+		this.no_title = no_title;
+		this.no_content = no_content;
+		this.member = user;
+	}
+	
 }

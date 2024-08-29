@@ -47,6 +47,11 @@
 				</c:if>
 			</tbody>
 		</table>
+		
+		<c:if test="${user.me_authority == 'ADMIN'}">
+			<a href="<c:url value="/notice/insert"/>" class="btn btn-outline-info">공지사항 등록</a>
+		</c:if>
+		
 		<ul class="pagination justify-content-center">
 			<c:if test="${pm.prev}">
 				<c:url var="url" value="/notice">

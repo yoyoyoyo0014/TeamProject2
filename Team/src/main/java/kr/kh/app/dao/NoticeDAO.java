@@ -17,4 +17,6 @@ public interface NoticeDAO {
 
 	NoticeVO selectNotice(@Param("no_num")String no_num);
 
+	boolean insertNotice(@Param("no")NoticeVO notice);
+
 }
