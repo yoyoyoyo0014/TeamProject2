@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../css/font.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+
+  <!-- js -->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+
+  <title>기본 레이아웃</title>
+</head>
+<body>
+  <div class="layout">
+
+    <!-- lnb -->
+    <div class="lnb_wrap">
+      <div class="user_info_wrap">
+        <div class="user_info_group">
+          <i class="ic_student"></i>
+          <!-- <i class="ic_professor"></i>
+          <i class="ic_admin"></i> -->
+          <div class="user_info_text">
+            <span>사용자1</span>님 환영합니다.
+          </div>
+        </div>
+        <a href="" class="logout">
+          <i class="ic_logout"></i>
+          <span class="blind">로그아웃</span>
+        </a>
+      </div>
+
+      <nav class="lnb">
+        <ul class="lnb_group">
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_subject"></i>
+              <span>과목조회</span>
+            </a>
+          </li>
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_class"></i>
+              <span>수강신청</span>
+            </a>
+          </li>
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_grade"></i>
+              <span>성적조회</span>
+            </a>
+          </li>
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_lecture"></i>
+              <span>강의조회</span>
+            </a>
+          </li>
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_people"></i>
+              <span>학생관리</span>
+            </a>
+          </li>
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_user-modify"></i>
+              <span>개인정보수정</span>
+            </a>
+          </li>
+          <li class="lnb_item">
+            <a href="#" class="lnb_link">
+              <i class="ic_notice"></i>
+              <span>공지사항</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="lnb_ft_logo_wrap">
+        <h1 class="main_logo">
+          <a href="#" class="kh_ft_logo" title="KH UNIVERSITY LOGO"></a>
+        </h1>
+      </div>
+    </div>
+
+    <div class="main_layout">
+      <header class="kh_header">
+        <div class="breadCrumb_wrap">
+          <span class="breadCrumb_item">KH UNIVERSITY</span>
+          <span class="breadCrumb_item">메인</span>
+          <span class="breadCrumb_item">과목조회</span>
+        </div>
+      </header>
+
+      <div class="main_container">
+        main content
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

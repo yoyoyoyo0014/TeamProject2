@@ -28,9 +28,11 @@ i{
   display: inline-block;
   background-repeat: no-repeat;
   background-size: contain;
+  width: 20px;
+  height: 20px;
 }
-.ic_people{
-  background-image: url("../image/icon/ic_people.png");
+.ic_login_person{
+  background-image: url("../image/icon/ic_login_person.png");
   width: 16px;
   height: 16px;
   margin-right: 10px;
@@ -45,6 +47,47 @@ i{
   background-image: url("../image/icon/ic_invisible.png");
   width: 14px;
   height: 14px;
+}
+.ic_logout{
+  background-image: url("../image/icon/ic_logout.png");
+  width: 14px;
+  height: 14px;
+}
+.ic_student{
+  background-image: url("../image/icon/ic_student.png");
+}
+.ic_professor{
+  background-image: url("../image/icon/ic_professor.png");
+}
+.ic_admin{
+  background-image: url("../image/icon/ic_admin.png");
+}
+.ic_user{
+  background-image: url("../image/icon/ic_user.png");
+}
+.ic_admin{
+  background-image: url("../image/icon/ic_admin.png");
+}
+.ic_user-modify{
+  background-image: url("../image/icon/ic_user-modify.png");
+}
+.ic_people{
+  background-image: url("../image/icon/ic_people.png");
+}
+.ic_notice{
+  background-image: url("../image/icon/ic_notice.png");
+}
+.ic_subject{
+  background-image: url("../image/icon/ic_subject.png");
+}
+.ic_grade{
+  background-image: url("../image/icon/ic_grade.png");
+}
+.ic_lecture{
+  background-image: url("../image/icon/ic_lecture.png");
+}
+.ic_class{
+  background-image: url("../image/icon/ic_class.png");
 }
 /* 아이콘(icon) 끝 */
 
@@ -156,3 +199,145 @@ i{
   height: 24px;
 }
 /* 버튼 끝 */
+
+/* 공통 레이아웃 시작 */
+.layout{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.lnb_wrap{
+  position: relative;
+  width: 212px;
+  height: 100vh;
+  padding: 16px;;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.user_info_wrap{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.user_info_group{
+  display: flex;
+  align-items: center;
+}
+.user_info_text{
+  margin: 0px 8px;
+  font-size: 12px;
+}
+.logout{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+/* lnb 시작 */
+.lnb_group{
+  margin: 0;
+}
+.lnb_item{
+  margin-bottom: 12px;
+}
+.lnb_link{
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 14px;
+  color: #000;
+  transition: 0.3s;
+}
+.lnb_link::before{
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background-image: url("../image/icon/ic_arrow-right.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.lnb_link > span{
+  margin-left: 8px;
+}
+.lnb_link:hover, .lnb_link:focus{
+  text-decoration: none;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.lnb_ft_logo_wrap{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 135px;
+  height: 20px;
+  transform: translateX(-50%);
+}
+.main_logo{
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.kh_ft_logo{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 135px;
+  height: 20px;
+  background-image: url("../image/icon/logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/* lnb 끝 */
+
+/* 메인 헤더 레이아웃 시작 */
+.main_layout{
+  flex: 1 1 calc(100% - 212px);
+}
+.kh_header{
+  width: 100%;
+  height: 68px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 28px;
+}
+.breadCrumb_wrap .breadCrumb_item{
+  position: relative;
+  margin-right: 8px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.breadCrumb_wrap .breadCrumb_item::before{
+  content: "/";
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.4);
+  margin-right: 8px;
+}
+.breadCrumb_wrap .breadCrumb_item:first-child:before{
+  display: none;
+}
+.breadCrumb_wrap .breadCrumb_item:last-child{
+  color: #000;
+}
+.breadCrumb_wrap .breadCrumb_item:last-child::before{
+  color: #000;
+}
+/* 메인 헤더 레이아웃 끝 */
+
+/* 메인 레이아웃 시작 */
+.main_container{
+  width: 100%;
+  height: calc(100% - 68px);
+  padding: 28px;
+}
+/* 메인 레이아웃 끝 */
+/* 공통 레이아웃 끝 */
