@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,7 +86,7 @@
 				<th colspan="4">총 평점</th>
 				<th>
 					<c:if test="${totalCredits != 0}">
-						${totalPoints / totalCredits}
+						<fmt:formatNumber value="${totalPoints / totalCredits}" type="number" maxFractionDigits="2" minFractionDigits="2" />
 					</c:if>
 				</th>
 			</tr>
