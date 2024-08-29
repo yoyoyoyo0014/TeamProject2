@@ -9,7 +9,7 @@ public class Criteria {
 	
 	// protected = 상속받은 자식들은 그냥 사용할 수 있도록
 	protected int page = 1;
-	protected int perPageNum = 2; //현재 페이지의 최대 컨텐츠 수
+	protected int perPageNum = 5; //현재 페이지의 최대 컨텐츠 수
 	
 	protected String search = "";
 	

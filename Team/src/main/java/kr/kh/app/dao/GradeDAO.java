@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.model.vo.GradeVO;
+import kr.kh.app.pagination.Criteria;
 
 public interface GradeDAO {
 
@@ -14,6 +15,8 @@ public interface GradeDAO {
 
 	boolean updateGrade(@Param("co_num")String co_num, @Param("co_grade")String co_grade);
 
-	List<GradeVO> selectGradeListByAdmin(@Param("type")String type, @Param("search")String search);
+	List<GradeVO> selectGradeListByAdmin(@Param("cri")Criteria cri);
+
+	int selectGradeTotalCount(@Param("cri")Criteria cri);
 
 }
