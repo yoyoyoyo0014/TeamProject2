@@ -14,6 +14,9 @@
 		<li class="nav-item">
 			<a class="navbar-brand" href="<c:url value="/main"/>">Home</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<c:url value="/notice/list"/>">공지사항</a>
+		</li>
 		<c:if test="${user.me_authority == 'STUDENT'}">
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/student/subjectlist"/>">과목조회</a>

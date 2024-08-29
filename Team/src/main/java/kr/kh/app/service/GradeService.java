@@ -17,6 +17,6 @@ public interface GradeService {
 
 	List<GradeVO> getGradeListByAdmin(Criteria cri);
 
-	PageMaker getPageMaker(Criteria cri, int i);
+	PageMaker getPageMaker(Criteria cri, int displayPageNum);
 
 }
