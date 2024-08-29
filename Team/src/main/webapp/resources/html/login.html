@@ -15,7 +15,6 @@
   <script src="../js/popper.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
 
-
   <title>로그인</title>
 </head>
 <body>
@@ -29,7 +28,7 @@
           <div class="form-group">
             <label for="me_id" class="form-text-label">학번</label>
             <div class="form_input_item">
-              <i class="ic_people"></i>
+              <i class="ic_login_person"></i>
               <input type="text" name="me_id" value="" id="me_id" placeholder="학번을 입력해주세요." maxlength="8">
             </div>
           </div>
@@ -52,7 +51,7 @@
             </div>
           </div>
           <div class="btn_wrap">
-            <button type="button" class="btn btn-warning btn_login">로그인</button>
+            <button type="submit" class="btn btn-warning btn_login" onclick="location.href='/html/layout.html'">로그인</button>
           </div>
         </form>
       </div>
