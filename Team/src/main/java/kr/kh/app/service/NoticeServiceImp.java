@@ -101,4 +101,26 @@ public class NoticeServiceImp implements NoticeService{
 		}
 		return false;
 	}
+
+	@Override
+	public boolean deleteNotice(String no_num, MemberVO user) {
+		if(user == null) {
+			return false;
+		}
+		
+		NoticeVO notice = noticeDao.selectNotice(no_num);
+		
+		if(notice == null) {
+			return false;
+		}
+		if(!notice.getNo_me_id().equals(user.getMe_id())) {
+			return false;
+		}
+		
+		if(noticeDao.deleteNotice(no_num)) {
+			return true;
+		}
+		
+		return false;
+	}
 }

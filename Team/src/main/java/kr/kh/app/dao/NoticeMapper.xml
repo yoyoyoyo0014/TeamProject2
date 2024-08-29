@@ -53,4 +53,7 @@
 		update notice set no_title = #{no.no_title}, no_content = #{no.no_content}
 		where no_num = #{no.no_num}
 	</update>
+	<delete id="deleteNotice">
+		delete from notice where no_num = #{no_num} 
+	</delete>
 </mapper>

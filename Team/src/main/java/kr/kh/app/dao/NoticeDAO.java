@@ -21,4 +21,6 @@ public interface NoticeDAO {
 
 	boolean updateNotice(@Param("no")NoticeVO notice);
 
+	boolean deleteNotice(@Param("no_num")String no_num);
+
 }

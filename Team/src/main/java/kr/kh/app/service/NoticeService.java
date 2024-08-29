@@ -21,4 +21,6 @@ public interface NoticeService {
 
 	boolean updateNotice(NoticeVO notice);
 
+	boolean deleteNotice(String no_num, MemberVO user);
+
 }
