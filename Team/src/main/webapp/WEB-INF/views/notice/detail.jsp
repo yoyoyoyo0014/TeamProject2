@@ -39,6 +39,11 @@
 		<c:if test="${notice == null}">
 			<h3>삭제되거나 등록되지 않은 게시글입니다.</h3>
 		</c:if>
+		<c:url var="url" value="/notice/list">
+			<c:param name="search" value="${search}"/>
+			<c:param name="page" value="${page}"/>
+		</c:url>
+		<a href="${url}" class="btn btn-outline-info">목록</a>
 	</div>
 </body>
 </html>

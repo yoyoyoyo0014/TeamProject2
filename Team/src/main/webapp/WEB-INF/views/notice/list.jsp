@@ -30,7 +30,12 @@
 						<tr>
 							<td>${notice.no_num}</td>
 							<td>
-								<a href="<c:url value="/notice/detail?no_num=${notice.no_num}"/>">${notice.no_title}</a>
+								<c:url var="url" value="/notice/detail">
+									<c:param name="page" value="${pm.cri.page}"/>
+									<c:param name="search" value="${pm.cri.search}"/>
+									<c:param name="no_num" value="${notice.no_num}"/>
+								</c:url>
+								<a href="${url}">${notice.no_title}</a>
 							</td>
 							<td>${notice.member.me_name}</td>
 							<td>
@@ -94,7 +99,7 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">제목</span>
 				</div>
-				<input type="text" class="form-control" placeholder="검색어" name="search">
+				<input type="text" class="form-control" placeholder="검색어" name="search" value="${pm.cri.search}">
 				<div class="input-group-prepend">
 					<button type="submit" class="btn btn-outline-info">검색</button>
 				</div>

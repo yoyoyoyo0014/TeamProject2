@@ -20,12 +20,16 @@ public class NoticeDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String no_num = request.getParameter("no_num");
+		String page = request.getParameter("page");
+		String search = request.getParameter("search");
 		
 		noticeService.updateNoticeView(no_num);
 		
 		NoticeVO notice = noticeService.getNotice(no_num);
 		
 		request.setAttribute("notice", notice);
+		request.setAttribute("page", page);
+		request.setAttribute("search", search);
 		
 		request.getRequestDispatcher("/WEB-INF/views/notice/detail.jsp").forward(request, response);
 	}
