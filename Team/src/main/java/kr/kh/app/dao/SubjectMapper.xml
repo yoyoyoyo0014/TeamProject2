@@ -6,4 +6,15 @@
 	<select id="selectSubjectList" resultType="SubjectVO">
 		select * from subject
 	</select>
+	<select id="selectSubjectsubjectStatusListList" resultType="SubjectVO">
+		SELECT DISTINCT su_status FROM subject
+	</select>
+	<select id="subjectSuMaNumList" resultType="SubjectVO">
+		SELECT DISTINCT su_ma_num FROM subject
+	</select>
+	
+	<insert id="subjectInsert">
+		insert into subject(su_name, su_time, su_point, su_status, su_ma_num)
+		values(#{su.su_name},#{su.su_time},#{su.su_point},#{su.su_status},#{su.su_ma_num})
+	</insert>
 </mapper>

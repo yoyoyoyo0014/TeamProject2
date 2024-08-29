@@ -8,4 +8,10 @@ public interface SubjectService {
 
 	List<SubjectVO> getSubjectList();
 
+	List<SubjectVO> getSubjectsubjectStatusListList();
+
+	List<SubjectVO> subjectSuMaNumList();
+
+	boolean subjectInsert(SubjectVO subject);
+
 }

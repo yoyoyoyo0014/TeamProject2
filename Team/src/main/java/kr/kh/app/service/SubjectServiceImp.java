@@ -33,4 +33,22 @@ public class SubjectServiceImp implements SubjectService {
 	public List<SubjectVO> getSubjectList() {
 		return subjectDao.selectSubjectList();
 	}
+
+	@Override
+	public List<SubjectVO> getSubjectsubjectStatusListList() {
+		return subjectDao.selectSubjectsubjectStatusListList();
+	}
+
+	@Override
+	public List<SubjectVO> subjectSuMaNumList() {
+		return subjectDao.subjectSuMaNumList();
+	}
+
+	@Override
+	public boolean subjectInsert(SubjectVO subject) {
+		if(subject == null) {
+			return false;
+		}
+		return subjectDao.subjectInsert(subject);
+	}
 }

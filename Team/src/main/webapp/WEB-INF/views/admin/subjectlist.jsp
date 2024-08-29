@@ -54,7 +54,7 @@
 
 	<div class="ft_info_wrap d-flex justify-content-between">
 		<div class="ft_info_left_wrap">
-			<a href="#" class="btn btn-outline-dark">목록</a>
+			<%-- <a href="#" class="btn btn-outline-dark">목록</a> --%>
 		</div>
 		<c:if test="${pm.endPage ne 0}">
 			<ul class="pagination justify-content-center mb-0">
@@ -102,7 +102,8 @@
 			</ul>
 		</c:if>
 		<div class="ft_info_right_wrap">
-			<a href="<c:url value="/post/insert?co_num=${co.co_num}"/>" class="btn btn-outline-primary">게시글 등록</a>
+			<a href="<c:url value="/admin/subjectinsert" />" class="btn btn-outline-primary">과목 추가</a>
+			<a href="<c:url value="/admin/professorinsert" />" class="btn btn-outline-success">교수 추가</a>
 		</div>
 	</div>
 </div>
