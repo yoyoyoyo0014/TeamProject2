@@ -57,6 +57,7 @@
 			and su_name like concat('%', #{cri.search}, '%')
 		</if>
 		order by me_id
+		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	
 	<select id="selectGradeTotalCount" resultType="int">

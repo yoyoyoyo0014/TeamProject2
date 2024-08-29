@@ -33,8 +33,8 @@ public class AdminGradeList extends HttpServlet {
 			}
 			
 			
-			Criteria cri = new AdminGradeCriteria(page, 5, search, type);
-			PageMaker pm = gradeService.getPageMaker(cri, 3);
+			Criteria cri = new AdminGradeCriteria(page, 10, search, type);
+			PageMaker pm = gradeService.getPageMaker(cri, 5);
 			
 			List<GradeVO> list = gradeService.getGradeListByAdmin(cri);
 			
