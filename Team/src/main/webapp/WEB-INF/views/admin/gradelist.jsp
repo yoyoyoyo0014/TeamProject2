@@ -43,12 +43,12 @@
 				<c:if test="${list != null}">
 					<c:forEach var="grade" items="${list}">
 						<tr>
-							<td>${grade.member.me_id}</td>
-							<td>${grade.member.me_name}</td>
-							<td>${grade.lecture.le_year}</td>
-							<td>${grade.lecture.le_semester}</td>
-							<td>${grade.lecture.subject.su_name}</td>
-							<td>${grade.lecture.subject.su_point}</td>
+							<td>${grade.me_id}</td>
+							<td>${grade.me_name}</td>
+							<td>${grade.le_year}</td>
+							<td>${grade.le_semester}</td>
+							<td>${grade.su_name}</td>
+							<td>${grade.su_point}</td>
 							<td>${grade.co_grade}</td>
 						</tr>
 					</c:forEach>

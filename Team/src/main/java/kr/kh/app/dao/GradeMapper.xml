@@ -23,30 +23,14 @@
 	<update id="updateGrade">
 		update course set co_grade = #{co_grade} where co_num = #{co_num}
 	</update>
-
-    <resultMap id="GradeMap" type="CourseVO">
-        <result property="co_grade" column="co_grade" />
-        <association property="member" javaType="MemberVO">
-            <id property="me_id" column="me_id" />
-            <result property="me_name" column="me_name" />
-        </association>
-        <association property="lecture" javaType="LectureVO">
-            <result property="le_year" column="le_year" />
-            <result property="le_semester" column="le_semester" />
-            <association property="subject" javaType="SubjectVO">
-                <result property="su_name" column="su_name" />
-                <result property="su_point" column="su_point"/>
-            </association>
-        </association>
-    </resultMap>
-
-	<select id="selectGradeListByAdmin" resultMap="GradeMap">
+	  
+	<select id="selectGradeListByAdmin" resultType="GradeVO">
 		select me_id, me_name, co_grade, le_year, le_semester, su_name, su_point
 		from member
 		join course on me_id = co_me_id
 		join lecture on co_le_num = le_num
 		join subject on le_su_num = su_num
-		where me_authority = 'STUDENT'
+		where me_authority = 'STUDENT' and co_grade is not null
 		<if test="cri.type == 'me_id'">
 			and me_id like concat('%', #{cri.search}, '%')
 		</if>
@@ -65,7 +49,7 @@
 		join course on me_id = co_me_id
 		join lecture on co_le_num = le_num
 		join subject on le_su_num = su_num
-		where me_authority = 'STUDENT'
+		where me_authority = 'STUDENT' and co_grade is not null
 		<if test="cri.type == 'me_id'">
 			and me_id like concat('%', #{cri.search}, '%')
 		</if>

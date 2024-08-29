@@ -11,4 +11,9 @@ public class AdminGradeCriteria extends Criteria{
 		super(page, perPageNum, search);
 		this.type = type;
 	}
+
+	@Override
+	public String toString() {
+		return "AdminGradeCriteria [type=" + type + "]" + super.toString();
+	}
 }
