@@ -103,7 +103,6 @@
 		</c:if>
 		<div class="ft_info_right_wrap">
 			<a href="<c:url value="/admin/subjectinsert" />" class="btn btn-outline-primary">과목 추가</a>
-			<a href="<c:url value="/admin/professorinsert" />" class="btn btn-outline-success">교수 추가</a>
 		</div>
 	</div>
 </div>

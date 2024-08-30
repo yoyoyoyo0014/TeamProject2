@@ -13,6 +13,8 @@ public class SubjectVO {
 	private int su_point; // 학점
 	private String su_status; // 전공여부
 	private int su_ma_num; // 전공번호
+	
+	private MajorVO major;
 
 	public SubjectVO(String su_name, String su_time, String su_point, String su_status, String su_ma_num) {
 		this.su_name = su_name;
