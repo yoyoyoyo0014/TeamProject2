@@ -10,10 +10,11 @@ public interface SubjectDAO {
 
 	List<SubjectVO> selectSubjectList();
 
-	List<SubjectVO> selectSubjectsubjectStatusListList();
+	List<SubjectVO> selectSubjectStatusList();
 
 	List<SubjectVO> subjectSuMaNumList();
 
 	boolean subjectInsert(@Param("su")SubjectVO subject);
+
 
 }

@@ -35,8 +35,8 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public List<SubjectVO> getSubjectsubjectStatusListList() {
-		return subjectDao.selectSubjectsubjectStatusListList();
+	public List<SubjectVO> getSubjectStatusList() {
+		return subjectDao.selectSubjectStatusList();
 	}
 
 	@Override

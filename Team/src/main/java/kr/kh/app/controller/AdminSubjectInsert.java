@@ -27,7 +27,7 @@ public class AdminSubjectInsert extends HttpServlet {
     	request.setAttribute("suMaNumList", subjectSuMaNumList);
     	
 		// 전공여부(이름) 리스트를 가져옴
-		List<SubjectVO> subjectStatusList = subjectService.getSubjectsubjectStatusListList();
+		List<SubjectVO> subjectStatusList = subjectService.getSubjectStatusList();
     	request.setAttribute("statusList", subjectStatusList);
 		
 		request.getRequestDispatcher("/WEB-INF/views/admin/subjectinsert.jsp").forward(request, response);
