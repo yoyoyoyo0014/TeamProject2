@@ -11,6 +11,17 @@
 }
 /* 공통 끝 */
 
+/* 색상 시작 */
+.bg-kh-main{
+    background-color: #FF432A;
+}
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link{
+    color: #fff;
+    transition: .3s;
+}
+/* 색상 끝 */
+
 
 /* 아이콘(icon) 시작 */
 i{
@@ -47,7 +58,7 @@ i{
   font-family: 'notosans', sans-serif;
 }
 .kh_logo{
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
   font-weight: bold;
@@ -134,3 +145,14 @@ i{
   outline: #FF432A;
 }
 /* 로그인(login) 페이지 끝 */
+
+/* 버튼 시작 */
+.btn_invisible{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+}
+/* 버튼 끝 */
