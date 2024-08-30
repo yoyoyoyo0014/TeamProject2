@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.kh.app.model.vo.CourseVO;
+import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
 
@@ -20,19 +21,24 @@ public class CourseDelete extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String coNumStr = request.getParameter("co_le_num");
-		System.out.println(coNumStr);
+		String le_numStr = request.getParameter("co_le_num");
+		
+		
+		
 		int coNum = 0;
+		int le_num = 0;
+		LectureVO lecVo = null;
 		try {
-			coNum = Integer.parseInt(coNumStr);
+			le_num = Integer.parseInt(le_numStr);
+			lecVo = classService.getLecture(le_num);
+			//coNum = Integer.parseInt(coNumStr);
 		}catch(Exception e) {
-			System.out.println("띠용");
 			request.setAttribute("msg", "성공적으로 삭제 실패되었습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 			return;
 		}
-		if(classService.deleteCourse(coNum))
+		if(classService.deleteLecture(le_num))
 		{
 			request.setAttribute("msg", "성공적으로 삭제되었습니다.");
 			request.setAttribute("url", "/admin/lecturelist");

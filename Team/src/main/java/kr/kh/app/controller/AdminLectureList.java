@@ -17,7 +17,7 @@ import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
 
-@WebServlet("/admin/lectureList")
+@WebServlet("/admin/lecturelist")
 public class AdminLectureList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

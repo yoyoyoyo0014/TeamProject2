@@ -29,10 +29,10 @@ public class CourseRegistration extends HttpServlet {
 		}
 		if(classService.insertCourse(coLeNum,coMeId)) {
 			request.setAttribute("msg", "성공적으로 신청되었습니다.");
-			request.setAttribute("url", "/professor/lecturelist");
+			request.setAttribute("url", "/student/lecturelist");
 		}else {
 			request.setAttribute("msg", "신청 실패했습니다.");
-			request.setAttribute("url", "/professor/lecturelist");
+			request.setAttribute("url", "/student/lecturelist");
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);

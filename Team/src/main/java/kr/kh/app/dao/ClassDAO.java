@@ -26,4 +26,10 @@ public interface ClassDAO {
 
 	boolean deleteCourse(@Param("co_num")int coNum);
 
+	LectureVO selectLecture(@Param("le_num")int le_num);
+
+	boolean deleteSubject(@Param("su_num")int le_su_num);
+
+	boolean deleteLecture(@Param("le_num")int le_num);
+
 }

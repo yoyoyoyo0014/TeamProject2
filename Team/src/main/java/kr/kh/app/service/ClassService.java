@@ -22,4 +22,10 @@ public interface ClassService {
 
 	boolean deleteCourse(int coNum);
 
+	LectureVO getLecture(int le_num);
+
+	boolean deleteSubject(int le_su_num);
+
+	boolean deleteLecture(int le_num);
+
 }

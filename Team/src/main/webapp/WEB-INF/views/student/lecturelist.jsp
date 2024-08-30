@@ -39,6 +39,7 @@
 				<th>강의명</th>
 				<th>강의시간</th>
 				<th>강의실</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -48,10 +49,13 @@
 					<td>${lecture.le_semester}</td>
 					<td>
 						<a href="<c:url value="/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>">${lecture.subject.su_name}</a>
-						<a href="<c:url value="/professor/studentlist?le_num=${lecture.le_num}&su_name=${lecture.subject.su_name}"/>">${lecture.subject.su_name}</a>
 					</td>
 					<td>${lecture.le_schedule}</td>
 					<td>${lecture.le_room}</td>
+					<td>
+						<a href="<c:url value="/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
+						type="button" class="btn btn-success">수강신청</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

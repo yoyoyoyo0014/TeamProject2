@@ -76,6 +76,24 @@ public class ClassServiceImp implements ClassService {
 		return classDao.deleteCourse(coNum);
 	}
 
+
+	@Override
+	public LectureVO getLecture(int le_num) {
+		return classDao.selectLecture(le_num);
+	}
+
+
+	@Override
+	public boolean deleteSubject(int le_su_num) {
+		return classDao.deleteSubject(le_su_num);
+	}
+
+
+	@Override
+	public boolean deleteLecture(int le_num) {
+		return classDao.deleteLecture(le_num);
+	}
+
 	
 
 
