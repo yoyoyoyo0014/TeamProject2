@@ -15,6 +15,7 @@ public class SubjectVO {
 	private int su_ma_num; // 전공번호
 	
 	private MajorVO major;
+	private LectureVO lecture;
 
 	public SubjectVO(String su_name, String su_time, String su_point, String su_status, String su_ma_num) {
 		this.su_name = su_name;
@@ -27,4 +28,13 @@ public class SubjectVO {
 		}
 		this.su_status = su_status;
 	}
+
+	public SubjectVO(String su_num) {
+		try {
+			this.su_num = Integer.parseInt(su_num);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

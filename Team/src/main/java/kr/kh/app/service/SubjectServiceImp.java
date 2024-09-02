@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.SubjectDAO;
+import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 
 public class SubjectServiceImp implements SubjectService {
@@ -51,4 +53,21 @@ public class SubjectServiceImp implements SubjectService {
 		}
 		return subjectDao.subjectInsert(subject);
 	}
+
+	@Override
+	public List<SubjectVO> getSubjectLectureList() {
+		return subjectDao.selectSubjectLectureList();
+	}
+
+	@Override
+	public boolean professorSubjectInsert(String su_num, String le_room, String le_schedule, String le_year,
+			String le_semester, MemberVO user) {
+		if(user == null || le_room.trim().length() == 0
+				|| le_schedule.trim().length() == 0 || le_year.trim().length() == 0
+				|| le_semester.trim().length() == 0) {
+			return false;
+		}
+		return subjectDao.professorSubjectInsert(su_num, le_room, le_schedule, le_year, le_semester, user.getMe_id());
+	}
+
 }

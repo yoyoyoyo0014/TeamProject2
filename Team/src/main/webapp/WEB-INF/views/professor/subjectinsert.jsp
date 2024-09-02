@@ -16,34 +16,37 @@
 
 <div class="container-fluid py-3" style="min-height: calc(100vh - 112px);">
 	<h1 class="mb-3">과목 관리 페이지</h1>
-	<form action="<c:url value="/admin/subjectinsert" />" method="post">
-		<div class="form-group">
-			<label for="su_status">전공</label>
-			<select class="form-control" name="su_ma_num">
-				<c:forEach items="${suMaNumList}" var="su_ma">
-					<option value="${su_ma.major.ma_num}">${su_ma.major.ma_name}</option>
-				</c:forEach>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="su_status">전공여부</label>
-			<select class="form-control" name="su_status">
-				<c:forEach items="${statusList}" var="su">
-					<option value="${su.su_status}">${su.su_status}</option>
-				</c:forEach>
-			</select>
-		</div>
+	<form action="<c:url value="/professor/subjectinsert" />" method="post">
 		<div class="form-group">
 			<label for="su_name">과목명</label>
-			<input type="text" class="form-control" id="su_name" name="su_name" placeholder="과목명을 입력해주세요.">
+			<select class="form-control" name="su_num" id="su_name">
+				<c:forEach items="${subjectList}" var="su">
+					<option value="${su.su_num}">${su.su_name}</option>
+				</c:forEach>
+			</select>
 		</div>
 		<div class="form-group">
-			<label for="su_name">시수</label>
-			<input type="number" class="form-control" id="su_name" name="su_time" placeholder="시수을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10">
+			<label for="le_room">강의실</label>
+			<input type="text" name="le_room" id="le_room" class="form-control" placeholder="강의실을 입력해주세요. 예) A관 104호">
 		</div>
 		<div class="form-group">
-			<label for="su_name">학점</label>
-			<input type="number" class="form-control" id="su_name" name="su_point" placeholder="학점을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10">
+			<label for="le_schedule">강의 시간</label>
+			<input type="text" name="le_schedule" id="le_schedule" class="form-control" placeholder="강의 시간을 입력해주세요. 예) 월 1,2,3교시">
+		</div>
+		<div class="form-group">
+			<label for="le_year">강의 년도</label>
+			<select class="form-control" name="le_year" id="le_year">
+				<option value="2024">2024</option>
+				<option value="2024">2023</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="le_semester">강의 학기</label>
+			<select class="form-control" name="le_semester">
+				<option value="1학기">1학기</option>
+				<option value="2학기">2학기</option>
+				<option value="여름방학">여름방학</option>
+			</select>
 		</div>
 		<div>
 			<button type="submit" class="btn btn-outline-primary">등록</button>

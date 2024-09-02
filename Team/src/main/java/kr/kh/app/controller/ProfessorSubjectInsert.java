@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
@@ -22,32 +24,31 @@ public class ProfessorSubjectInsert extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 전공번호(넘버) 리스트를 가져옴
-    	List<SubjectVO> subjectSuMaNumList = subjectService.subjectSuMaNumList();
-    	request.setAttribute("suMaNumList", subjectSuMaNumList);
+		// 전공 이름 리스트를 가져옴
+    	List<SubjectVO> subjectList = subjectService.getSubjectList();
+    	request.setAttribute("subjectList", subjectList);
     	
-		// 전공여부(이름) 리스트를 가져옴
-		List<SubjectVO> subjectStatusList = subjectService.getSubjectStatusList();
-    	request.setAttribute("statusList", subjectStatusList);
-		
 		request.getRequestDispatcher("/WEB-INF/views/professor/subjectinsert.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String su_name = request.getParameter("su_name");
-		String su_time = request.getParameter("su_time");
-		String su_point = request.getParameter("su_point");
-		String su_status = request.getParameter("su_status");
-		String su_ma_num = request.getParameter("su_ma_num");
+		String su_num = request.getParameter("su_num");
+		String le_room = request.getParameter("le_room");
+		String le_schedule = request.getParameter("le_schedule");
+		String le_year = request.getParameter("le_year");
+		String le_semester = request.getParameter("le_semester");
+
+		SubjectVO suNum = new SubjectVO(su_num);
 		
-		SubjectVO subject = new SubjectVO(su_name, su_time, su_point, su_status, su_ma_num);
+		// 로그인한 회원 정보(아이디) 값을 가져옴
+		MemberVO user = (MemberVO) request.getSession().getAttribute("user");
 		
 		// 과목 추가 여부에 따른 알림 처리
-		if(subjectService.subjectInsert(subject)) {
-			request.setAttribute("msg", "과목 추가에 성공했습니다.");
+		if(subjectService.professorSubjectInsert(su_num, le_room, le_schedule, le_year, le_semester, user)) {
+			request.setAttribute("msg", "강의 개설에 성공했습니다.");
 			request.setAttribute("url", "/admin/subjectlist");
 		}else {
-			request.setAttribute("msg", "과목 추가에 실패했습니다.");
+			request.setAttribute("msg", "강의 개설에 실패했습니다.");
 			request.setAttribute("url", "/admin/subjectinsert");
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
