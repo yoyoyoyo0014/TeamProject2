@@ -365,8 +365,9 @@ i{
 /* 메인 레이아웃 시작 */
 .main_container{
   width: 100%;
-  height: calc(100% - 68px);
+  height: calc(100vh - 68px);
   padding: 28px;
+  overflow-y: auto;
 }
 /* 메인 레이아웃 끝 */
 /* 공통 레이아웃 끝 */
