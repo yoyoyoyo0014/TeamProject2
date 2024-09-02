@@ -10,7 +10,7 @@
 				<!-- <i class="ic_professor"></i>
 				<i class="ic_admin"></i> -->
 				<div class="user_info_text">
-					<span>사용자1</span>님 환영합니다.
+					<span class="font-weight-bold">${user.me_name}</span>님 환영합니다.
 				</div>
 			</div>
 			<a href="<c:url value="/logout"/>" class="logout">
