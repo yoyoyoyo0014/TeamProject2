@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kh.app.dao.GradeDAO">
+	
+	<select id="selectGradeListByStudent" resultType="GradeVO">
+		select le_year, le_semester, su_name, su_point, co_grade
+		from course
+		join lecture on co_le_num = le_num
+		join subject on le_su_num = su_num
+		where co_me_id = #{me_id}
+	</select>
+	
+	<select id="selectGradeListByYearAndSemester" resultType="GradeVO">
+		select le_year, le_semester, su_name, su_point, co_grade
+		from course
+		join lecture on co_le_num = le_num
+		join subject on le_su_num = su_num
+		where co_me_id = #{me_id} and le_year = #{le_year} and le_semester = #{le_semester}
+	</select>
+	
+	<update id="updateGrade">
+		update course set co_grade = #{co_grade} where co_num = #{co_num}
+	</update>
+
+    <resultMap id="GradeMap" type="CourseVO">
+        <result property="co_grade" column="co_grade" />
+        <association property="member" javaType="MemberVO">
+            <id property="me_id" column="me_id" />
+            <result property="me_name" column="me_name" />
+        </association>
+        <association property="lecture" javaType="LectureVO">
+            <result property="le_year" column="le_year" />
+            <result property="le_semester" column="le_semester" />
+            <association property="subject" javaType="SubjectVO">
+                <result property="su_name" column="su_name" />
+                <result property="su_point" column="su_point"/>
+            </association>
+        </association>
+    </resultMap>
+
+	<select id="selectGradeListByAdmin" resultMap="GradeMap">
+		select me_id, me_name, co_grade, le_year, le_semester, su_name, su_point
+		from member
+		join course on me_id = co_me_id
+		join lecture on co_le_num = le_num
+		join subject on le_su_num = su_num
+		where me_authority = 'STUDENT'
+		<if test="type == 'me_id'">
+			and me_id like concat('%', #{search}, '%')
+		</if>
+		<if test="type == 'me_name'">
+			and me_name like concat('%', #{search}, '%')
+		</if>
+		<if test="type == 'su_name'">
+			and su_name like concat('%', #{search}, '%')
+		</if>
+		order by me_id
+	</select>
+
+</mapper>

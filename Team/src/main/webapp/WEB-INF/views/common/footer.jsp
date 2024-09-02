@@ -5,13 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<jsp:include page="/WEB-INF/views/common/head.jsp"/>
-<title>메인</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-<h1>메인 페이지</h1>
-
+<div class="jumbotron jumbotron-fluid mb-0">
+  <div class="container">
+    <h1>푸터</h1>
+  </div>
+</div>
 </body>
 </html>
