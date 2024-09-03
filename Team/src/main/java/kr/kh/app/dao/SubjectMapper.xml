@@ -60,7 +60,7 @@
 	 
 	<insert id="professorSubjectInsert">
 		insert into lecture(le_room, le_schedule, le_year, le_semester, le_su_num, le_me_id)
-		values(#{le_room},#{le_schedule},#{le_year},#{le_semester},#{su_num},#{me_id})
+		values(#{le.le_room},#{le.le_schedule},#{le.le_year},#{le.le_semester},#{le.le_su_num},#{le.le_me_id})
 	</insert>
 	
 </mapper>

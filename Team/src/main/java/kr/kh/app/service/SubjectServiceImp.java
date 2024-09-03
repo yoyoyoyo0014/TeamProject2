@@ -60,14 +60,13 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public boolean professorSubjectInsert(String su_num, String le_room, String le_schedule, String le_year,
-			String le_semester, MemberVO user) {
-		if(user == null || le_room.trim().length() == 0
-				|| le_schedule.trim().length() == 0 || le_year.trim().length() == 0
-				|| le_semester.trim().length() == 0) {
+	public boolean professorSubjectInsert(LectureVO lecture) {
+		if(lecture.getLe_me_id() == null || lecture.getLe_room().trim().length() == 0
+				|| lecture.getLe_schedule().trim().length() == 0 || lecture.getLe_year() == 0
+				|| lecture.getLe_semester().trim().length() == 0) {
 			return false;
 		}
-		return subjectDao.professorSubjectInsert(su_num, le_room, le_schedule, le_year, le_semester, user.getMe_id());
+		return subjectDao.professorSubjectInsert(lecture);
 	}
 
 }

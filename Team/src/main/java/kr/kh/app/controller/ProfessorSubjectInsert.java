@@ -43,8 +43,10 @@ public class ProfessorSubjectInsert extends HttpServlet {
 		// 로그인한 회원 정보(아이디) 값을 가져옴
 		MemberVO user = (MemberVO) request.getSession().getAttribute("user");
 		
+		LectureVO lecture = new LectureVO(su_num, le_room, le_schedule, le_year, le_semester, user.getMe_id());
+		
 		// 과목 추가 여부에 따른 알림 처리
-		if(subjectService.professorSubjectInsert(su_num, le_room, le_schedule, le_year, le_semester, user)) {
+		if(subjectService.professorSubjectInsert(lecture)) {
 			request.setAttribute("msg", "강의 개설에 성공했습니다.");
 			request.setAttribute("url", "/admin/subjectlist");
 		}else {
