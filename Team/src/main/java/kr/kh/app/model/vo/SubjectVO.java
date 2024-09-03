@@ -14,8 +14,6 @@ public class SubjectVO {
 	private String su_status; // 전공여부
 	private int su_ma_num; // 전공번호
 	
-	private MajorVO major;
-	
 	private int ma_num;
 	private String ma_name;
 

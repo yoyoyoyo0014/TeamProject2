@@ -70,7 +70,6 @@ public class SubjectServiceImp implements SubjectService {
 		if(cri == null) {
 			throw new RuntimeException();
 		}
-		System.out.println(cri);
 		return subjectDao.selectSubjectList(cri);
 	}
 

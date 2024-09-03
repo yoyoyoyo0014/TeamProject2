@@ -24,10 +24,11 @@
 				<div class="container-fluid">
 					<h1 class="mb-3">과목 조회</h1>
 					${subjectList}
+					${pm}
 					<%-- 검색창 --%>
 					<form action="<c:url value="/student/subjectlist"/>">
 						<div class="input-group mb-3">
-							<input type="text" name="search" value="${cri.search}" class="form-control" placeholder="검색어를 입력하세요.">
+							<input type="text" name="search" class="form-control" placeholder="검색어를 입력하세요.">
 							<div class="input-group-append">
 								<button class="btn btn-success" type="submit">검색</button>
 							</div>
@@ -82,7 +83,7 @@
 							</c:forEach>
 							<c:if test="${subjectList.size() == 0}">
 								<tr>
-									<th colspan="5" class="text-center">등록된 게시글이 없습니다.</th>
+									<th colspan="6" class="text-center">등록된 게시글이 없습니다.</th>
 								</tr>
 							</c:if>
 						</tbody>

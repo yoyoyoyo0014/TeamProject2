@@ -25,28 +25,30 @@ public class StudentSubjectList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String search = request.getParameter("search");
 			String pageStr = request.getParameter("page");
+			String search = request.getParameter("search");
 			int page = 1;
 			if(pageStr != null && pageStr.length() != 0) {
 				page = Integer.parseInt(pageStr);
 			}
 			
-			
-			Criteria cri = new Criteria(page, 10, search);
+			Criteria cri = new Criteria(page, 5, search);
+			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
+
 			PageMaker pm = subjectService.getPageMaker(cri, 5);
 			
-			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
 			
 			System.out.println(subjectList);
+			System.out.println(pm);
 			
 			request.setAttribute("subjectList", subjectList);
 			request.setAttribute("pm", pm);
+			
+			request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
 	}
 
 }
