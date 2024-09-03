@@ -108,7 +108,7 @@
 							</ul>
 						</c:if>
 						<div class="ft_info_right_wrap">
-							<a href="<c:url value="/professor/subjectinsert" />" class="btn btn-outline-primary">과목 추가</a>
+							<a href="<c:url value="/professor/subjectinsert" />" class="btn btn-outline-primary">강의 개설</a>
 						</div>
 					</div>
 				</div>

@@ -19,7 +19,9 @@
 			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 			<div class="main_container">
+				<%-- 메인 코드 내용 여기 안에 넣기 --%>
 				main content
+				<%-- 메인 코드 내용 여기 안에 넣기 --%>
 			</div>
 		</div>
 	</div>
