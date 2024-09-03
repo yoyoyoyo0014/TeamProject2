@@ -28,5 +28,13 @@ public class SubjectVO {
 		}
 		this.su_status = su_status;
 	}
+
+	public SubjectVO(String su_num) {
+		try {
+			this.su_num = Integer.parseInt(su_num);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

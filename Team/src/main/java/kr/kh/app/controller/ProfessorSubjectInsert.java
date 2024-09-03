@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
@@ -23,12 +25,31 @@ public class ProfessorSubjectInsert extends HttpServlet {
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			String pageStr = request.getParameter("page");
+			String search = request.getParameter("search");
+			int page = 1;
+			if(pageStr != null && pageStr.length() != 0) {
+				page = Integer.parseInt(pageStr);
+			}
+			
+			Criteria cri = new Criteria(page, 5, search);
+			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
 
-		// 전공 이름 리스트를 가져옴
-    	List<SubjectVO> subjectList = subjectService.getSubjectList();
-    	request.setAttribute("subjectList", subjectList);
-    	
-		request.getRequestDispatcher("/WEB-INF/views/professor/subjectinsert.jsp").forward(request, response);
+			PageMaker pm = subjectService.getPageMaker(cri, 5);
+			
+			
+			System.out.println(subjectList);
+			System.out.println(pm);
+			
+			request.setAttribute("subjectList", subjectList);
+			request.setAttribute("pm", pm);
+			
+			request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

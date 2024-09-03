@@ -23,8 +23,6 @@
 			<div class="main_container">
 				<div class="container-fluid">
 					<h1 class="mb-3">과목 조회</h1>
-					${subjectList}
-					${pm}
 					<%-- 검색창 --%>
 					<form action="<c:url value="/student/subjectlist"/>">
 						<div class="input-group mb-3">
@@ -97,7 +95,7 @@
 								<c:if test="${!pm.prev}">
 									<c:set var="prev" value="disabled"/>
 								</c:if>
-								<c:url var="url" value="/subject/subjectList">
+								<c:url var="url" value="/student/subjectlist">
 									<c:param name="page" value="${pm.startPage - 1}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
@@ -111,7 +109,7 @@
 									<c:if test="${pm.cri.page != i}">
 										<c:set var="active" value=""/>
 									</c:if>
-									<c:url var="url" value="/subject/subjectList">
+									<c:url var="url" value="/student/subjectlist">
 										<c:param name="page" value="${i}"/>
 										<c:param name="search" value="${pm.cri.search}"/>
 									</c:url>
@@ -122,7 +120,7 @@
 								<c:if test="${!pm.next}">
 									<c:set var="next" value="disabled"/>
 								</c:if>
-								<c:url var="url" value="/subject/subjectList">
+								<c:url var="url" value="/student/subjectlist">
 									<c:param name="page" value="${pm.endPage + 1}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>

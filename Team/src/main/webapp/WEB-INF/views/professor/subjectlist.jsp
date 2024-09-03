@@ -70,10 +70,8 @@
 								<c:if test="${!pm.prev}">
 									<c:set var="prev" value="disabled"/>
 								</c:if>
-								<c:url var="url" value="/subject/subjectList">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+								<c:url var="url" value="/professor/subjectlist">
 									<c:param name="page" value="${pm.startPage - 1}"/>
-									<c:param name="type" value="${pm.cri.type}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
 								<li class="page-item ${prev}">
@@ -86,10 +84,8 @@
 									<c:if test="${pm.cri.page != i}">
 										<c:set var="active" value=""/>
 									</c:if>
-									<c:url var="url" value="/post/list">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+									<c:url var="url" value="/professor/subjectlist">
 										<c:param name="page" value="${i}"/>
-										<c:param name="type" value="${pm.cri.type}"/>
 										<c:param name="search" value="${pm.cri.search}"/>
 									</c:url>
 									<li class="page-item ${active}">
@@ -99,10 +95,8 @@
 								<c:if test="${!pm.next}">
 									<c:set var="next" value="disabled"/>
 								</c:if>
-								<c:url var="url" value="/subject/subjectList">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+								<c:url var="url" value="/professor/subjectlist">
 									<c:param name="page" value="${pm.endPage + 1}"/>
-									<c:param name="type" value="${pm.cri.type}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
 								<li class="page-item ${next}">

@@ -5,7 +5,9 @@
 <mapper namespace="kr.kh.app.dao.SubjectDAO">
 	<select id="selectSubjectList" resultType="SubjectVO">
 		select subject.*, ma_name from subject join major on su_ma_num = ma_num
-		where su_name like concat('%', #{cri.search}, '%')
+		<if test="cri.search != null">
+			where su_name like concat('%', #{cri.search}, '%')
+		</if>
 		order by su_num ASC
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
@@ -45,7 +47,9 @@
 	
 	<select id="selectSubjectTotalCount" resultType="int">
 		select count(*) from subject join major on su_ma_num = ma_num
-		where su_name like concat('%', #{cri.search}, '%')
+		<if test="cri.search != null">
+			where su_name like concat('%', #{cri.search}, '%')
+		</if>
 	</select>
 	
 </mapper>

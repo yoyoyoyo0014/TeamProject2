@@ -26,7 +26,6 @@
 			    <button class="btn btn-primary" type="submit">검색</button>
 			</div>
 		</form>
-		
 		<table class="table">
 			<thead>
 				<tr>
