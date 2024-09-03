@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
+import kr.kh.app.model.vo.GradeVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.AdminGradeCriteria;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
@@ -22,23 +24,29 @@ public class StudentSubjectList extends HttpServlet {
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//등록된 커뮤니티 목록을 가져와서 화면에 전달
-    	List<SubjectVO> subjectList = subjectService.getSubjectList();
-    	request.setAttribute("subjectList", subjectList);
+		try {
+			String search = request.getParameter("search");
+			String pageStr = request.getParameter("page");
+			int page = 1;
+			if(pageStr != null && pageStr.length() != 0) {
+				page = Integer.parseInt(pageStr);
+			}
+			
+			
+			Criteria cri = new Criteria(page, 10, search);
+			PageMaker pm = subjectService.getPageMaker(cri, 5);
+			
+			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
+			
+			System.out.println(subjectList);
+			
+			request.setAttribute("subjectList", subjectList);
+			request.setAttribute("pm", pm);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 등록된 커뮤니티 목록을 가져와서 화면에 전달
-		List<SubjectVO> list = subjectService.getSubjectList();
-		
-		JSONObject jobj = new JSONObject();
-		jobj.put("list", list);
-		
-		response.setContentType("application/json; charset=utf-8");
-		response.getWriter().print(jobj);
 	}
 
 }

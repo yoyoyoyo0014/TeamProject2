@@ -10,8 +10,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.SubjectDAO;
 import kr.kh.app.model.vo.LectureVO;
-import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 
 public class SubjectServiceImp implements SubjectService {
 
@@ -29,11 +30,6 @@ public class SubjectServiceImp implements SubjectService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public List<SubjectVO> getSubjectList() {
-		return subjectDao.selectSubjectList();
 	}
 
 	@Override
@@ -67,6 +63,24 @@ public class SubjectServiceImp implements SubjectService {
 			return false;
 		}
 		return subjectDao.professorSubjectInsert(lecture);
+	}
+
+	@Override
+	public List<SubjectVO> getSubjectList(Criteria cri) {
+		if(cri == null) {
+			throw new RuntimeException();
+		}
+		System.out.println(cri);
+		return subjectDao.selectSubjectList(cri);
+	}
+
+	@Override
+	public PageMaker getPageMaker(Criteria cri, int displayPageNum) {
+		if(cri == null) {
+			throw new RuntimeException();
+		}
+		int totalCount = subjectDao.selectSubjectTotalCount(cri);
+		return new PageMaker(totalCount, displayPageNum, cri);
 	}
 
 }

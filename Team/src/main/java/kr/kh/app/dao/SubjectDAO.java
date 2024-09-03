@@ -6,10 +6,11 @@ import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.Criteria;
 
 public interface SubjectDAO {
 
-	List<SubjectVO> selectSubjectList();
+	List<SubjectVO> selectSubjectList(@Param("cri")Criteria cri);
 
 	List<SubjectVO> selectSubjectStatusList();
 
@@ -20,5 +21,7 @@ public interface SubjectDAO {
 	List<SubjectVO> selectSubjectLectureList();
 
 	boolean professorSubjectInsert(@Param("le")LectureVO lecture);
+
+	int selectSubjectTotalCount(@Param("cri")Criteria cri);
 
 }

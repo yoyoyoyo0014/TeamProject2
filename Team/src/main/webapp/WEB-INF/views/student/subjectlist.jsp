@@ -23,6 +23,32 @@
 			<div class="main_container">
 				<div class="container-fluid">
 					<h1 class="mb-3">과목 조회</h1>
+					${subjectList}
+					<%-- 검색창 --%>
+					<form action="<c:url value="/student/subjectlist"/>">
+						<div class="input-group mb-3">
+							<input type="text" name="search" value="${cri.search}" class="form-control" placeholder="검색어를 입력하세요.">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="submit">검색</button>
+							</div>
+						</div>
+					</form>
+					
+					<%-- 
+					<form class="input-group mb-3" action="<c:url value="/admin/gradelist"/>">
+						<div class="input-group-prepend">
+							<select class="form-control" name="type">
+								<option value="me_id" <c:if test="${pm.cri.type == 'me_id'}">selected</c:if>>학번</option>
+								<option value="me_name" <c:if test="${pm.cri.type == 'me_name'}">selected</c:if>>학생 이름</option>
+								<option value="su_name" <c:if test="${pm.cri.type == 'su_name'}">selected</c:if>>과목 이름</option>
+							</select>
+						</div>
+						<input type="text" class="form-control" placeholder="검색어를 입력하세요." name="search" value="${param.search}">
+						<div class="input-group-append">
+						    <button class="btn btn-primary" type="submit">검색</button>
+						</div>
+					</form>
+					--%>
 					
 					<table class="table table-hover">
 						<colgroup>
@@ -50,7 +76,7 @@
 									<td>${suList.su_name}</td>
 									<td>${suList.su_time}시간</td>
 									<td>${suList.su_point}학점</td>
-									<td>${suList.major.ma_name}</td>
+									<td>${suList.ma_name}</td>
 									<td>${suList.su_status}</td>
 								</tr>
 							</c:forEach>
@@ -71,9 +97,7 @@
 									<c:set var="prev" value="disabled"/>
 								</c:if>
 								<c:url var="url" value="/subject/subjectList">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
 									<c:param name="page" value="${pm.startPage - 1}"/>
-									<c:param name="type" value="${pm.cri.type}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
 								<li class="page-item ${prev}">
@@ -86,10 +110,8 @@
 									<c:if test="${pm.cri.page != i}">
 										<c:set var="active" value=""/>
 									</c:if>
-									<c:url var="url" value="/post/list">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+									<c:url var="url" value="/subject/subjectList">
 										<c:param name="page" value="${i}"/>
-										<c:param name="type" value="${pm.cri.type}"/>
 										<c:param name="search" value="${pm.cri.search}"/>
 									</c:url>
 									<li class="page-item ${active}">
@@ -100,9 +122,7 @@
 									<c:set var="next" value="disabled"/>
 								</c:if>
 								<c:url var="url" value="/subject/subjectList">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
 									<c:param name="page" value="${pm.endPage + 1}"/>
-									<c:param name="type" value="${pm.cri.type}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
 								<li class="page-item ${next}">
