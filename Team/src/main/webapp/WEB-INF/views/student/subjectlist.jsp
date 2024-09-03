@@ -21,15 +21,16 @@
 			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 			<div class="main_container">
-				<div class="container-fluid py-3">
-					<h1 class="mb-3">과목 목록</h1>
+				<div class="container-fluid">
+					<h1 class="mb-3">과목 조회</h1>
 					
 					<table class="table table-hover">
 						<colgroup>
-							<col style="width: 7%;">
+							<col style="width: 10%;">
 							<col style="width: auto;">
 							<col style="width: 10%;">
 							<col style="width: 10%;">
+							<col style="width: 20%;">
 							<col style="width: 15%;">
 						</colgroup>
 						<thead>
@@ -38,6 +39,7 @@
 								<th scope="col">과목명</th>
 								<th scope="col">시수</th>
 								<th scope="col">학점</th>
+								<th scope="col">전공</th>
 								<th scope="col">전공여부</th>
 							</tr>
 						</thead>
@@ -48,6 +50,7 @@
 									<td>${suList.su_name}</td>
 									<td>${suList.su_time}시간</td>
 									<td>${suList.su_point}학점</td>
+									<td>${suList.major.ma_name}</td>
 									<td>${suList.su_status}</td>
 								</tr>
 							</c:forEach>

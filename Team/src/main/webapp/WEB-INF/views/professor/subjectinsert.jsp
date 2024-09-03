@@ -21,7 +21,7 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 		<div class="main_container">
-			<div class="container-fluid py-3">
+			<div class="container-fluid">
 				<h1 class="mb-3">과목 관리 페이지</h1>
 				<form action="<c:url value="/professor/subjectinsert" />" method="post">
 					<div class="form-group">
