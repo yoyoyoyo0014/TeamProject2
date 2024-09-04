@@ -50,4 +50,14 @@
 	<select id="selectMajorList" resultType="MajorVO">
 		select * from major
 	</select>
+	<insert id="insertStudent">
+		insert into student (me_id, st_ma_num) values (#{me_id}, #{st_ma_num})
+	</insert>
+	<insert id="insertProfessor">
+		insert into professor (me_id, pr_ma_num) values(#{me_id}, #{pr_ma_num})		
+	</insert>
+	<insert id="insertUser">
+        insert into member (me_id, me_pw, me_name, me_email, me_authority)
+        values (#{user.me_id}, #{user.me_pw}, #{user.me_name}, #{user.me_email}, #{user.me_authority})
+    </insert>
 </mapper>

@@ -40,9 +40,9 @@ public class AdminServiceImp implements AdminService {
             }
 
             if (user.getMe_authority().equals("professor")) {
-                return classDao.insertProfessor(user.getMe_id(), 0);
+                return classDao.insertProfessor(user.getMe_id(), user.getMa_num());
             } else if (user.getMe_authority().equals("student")) {
-                return classDao.insertStudent(user.getMe_id(), 0);
+                return classDao.insertStudent(user.getMe_id(), user.getMa_num());
             } else {
                 return false;
             }
@@ -51,9 +51,7 @@ public class AdminServiceImp implements AdminService {
             return false;
         }
     }
-	}
 	
-
 
 	@Override
 	public List<MajorVO> getMajorList() {

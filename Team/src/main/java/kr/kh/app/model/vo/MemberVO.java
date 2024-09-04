@@ -12,16 +12,22 @@ public class MemberVO {
 	private String me_name;
 	private String me_email; 
 	private String me_authority;
+	private int ma_num;
 	
 	public MemberVO(String me_id, String me_pw) {
 		this.me_id = me_id;
 		this.me_pw = me_pw;
 	}
 
-	public MemberVO(String me_id, String me_name, String me_email, String me_authority) {
+	public MemberVO(String me_id, String me_name, String me_email, String me_authority, String ma_num) {
 		this.me_id = me_id;
 		this.me_name = me_name;
 		this.me_email = me_email;
 		this.me_authority = me_authority;
+		try {
+			this.ma_num = Integer.parseInt(ma_num);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -32,7 +32,7 @@ public class AdminInsertUser extends HttpServlet {
         String me_email = request.getParameter("me_email");
         String me_authority = request.getParameter("me_authority");
         String ma_num = request.getParameter("major");
-        MemberVO user = new MemberVO(me_id, me_name, me_email, me_authority);
+        MemberVO user = new MemberVO(me_id, me_name, me_email, me_authority, ma_num);
         
         boolean success = adminService.insertUser(user);
         
