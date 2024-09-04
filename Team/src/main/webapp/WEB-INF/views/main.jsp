@@ -9,9 +9,22 @@
 <title>메인</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<h1>메인 페이지</h1>
+	<div class="layout">
+		<%-- lnb 메뉴 --%>
+		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
+		
+		<div class="main_layout">
+			<%-- 헤더 --%>
+			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			
+			<div class="main_container">
+				<%-- 메인 코드 내용 여기 안에 넣기 --%>
+				main content
+				<%-- 메인 코드 내용 여기 안에 넣기 --%>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

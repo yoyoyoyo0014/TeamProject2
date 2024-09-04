@@ -7,10 +7,34 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SubjectVO {
 
-	private int su_num;
-	private String su_name;
-	private int su_time;
-	private int su_point;
-	private String su_status;
-	private int su_ma_num;
+	private int su_num; // 과목번호
+	private String su_name; // 과목명(과목이름)
+	private int su_time; // 시수
+	private int su_point; // 학점
+	private String su_status; // 전공여부
+	private int su_ma_num; // 전공번호
+	
+	private MajorVO major;
+	private LectureVO lecture;
+
+	public SubjectVO(String su_name, String su_time, String su_point, String su_status, String su_ma_num) {
+		this.su_name = su_name;
+		try {
+			this.su_time = Integer.parseInt(su_time);
+			this.su_point = Integer.parseInt(su_point);
+			this.su_ma_num = Integer.parseInt(su_ma_num);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		this.su_status = su_status;
+	}
+
+	public SubjectVO(String su_num) {
+		try {
+			this.su_num = Integer.parseInt(su_num);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
