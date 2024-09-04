@@ -17,10 +17,4 @@ public interface ClassDAO {
 
 	List<MajorVO> selectMajorList();
 
-	boolean insertStudent(@Param("ma_id")String me_id, int ma_num);
-
-	boolean insertProfessor(@Param("ma_id")String me_id, int ma_num);
-
-	boolean insertUser(@Param("user")MemberVO user);
-
 }

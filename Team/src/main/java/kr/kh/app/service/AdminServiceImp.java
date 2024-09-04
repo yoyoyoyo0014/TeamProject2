@@ -10,11 +10,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import kr.kh.app.dao.ClassDAO;
+import kr.kh.app.dao.MemberDAO;
 import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.MemberVO;
 
 public class AdminServiceImp implements AdminService {
     
+	private MemberDAO memberDao;
     private ClassDAO classDao;
     
     public AdminServiceImp() {
@@ -25,6 +27,7 @@ public class AdminServiceImp implements AdminService {
             SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             SqlSession session = sessionFactory.openSession(true);
             classDao = session.getMapper(ClassDAO.class);
+            memberDao = session.getMapper(MemberDAO.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -34,15 +37,14 @@ public class AdminServiceImp implements AdminService {
 	public boolean insertUser(MemberVO user) {
 
         try {
-            boolean userInsert = classDao.insertUser(user);
+            boolean userInsert = memberDao.insertUser(user);
             if (!userInsert) {
                 return false;
             }
-
             if (user.getMe_authority().equals("professor")) {
-                return classDao.insertProfessor(user.getMe_id(), user.getMa_num());
+                return memberDao.insertProfessor(user.getMe_id(), user.getMa_num());
             } else if (user.getMe_authority().equals("student")) {
-                return classDao.insertStudent(user.getMe_id(), user.getMa_num());
+                return memberDao.insertStudent(user.getMe_id(), user.getMa_num());
             } else {
                 return false;
             }

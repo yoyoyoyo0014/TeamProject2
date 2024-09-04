@@ -30,13 +30,19 @@
 			<label for="major">전공:</label>
 			<select id="major" name="major">
 				<c:forEach items="${list }" var="major">
+					<option value="">선택하세요</option>
 					<option value="${major.ma_num }">${major.ma_name }</option>
 				</c:forEach>
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="authority">권한 : </label>
-			<input type="text" class="form-control" id="authority" name="me_authority">
+		    <label for="authority">권한:</label>
+		    <select id="authority" name="authority">
+		        <option value="">선택하세요</option>
+		        <option value="Student">학생</option>
+		        <option value="Admin">관리자</option>
+		        <option value="Professor">교수</option>
+		    </select>
 		</div>	
 		<button type="submit" class="btn btn-outline-success col-12">개인정보 추가</button>
 	</form>
