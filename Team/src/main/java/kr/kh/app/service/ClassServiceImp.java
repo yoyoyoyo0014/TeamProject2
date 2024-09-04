@@ -34,11 +34,11 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	@Override
-	public List<LectureVO> getLectureList(MemberVO user) {
+	public List<LectureVO> getLectureListByProfessor(MemberVO user) {
 		if(user == null) {
 			return null;
 		}
-		return classDao.selectLectureList(user.getMe_id());
+		return classDao.selectLectureListByProfessor(user.getMe_id());
 	}
 
 	@Override
