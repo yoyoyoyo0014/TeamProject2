@@ -27,7 +27,7 @@
 							<label for="su_status">전공</label>
 							<select class="form-control" name="su_ma_num">
 								<c:forEach items="${suMaNumList}" var="su_ma">
-									<option value="${su_ma.major.ma_num}">${su_ma.major.ma_name}</option>
+									<option value="${su_ma.ma_num}">${su_ma.ma_name}</option>
 								</c:forEach>
 							</select>
 						</div>

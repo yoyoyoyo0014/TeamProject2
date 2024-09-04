@@ -24,4 +24,6 @@ public interface SubjectService {
 
 	List<SubjectVO> getSubjectList(Criteria cri);
 
+	List<SubjectVO> subjectList();
+
 }

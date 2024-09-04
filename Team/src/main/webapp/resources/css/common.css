@@ -396,6 +396,15 @@ i{
 }
 /* 메인 레이아웃 끝 */
 
+/* 검색창 시작 */
+.main_container div[class*="container"] .input-group select.form-control{
+  flex: 0 0 120px;
+}
+.main_container div[class*="container"] .input-group select.form-control+.form-control{
+  flex: 0 0 calc(100% - 120px - 50px);
+}
+/* 검색창 끝 */
+
 /* 테이블 레이아웃 시작 */
 .main_container .table{
   font-size: 14px;

@@ -23,6 +23,15 @@
 			<div class="main_container">
 				<div class="container-fluid">
 					<h1 class="mb-3">과목 조회</h1>
+					<%-- 검색창 --%>
+					<form action="<c:url value="/admin/subjectlist"/>">
+						<div class="input-group mb-3">
+							<input type="text" name="search" class="form-control" placeholder="검색어를 입력하세요.">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="submit">검색</button>
+							</div>
+						</div>
+					</form>
 					
 					<table class="table table-hover">
 						<colgroup>
@@ -50,7 +59,7 @@
 									<td>${suList.su_name}</td>
 									<td>${suList.su_time}시간</td>
 									<td>${suList.su_point}학점</td>
-									<td>${suList.major.ma_name}</td>
+									<td>${suList.ma_name}</td>
 									<td>${suList.su_status}</td>
 								</tr>
 							</c:forEach>
