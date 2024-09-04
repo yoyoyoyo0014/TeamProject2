@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.kh.app.model.vo.MemberVO;
 
-@WebFilter({"/student/*", "/professor/*", "/admin/*", "/main"})
+@WebFilter({"/student/*", "/professor/*", "/admin/*", "/notice/*", "/main"})
 public class MemberFilter extends HttpFilter implements Filter {
        
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
