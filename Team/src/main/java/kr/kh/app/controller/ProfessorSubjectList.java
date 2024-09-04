@@ -32,7 +32,7 @@ public class ProfessorSubjectList extends HttpServlet {
 				page = Integer.parseInt(pageStr);
 			}
 			
-			Criteria cri = new Criteria(page, 5, search);
+			Criteria cri = new Criteria(page, 10, search);
 			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
 
 			PageMaker pm = subjectService.getPageMaker(cri, 5);
@@ -44,7 +44,7 @@ public class ProfessorSubjectList extends HttpServlet {
 			request.setAttribute("subjectList", subjectList);
 			request.setAttribute("pm", pm);
 			
-			request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/professor/subjectlist.jsp").forward(request, response);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

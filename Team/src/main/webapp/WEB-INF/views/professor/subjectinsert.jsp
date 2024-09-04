@@ -19,7 +19,6 @@
 	<div class="main_layout">
 		<%-- 헤더 --%>
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-			
 		<div class="main_container">
 			<div class="container-fluid">
 				<h1 class="mb-3">과목 관리 페이지</h1>

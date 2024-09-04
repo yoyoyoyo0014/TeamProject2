@@ -25,30 +25,12 @@ public class ProfessorSubjectInsert extends HttpServlet {
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			String pageStr = request.getParameter("page");
-			String search = request.getParameter("search");
-			int page = 1;
-			if(pageStr != null && pageStr.length() != 0) {
-				page = Integer.parseInt(pageStr);
-			}
-			
-			Criteria cri = new Criteria(page, 5, search);
-			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
-
-			PageMaker pm = subjectService.getPageMaker(cri, 5);
-			
-			
-			System.out.println(subjectList);
-			System.out.println(pm);
-			
-			request.setAttribute("subjectList", subjectList);
-			request.setAttribute("pm", pm);
-			
-			request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+		
+		// 전공 이름 리스트를 가져옴
+		List<SubjectVO> subjectList = subjectService.subjectList();
+		request.setAttribute("subjectList", subjectList);
+    	
+		request.getRequestDispatcher("/WEB-INF/views/professor/subjectinsert.jsp").forward(request, response);
 		
 	}
 
@@ -58,8 +40,6 @@ public class ProfessorSubjectInsert extends HttpServlet {
 		String le_schedule = request.getParameter("le_schedule");
 		String le_year = request.getParameter("le_year");
 		String le_semester = request.getParameter("le_semester");
-
-		SubjectVO suNum = new SubjectVO(su_num);
 		
 		// 로그인한 회원 정보(아이디) 값을 가져옴
 		MemberVO user = (MemberVO) request.getSession().getAttribute("user");

@@ -52,4 +52,8 @@
 		</if>
 	</select>
 	
+	<select id="subjectList" resultType="SubjectVO">
+		select * from subject
+	</select>
+	
 </mapper>

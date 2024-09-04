@@ -24,4 +24,6 @@ public interface SubjectDAO {
 
 	int selectSubjectTotalCount(@Param("cri")Criteria cri);
 
+	List<SubjectVO> subjectList();
+
 }

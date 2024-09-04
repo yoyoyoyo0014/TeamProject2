@@ -82,4 +82,9 @@ public class SubjectServiceImp implements SubjectService {
 		return new PageMaker(totalCount, displayPageNum, cri);
 	}
 
+	@Override
+	public List<SubjectVO> subjectList() {
+		return subjectDao.subjectList();
+	}
+
 }

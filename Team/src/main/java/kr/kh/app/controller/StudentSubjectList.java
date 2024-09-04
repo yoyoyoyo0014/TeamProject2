@@ -32,7 +32,7 @@ public class StudentSubjectList extends HttpServlet {
 				page = Integer.parseInt(pageStr);
 			}
 			
-			Criteria cri = new Criteria(page, 5, search);
+			Criteria cri = new Criteria(page, 10, search);
 			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
 
 			PageMaker pm = subjectService.getPageMaker(cri, 5);
