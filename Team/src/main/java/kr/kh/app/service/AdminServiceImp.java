@@ -1,26 +1,63 @@
 package kr.kh.app.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import kr.kh.app.dao.ClassDAO;
+import kr.kh.app.model.vo.MajorVO;
+import kr.kh.app.model.vo.MemberVO;
+
 public class AdminServiceImp implements AdminService {
+    
+    private ClassDAO classDao;
+    
+    public AdminServiceImp() {
+        String resource = "kr/kh/app/config/mybatis-config.xml";
+        InputStream inputStream;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSession session = sessionFactory.openSession(true);
+            classDao = session.getMapper(ClassDAO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+	@Override
+	public boolean insertUser(MemberVO user) {
+
+        try {
+            boolean userInsert = classDao.insertUser(user);
+            if (!userInsert) {
+                return false;
+            }
+
+            if (user.getMe_authority().equals("professor")) {
+                return classDao.insertProfessor(user.getMe_id(), 0);
+            } else if (user.getMe_authority().equals("student")) {
+                return classDao.insertStudent(user.getMe_id(), 0);
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+	}
+	
+
 
 	@Override
-	public boolean updateUser(String me_id, String me_name, String me_pw, String me_email) {
-	    // 유저 정보가 충분한 경우에만 처리
-	    if (me_id == null || me_name == null || me_email == null) {
-	        return false;  // 필수 정보가 없으면 실패로 간주
-	    }
-	    
-	    // 비밀번호가 null이 아닌 경우, 암호화 처리 필요 (생략됨)
-	    // 비밀번호가 없으면 기존 비밀번호를 유지한다고 가정
-
-	    MemberVO member = new MemberVO(me_id, me_name, me_pw, me_email);
-
-	    try {
-	        // DAO 호출하여 유저 정보 업데이트
-	        return MemberDAO.updateMember(member) > 0;
-	    } catch (Exception e) {
-	        // 예외 발생 시 로그 출력 및 실패 반환
-	        e.printStackTrace();
-	        return false;
-	    }
+	public List<MajorVO> getMajorList() {
+		return classDao.selectMajorList();
 	}
 }
+

@@ -47,4 +47,7 @@
 		join member on co_me_id = me_id
 		where co_le_num = #{le_num}
 	</select>
+	<select id="selectMajorList" resultType="MajorVO">
+		select * from major
+	</select>
 </mapper>

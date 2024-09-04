@@ -1,7 +1,14 @@
 package kr.kh.app.service;
 
+import java.util.List;
+
+import kr.kh.app.model.vo.MajorVO;
+import kr.kh.app.model.vo.MemberVO;
+
 public interface AdminService {
 
-	boolean updateUser(String me_id, String me_name, String me_pw, String me_email);
+	boolean insertUser(MemberVO user);
+
+	List<MajorVO> getMajorList();
 
 }

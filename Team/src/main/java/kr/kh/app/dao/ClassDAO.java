@@ -6,11 +6,14 @@ import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.model.vo.CourseVO;
 import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MajorVO;
 
 public interface ClassDAO {
 
 	List<LectureVO> selectLectureList(@Param("me_id")String me_id);
 
 	List<CourseVO> selectStudentList(@Param("le_num")String le_num);
+
+	List<MajorVO> selectMajorList();
 
 }

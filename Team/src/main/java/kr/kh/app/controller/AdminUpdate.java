@@ -27,13 +27,13 @@ public class AdminUpdate extends HttpServlet {
         String me_email = request.getParameter("me_email");
 
         try {
-            // 세션에서 로그인된 관리자 정보를 가져옴
+            // 로그인된 관리자 정보를 가져옴
             MemberVO user = (MemberVO) request.getSession().getAttribute("user");
 
-            // 관리자 이름이 "admin123"인지 확인
-            if (user != null && "admin123".equals(user.getMe_id())) {
+            // 관리자 권한 확인
+            if (user != null && "ADMIN".equals(user.getMe_authority())) {
                 // 유저 정보 업데이트 요청
-                if (adminService.updateUser(me_id, me_name, me_pw, me_email)) {
+                if (adminService.updateUser(me_id, me_name, me_pw, me_email, user)) {
                     request.setAttribute("msg", "유저 정보를 성공적으로 수정했습니다.");
                 } else {
                     throw new RuntimeException();
@@ -47,7 +47,7 @@ public class AdminUpdate extends HttpServlet {
         }
         
         // 메시지와 리다이렉트할 URL 설정
-        request.setAttribute("url", "/admin/user");
+        request.setAttribute("url", "/admin/update");
         request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
     }
 }
