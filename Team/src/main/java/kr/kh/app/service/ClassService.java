@@ -8,7 +8,7 @@ import kr.kh.app.model.vo.MemberVO;
 
 public interface ClassService {
 
-	List<LectureVO> getLectureList(MemberVO user);
+	List<LectureVO> getLectureListByProfessor(MemberVO user);
 
 	List<CourseVO> getStudentList(String le_num);
 
