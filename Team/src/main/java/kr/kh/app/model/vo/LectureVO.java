@@ -17,19 +17,7 @@ public class LectureVO {
 	
 	private SubjectVO subject;
 	
-	private boolean takeClass;
-	
-	
-	public LectureVO(int num,String room, String schedule, String semester, int subjectNum, String professorMemId) {
-		this.le_num = num;
-		this.le_room = room;
-		this.le_schedule = schedule;
-		this.le_semester = semester;
-		this.le_su_num = subjectNum;
-		this.le_me_id = professorMemId;
-	}
-
-	
+	boolean takeClass;
 
 
 	public LectureVO(String su_num, String le_room, String le_schedule, String le_year, String le_semester, String me_id) {
@@ -44,4 +32,14 @@ public class LectureVO {
 		this.le_semester = le_semester;
 		this.le_me_id = me_id;
 	}
+	public LectureVO(int num,String room, String schedule, String semester, int subjectNum, String professorMemId) {
+		this.le_num = num;
+		this.le_room = room;
+		this.le_schedule = schedule;
+		this.le_semester = semester;
+		this.le_su_num = subjectNum;
+		this.le_me_id = professorMemId;
+	}
+	
+	
 }

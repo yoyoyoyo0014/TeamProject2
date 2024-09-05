@@ -28,7 +28,7 @@ private MemberService memberService = new MemberServiceImp();
 	private SubjectService subjectService = new SubjectServiceImp();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<SubjectVO> list = subjectService.getSubjectList();
+		List<SubjectVO> list = subjectService.subjectList();
 		List<MemberVO> memList = memberService.perMemberList();
 		
 		request.setAttribute("list", list);

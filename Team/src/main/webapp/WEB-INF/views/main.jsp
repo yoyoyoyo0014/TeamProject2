@@ -9,9 +9,6 @@
 <title>메인</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-<h1>메인 페이지</h1>
 
 	<div class="layout">
 		<%-- lnb 메뉴 --%>

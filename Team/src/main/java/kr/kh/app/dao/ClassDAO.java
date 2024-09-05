@@ -6,12 +6,11 @@ import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.model.vo.CourseVO;
 import kr.kh.app.model.vo.LectureVO;
-import kr.kh.app.model.vo.MemberVO;
-import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.pagination.Criteria;
-import kr.kh.app.pagination.LectureCriteria;
 
 public interface ClassDAO {
+	
+	List<LectureVO> selectLectureListByProfessor(@Param("me_id")String me_id);
 
 	List<CourseVO> selectStudentList(@Param("le_num")String le_num);
 
@@ -36,8 +35,5 @@ public interface ClassDAO {
 	CourseVO selectCourse(@Param("le_num")int coLeNum,@Param("id") String id);
 
 	List<CourseVO> selectCourseStudent(@Param("me_id")String me_id);
-
-	List<LectureVO> selectLectureListByProfessor(@Param("me_id")String me_id);
-
 
 }

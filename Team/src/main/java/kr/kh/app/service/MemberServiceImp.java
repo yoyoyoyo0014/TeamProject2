@@ -48,10 +48,8 @@ public class MemberServiceImp implements MemberService {
 		
 		return null;
 	}
-
 	@Override
 	public List<MemberVO> perMemberList() {
 		return memberDao.perMemberList();
 	}
-
 }

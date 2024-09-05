@@ -17,7 +17,6 @@ import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
-import kr.kh.app.pagination.LectureCriteria;
 
 public class ClassServiceImp implements ClassService {
 
@@ -36,7 +35,24 @@ public class ClassServiceImp implements ClassService {
 			e.printStackTrace();
 		}
 	}
-
+	@Override
+	public List<LectureVO> getLectureListByStudent(Criteria cri,String me_id) {
+		if(cri == null) {
+			return null;
+		}
+		List<CourseVO> courseList = classDao.selectCourseStudent(me_id);
+		List<Integer> stdLeList = new ArrayList<Integer>();
+		
+		List<LectureVO> lectureList =  classDao.selectLectureListByStudent(cri);
+		
+		for(LectureVO le : lectureList) {
+			for(CourseVO co : courseList) {
+				if(le.getLe_num() == co.getCo_le_num())
+					le.setTakeClass(true);
+			}
+		}
+		return lectureList;
+	}
 	@Override
 	public List<LectureVO> getLectureListByProfessor(MemberVO user) {
 		if(user == null) {
@@ -61,22 +77,11 @@ public class ClassServiceImp implements ClassService {
 
 
 	@Override
-	public List<LectureVO> getLectureListByStudent(Criteria cri,String me_id) {
+	public List<LectureVO> getLectureListByStudent(Criteria cri) {
 		if(cri == null) {
 			return null;
 		}
-		List<CourseVO> courseList = classDao.selectCourseStudent(me_id);
-		List<Integer> stdLeList = new ArrayList<Integer>();
-		
-		List<LectureVO> lectureList =  classDao.selectLectureListByStudent(cri);
-		
-		for(LectureVO le : lectureList) {
-			for(CourseVO co : courseList) {
-				if(le.getLe_num() == co.getCo_le_num())
-					le.setTakeClass(true);
-			}
-		}
-		return lectureList;
+		return classDao.selectLectureListByStudent(cri);
 	}
 
 
@@ -87,7 +92,6 @@ public class ClassServiceImp implements ClassService {
 		if(couVo !=null) {
 			return false;
 		}
-		
 		
 		return classDao.insertCourse(coLeNum,id);
 	}
@@ -127,29 +131,10 @@ public class ClassServiceImp implements ClassService {
 	public boolean updateLecture(LectureVO lec) {
 		return classDao.updateLec(lec);
 	}
-
-
 	@Override
 	public List<CourseVO> checkCourseStudent(String me_id) {
-		if(me_id == null)
-			return null;
+		
 		return classDao.selectCourseStudent(me_id);
+		
 	}
-
-
-
-
-	
-
-	
-
-
-
-	
-
-
-
-	
-
-	
 }

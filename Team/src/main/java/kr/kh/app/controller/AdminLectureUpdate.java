@@ -39,9 +39,9 @@ public class AdminLectureUpdate extends HttpServlet {
 		
 		LectureVO lecture = classService.getLecture(le_num);
 		
-		List<SubjectVO> list = subjectService.getSubjectList();
+		List<SubjectVO> list = subjectService.subjectList();
 		List<MemberVO> memList = memberService.perMemberList();
-		
+		System.out.println(list);
 		request.setAttribute("lec", lecture);
 		request.setAttribute("list", list);
 		request.setAttribute("meList", memList);

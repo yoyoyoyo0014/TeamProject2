@@ -23,8 +23,9 @@
 		<input type="text" class="form-control" id="semester" name="le_semester" value="${lec.le_semester}">
 		
 		
-		<label for = "subject"> </label>
+		<label for = "subject">과목 이름</label>
 		<select class="form-control lec-sub-list" name="le_subject" id = "subject">
+			
 			<c:forEach items="${list}" var="list">
 				<c:if test="${list.su_num eq lec.le_su_num}">
 					<option value="${list.su_num}" selected>${list.su_name}</option>
