@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
+import kr.kh.app.model.vo.GradeVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.AdminGradeCriteria;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
@@ -22,23 +24,31 @@ public class StudentSubjectList extends HttpServlet {
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//등록된 커뮤니티 목록을 가져와서 화면에 전달
-    	List<SubjectVO> subjectList = subjectService.getSubjectList();
-    	request.setAttribute("subjectList", subjectList);
-		
-		request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
-	}
+		try {
+			String pageStr = request.getParameter("page");
+			String search = request.getParameter("search");
+			int page = 1;
+			if(pageStr != null && pageStr.length() != 0) {
+				page = Integer.parseInt(pageStr);
+			}
+			
+			Criteria cri = new Criteria(page, 10, search);
+			List<SubjectVO> subjectList = subjectService.getSubjectList(cri);
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 등록된 커뮤니티 목록을 가져와서 화면에 전달
-		List<SubjectVO> list = subjectService.getSubjectList();
+			PageMaker pm = subjectService.getPageMaker(cri, 5);
+			
+			
+			System.out.println(subjectList);
+			System.out.println(pm);
+			
+			request.setAttribute("subjectList", subjectList);
+			request.setAttribute("pm", pm);
+			
+			request.getRequestDispatcher("/WEB-INF/views/student/subjectlist.jsp").forward(request, response);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		JSONObject jobj = new JSONObject();
-		jobj.put("list", list);
-		
-		response.setContentType("application/json; charset=utf-8");
-		response.getWriter().print(jobj);
 	}
 
 }

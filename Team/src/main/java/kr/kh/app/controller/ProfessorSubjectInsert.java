@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
@@ -23,12 +25,13 @@ public class ProfessorSubjectInsert extends HttpServlet {
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		// 전공 이름 리스트를 가져옴
-    	List<SubjectVO> subjectList = subjectService.getSubjectList();
-    	request.setAttribute("subjectList", subjectList);
+		List<SubjectVO> subjectList = subjectService.subjectList();
+		request.setAttribute("subjectList", subjectList);
     	
 		request.getRequestDispatcher("/WEB-INF/views/professor/subjectinsert.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,8 +40,6 @@ public class ProfessorSubjectInsert extends HttpServlet {
 		String le_schedule = request.getParameter("le_schedule");
 		String le_year = request.getParameter("le_year");
 		String le_semester = request.getParameter("le_semester");
-
-		SubjectVO suNum = new SubjectVO(su_num);
 		
 		// 로그인한 회원 정보(아이디) 값을 가져옴
 		MemberVO user = (MemberVO) request.getSession().getAttribute("user");

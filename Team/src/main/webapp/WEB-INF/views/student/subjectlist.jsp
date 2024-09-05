@@ -23,6 +23,15 @@
 			<div class="main_container">
 				<div class="container-fluid">
 					<h1 class="mb-3">과목 조회</h1>
+					<%-- 검색창 --%>
+					<form action="<c:url value="/student/subjectlist"/>">
+						<div class="input-group mb-3">
+							<input type="text" name="search" class="form-control" placeholder="검색어를 입력하세요.">
+							<div class="input-group-append">
+								<button class="btn btn-success" type="submit">검색</button>
+							</div>
+						</div>
+					</form>
 					
 					<table class="table table-hover">
 						<colgroup>
@@ -50,13 +59,13 @@
 									<td>${suList.su_name}</td>
 									<td>${suList.su_time}시간</td>
 									<td>${suList.su_point}학점</td>
-									<td>${suList.major.ma_name}</td>
+									<td>${suList.ma_name}</td>
 									<td>${suList.su_status}</td>
 								</tr>
 							</c:forEach>
 							<c:if test="${subjectList.size() == 0}">
 								<tr>
-									<th colspan="5" class="text-center">등록된 게시글이 없습니다.</th>
+									<th colspan="6" class="text-center">등록된 게시글이 없습니다.</th>
 								</tr>
 							</c:if>
 						</tbody>
@@ -70,10 +79,8 @@
 								<c:if test="${!pm.prev}">
 									<c:set var="prev" value="disabled"/>
 								</c:if>
-								<c:url var="url" value="/subject/subjectList">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+								<c:url var="url" value="/student/subjectlist">
 									<c:param name="page" value="${pm.startPage - 1}"/>
-									<c:param name="type" value="${pm.cri.type}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
 								<li class="page-item ${prev}">
@@ -86,10 +93,8 @@
 									<c:if test="${pm.cri.page != i}">
 										<c:set var="active" value=""/>
 									</c:if>
-									<c:url var="url" value="/post/list">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+									<c:url var="url" value="/student/subjectlist">
 										<c:param name="page" value="${i}"/>
-										<c:param name="type" value="${pm.cri.type}"/>
 										<c:param name="search" value="${pm.cri.search}"/>
 									</c:url>
 									<li class="page-item ${active}">
@@ -99,10 +104,8 @@
 								<c:if test="${!pm.next}">
 									<c:set var="next" value="disabled"/>
 								</c:if>
-								<c:url var="url" value="/subject/subjectList">
-									<c:param name="co_num" value="${pm.cri.co_num}"/>
+								<c:url var="url" value="/student/subjectlist">
 									<c:param name="page" value="${pm.endPage + 1}"/>
-									<c:param name="type" value="${pm.cri.type}"/>
 									<c:param name="search" value="${pm.cri.search}"/>
 								</c:url>
 								<li class="page-item ${next}">

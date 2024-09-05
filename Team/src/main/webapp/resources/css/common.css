@@ -9,6 +9,27 @@
   margin: -1px;
   overflow: hidden;
 }
+/* 스크롤 */
+::-webkit-scrollbar {
+  width: 8px;
+  transition: all 0.2s;
+}
+::-webkit-scrollbar-track { 
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb { 
+  background-color: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* 코너에 라운드 효과 */
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+
 /* 공통 끝 */
 
 /* 색상 시작 */
@@ -269,9 +290,8 @@ i{
 }
 .lnb_link:hover, .lnb_link:focus, .lnb_link._active{
   text-decoration: none;
-  font-weight: bold;
   color: #000;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .lnb_ft_logo_wrap{
   position: absolute;
@@ -376,9 +396,29 @@ i{
 }
 /* 메인 레이아웃 끝 */
 
+/* 검색창 시작 */
+.main_container div[class*="container"] .input-group select.form-control{
+  flex: 0 0 120px;
+}
+.main_container div[class*="container"] .input-group select.form-control+.form-control{
+  flex: 0 0 calc(100% - 120px - 50px);
+}
+/* 검색창 끝 */
+
 /* 테이블 레이아웃 시작 */
-.table{
+.main_container .table{
   font-size: 14px;
 }
+.main_container .table.table-hover tbody tr{
+  transition: .3s;
+}
+.main_container .form-group{
+  font-size: 12px;
+}
+.main_container div[class*="container"] .input-group .form-control,
+.main_container div[class*="container"] .input-group .btn{
+  font-size: 12px;
+}
 /* 테이블 레이아웃 끝 */
+
 /* 공통 레이아웃 끝 */
