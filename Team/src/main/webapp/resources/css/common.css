@@ -1,6 +1,9 @@
 @charset "utf-8";
 
-/* 공통 시작 */
+/* 전체 공통 시작 */
+*{
+  font-size: 14px;
+}
 .blind{
   position: absolute;
   clip: rect(0 0 0 0);
@@ -30,7 +33,29 @@
   border-radius: 5px;
 }
 
-/* 공통 끝 */
+.main_container select{
+  display: inline-block;
+  min-width: 80px;
+  height: 32px;
+  padding: .2rem .75rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.main_container .form-control{
+  font-size: 14px;
+}
+.main_container .input-group-text{
+  font-size: 14px;
+}
+
+/* 전체 공통 끝 */
 
 /* 색상 시작 */
 .bg-kh-main{
@@ -214,6 +239,10 @@ i{
 /* 로그인(login) 페이지 끝 */
 
 /* 버튼 시작 */
+.main_container .btn{
+  padding: 4.5px 12px;
+  font-size: 14px;
+}
 .btn_invisible{
   display: inline-flex;
   align-items: center;
@@ -420,5 +449,13 @@ i{
   font-size: 12px;
 }
 /* 테이블 레이아웃 끝 */
+
+/* 페이지네이션 시작 */
+.main_container .pagination {
+  padding: 0px;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+/* 페이지네이션 끝 */
 
 /* 공통 레이아웃 끝 */
