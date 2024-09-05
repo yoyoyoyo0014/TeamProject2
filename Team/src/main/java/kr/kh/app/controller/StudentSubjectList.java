@@ -37,10 +37,6 @@ public class StudentSubjectList extends HttpServlet {
 
 			PageMaker pm = subjectService.getPageMaker(cri, 5);
 			
-			
-			System.out.println(subjectList);
-			System.out.println(pm);
-			
 			request.setAttribute("subjectList", subjectList);
 			request.setAttribute("pm", pm);
 			
