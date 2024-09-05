@@ -19,7 +19,7 @@
 				<a class="nav-link" href="<c:url value="/"/>">과목조회</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="<c:url value="/student/lectureList"/>">수강신청</a>
+				<a class="nav-link" href="<c:url value="/student/lecturelist"/>">수강신청</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<c:url value="/student/gradelist"/>">성적조회</a>

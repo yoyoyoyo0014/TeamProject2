@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.kh.app.model.vo.CourseVO;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.pagination.Criteria;
@@ -20,7 +21,7 @@ import kr.kh.app.service.ClassServiceImp;
 /**
  * Servlet implementation class StudentLectureApply
  */
-@WebServlet("/student/lectureList")
+@WebServlet("/student/lecturelist")
 public class StudentLectureList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -28,14 +29,10 @@ public class StudentLectureList extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
-		String type = request.getParameter("type");
+		MemberVO user = (MemberVO) request.getSession().getAttribute("user");
 		String pageStr = request.getParameter("page");
 		String search = request.getParameter("search");
 		
-		if(type ==null || checkEqualsString(type, "all","className","year"
-				,"semester","classsTime","classRoom")) 
-			type = "all";
 		
 		search = search ==null ? "" : search;
 		int page = 0;
@@ -44,28 +41,22 @@ public class StudentLectureList extends HttpServlet {
 		}catch(Exception e) {
 			page = 1;
 		}
-		Criteria cri = new LectureCriteria(page,4,search,user.getMe_id(),type);
+		Criteria cri = new Criteria(page, 5, search);
+		List<CourseVO> courseList = classService.checkCourseStudent(user.getMe_id());
 		
-		PageMaker pm = classService.getPageMaker(cri,user,2);
-		pm.calculte();
-		List<LectureVO> list = classService.getLectureList(user, cri);
+		PageMaker pm = classService.getPageMaker(cri,5);
 		
+		List<LectureVO> list = classService.getLectureListByStudent(cri,user.getMe_id());
+				
 		
+		System.out.println();
 		request.setAttribute("list", list);
 		request.setAttribute("pm", pm);
-		request.setAttribute("user_id", user.getMe_id());
+		request.setAttribute("applyLecList", courseList);
 		
 		
 		
 		request.getRequestDispatcher("/WEB-INF/views/student/lecturelist.jsp").forward(request, response);
-	}
-
-	static boolean checkEqualsString(String A, String... B) {
-		for(String str : B) {
-			if(A.equals(str))
-				return true;
-		}
-		return false;
 	}
 
 }

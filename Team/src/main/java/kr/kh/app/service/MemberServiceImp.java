@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -46,6 +47,11 @@ public class MemberServiceImp implements MemberService {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public List<MemberVO> perMemberList() {
+		return memberDao.perMemberList();
 	}
 
 }

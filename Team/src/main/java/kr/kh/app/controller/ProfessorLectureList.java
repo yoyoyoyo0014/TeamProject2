@@ -42,13 +42,13 @@ public class ProfessorLectureList extends HttpServlet {
 		}
 		Criteria cri = new LectureCriteria(page,4,search,user.getMe_id(),type);
 		
-		PageMaker pm = classService.getPageMaker(cri,user,2);
-		pm.calculte();
-		List<LectureVO> list = classService.getLectureList(user, cri);
+		//PageMaker pm = classService.getPageMaker(cri,user,2);
+		
+		//List<LectureVO> list = classService.getLectureList(user, cri);
 		
 		
-		request.setAttribute("list", list);
-		request.setAttribute("pm", pm);
+		//request.setAttribute("list", list);
+		//request.setAttribute("pm", pm);
 		//System.out.println("start page" + pm.getStartPage() + "end Page" + pm.getEndPage());
 		request.getRequestDispatcher("/WEB-INF/views/professor/lecturelist.jsp").forward(request, response);
 	}

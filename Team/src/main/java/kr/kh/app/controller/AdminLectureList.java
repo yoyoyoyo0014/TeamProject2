@@ -26,13 +26,10 @@ public class AdminLectureList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
-		String type = request.getParameter("type");
 		String pageStr = request.getParameter("page");
 		String search = request.getParameter("search");
 		
-		if(type ==null || checkEqualsString(type, "all","className","year"
-				,"semester","classsTime","classRoom")) 
-			type = "all";
+		
 		
 		search = search ==null ? "" : search;
 		int page = 0;
@@ -41,11 +38,11 @@ public class AdminLectureList extends HttpServlet {
 		}catch(Exception e) {
 			page = 1;
 		}
-		Criteria cri = new LectureCriteria(page,4,search,user.getMe_id(),type);
+		Criteria cri = new Criteria(page, 5, search);
 		
-		PageMaker pm = classService.getPageMaker(cri,user,2);
-		pm.calculte();
-		List<LectureVO> list = classService.getLectureList(user, cri);
+		PageMaker pm = classService.getPageMaker(cri,2);
+		
+		List<LectureVO> list = classService.getLectureListByStudent(cri,user.getMe_id());
 		
 		
 		request.setAttribute("list", list);

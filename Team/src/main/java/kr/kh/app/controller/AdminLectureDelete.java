@@ -13,8 +13,8 @@ import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
 
 
-@WebServlet("/course/delete")
-public class CourseDelete extends HttpServlet {
+@WebServlet("/admin/lecture/delete")
+public class AdminLectureDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private ClassService classService = new ClassServiceImp();
@@ -25,7 +25,7 @@ public class CourseDelete extends HttpServlet {
 		
 		
 		
-		int coNum = 0;
+		
 		int le_num = 0;
 		LectureVO lecVo = null;
 		try {

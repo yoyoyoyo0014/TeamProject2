@@ -16,14 +16,6 @@
 	
 	<form action="<c:url value="/professor/lecturelist"/>">
 			<div class="input-group mb-3">
-				<select class="form-control" name="type">
-					<option value="all"    <c:if test="${pm.cri.type == 'all'}">selected</c:if>>전체</option>
-					<option value="className"    <c:if test="${pm.cri.type == 'className'}">selected</c:if>>강의명</option>
-					<option value="year"   <c:if test="${pm.cri.type == 'year'}">selected</c:if>>연도</option>
-					<option value="semester" <c:if test="${pm.cri.type == 'semester'}">selected</c:if>>학기</option>
-					<option value="classsTime"    <c:if test="${pm.cri.type == 'classTime'}">selected</c:if>>강의시간</option>
-					<option value="classRoom"    <c:if test="${pm.cri.type == 'classRoom'}">selected</c:if>>강의실</option>
-				</select>
 				<input type="text" class="form-control" placeholder="검색어" name="search" value="${pm.cri.search }">
 				<div class="input-group-append">
 					<button type="submit" class="btn btn-outline-info col-12">검색</button>

@@ -14,11 +14,9 @@ public interface ClassService {
 
 	List<CourseVO> getStudentList(String le_num);
 
-	PageMaker getPageMaker(Criteria cri, MemberVO user, int i);
+	PageMaker getPageMaker(Criteria cri, int displayNum);
 
-	List<LectureVO> getLectureList(MemberVO user, Criteria cri);
-
-	boolean insertCourse(int coLeNum, int coMeId);
+	List<LectureVO> getLectureListByStudent(Criteria cri,String me_id);
 
 	boolean deleteCourse(int coNum);
 
@@ -28,4 +26,11 @@ public interface ClassService {
 
 	boolean deleteLecture(int le_num);
 
+	boolean insertLec(LectureVO lec);
+
+	boolean updateLecture(LectureVO lec);
+
+	boolean insertCourse(int coLeNum, String id);
+
+	List<CourseVO> checkCourseStudent(String me_id);
 }

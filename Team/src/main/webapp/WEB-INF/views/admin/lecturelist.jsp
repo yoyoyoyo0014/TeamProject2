@@ -16,14 +16,6 @@
 	
 	<form action="<c:url value="/professor/lecturelist"/>">
 			<div class="input-group mb-3">
-				<select class="form-control" name="type">
-					<option value="all"    <c:if test="${pm.cri.type == 'all'}">selected</c:if>>전체</option>
-					<option value="className"    <c:if test="${pm.cri.type == 'className'}">selected</c:if>>강의명</option>
-					<option value="year"   <c:if test="${pm.cri.type == 'year'}">selected</c:if>>연도</option>
-					<option value="semester" <c:if test="${pm.cri.type == 'semester'}">selected</c:if>>학기</option>
-					<option value="classsTime"    <c:if test="${pm.cri.type == 'classTime'}">selected</c:if>>강의시간</option>
-					<option value="classRoom"    <c:if test="${pm.cri.type == 'classRoom'}">selected</c:if>>강의실</option>
-				</select>
 				<input type="text" class="form-control" placeholder="검색어" name="search" value="${pm.cri.search }">
 				<div class="input-group-append">
 					<button type="submit" class="btn btn-outline-info col-12">검색</button>
@@ -39,6 +31,8 @@
 				<th>강의명</th>
 				<th>강의시간</th>
 				<th>강의실</th>
+				<th><th>
+				<th><th>
 			</tr>
 		</thead>
 		<tbody>
@@ -46,25 +40,31 @@
 				<tr>
 					<td>${lecture.le_year}</td>
 					<td>${lecture.le_semester}</td>
-					<td>
-						<a href="<c:url value="/admin/studentlist?le_num=${lecture.le_num}&su_name=${lecture.subject.su_name}"/>">${lecture.subject.su_name}</a>
-					</td>
+					<td>${lecture.subject.su_name}</td>
 					<td>${lecture.le_schedule}</td>
 					<td>${lecture.le_room}</td>
+					<td>
+						<a href ="<c:url value = "/admin/lecture/update?co_le_num=${lecture.le_num}"/>"
+						 class="btn btn-outline-warning">수정</a>
+					</td>
+					<td>
+						<a href ="<c:url value = "/admin/lecture/delete?co_le_num=${lecture.le_num}"/>" 
+						class="btn btn-outline-danger">삭제</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 </div>
-<a type="button" class="btn btn-outline-success">추가</a>
+
+
+<a href ="<c:url value ="/admin/lecture/insert"/>" class="btn btn-outline-success">추가</a>
 
 <ul class="pagination justify-content-center">
 		<c:if test="${pm.prev}">
 			<li class="page-item">
-				<c:url var="url" value="/professor/lecturelist">
-					<c:param name="me_id" value="${pm.cri.me_id}"/>
+				<c:url var="url" value="/admin/lecturelist">
 					<c:param name="page" value="${pm.startPage-1}"/>
-					<c:param name="type" value="${pm.cri.type}"/>
 					<c:param name="search" value="${pm.cri.search}"/>
 				</c:url>
 				<a class="page-link" href="${url}">이전</a>
@@ -80,10 +80,8 @@
 				</c:otherwise>
 			</c:choose>
 			<li class="page-item ${active}">
-				<c:url var="url" value="/professor/lecturelist">
-					<c:param name="me_id" value="${pm.cri.me_id}"/>
+				<c:url var="url" value="/admin/lecturelist">
 					<c:param name="page" value="${i}"/>
-					<c:param name="type" value="${pm.cri.type}"/>
 					<c:param name="search" value="${pm.cri.search}"/>
 				</c:url>
 				<a class="page-link" href="${url}">${i}</a>
@@ -91,10 +89,8 @@
 		</c:forEach>
 		<c:if test="${pm.next}">
 			<li class="page-item">
-				<c:url var="url" value="/professor/lecturelist">
-					<c:param name="me_id" value="${pm.cri.me_id}"/>
+				<c:url var="url" value="/admin/lecturelist">
 					<c:param name="page" value="${pm.endPage+1}"/>
-					<c:param name="type" value="${pm.cri.type}"/>
 					<c:param name="search" value="${pm.cri.search}"/>
 				</c:url>
 				<a class="page-link" href="${url}">다음</a>

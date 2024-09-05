@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -43,31 +44,45 @@ public class ClassServiceImp implements ClassService {
 	}
 
 	@Override
-	public PageMaker getPageMaker(Criteria cri,MemberVO user, int displayNum) {
+	public PageMaker getPageMaker(Criteria cri, int displayNum) {
 		if(cri == null) {
 			throw new RuntimeException();
 		}
-		int totalCount = classDao.selectLectureTotalCount(cri,user);
+		int totalCount = classDao.selectLectureTotalCount(cri);
 		return  new PageMaker(totalCount,displayNum,cri);
 	}
 
 
 	@Override
-	public List<LectureVO> getLectureList(MemberVO user, Criteria cri) {
-		if(user == null) {
+	public List<LectureVO> getLectureListByStudent(Criteria cri,String me_id) {
+		if(cri == null) {
 			return null;
 		}
-		return classDao.selectLectureList(user.getMe_id(),cri);
+		List<CourseVO> courseList = classDao.selectCourseStudent(me_id);
+		List<Integer> stdLeList = new ArrayList<Integer>();
+		
+		List<LectureVO> lectureList =  classDao.selectLectureListByStudent(cri);
+		
+		for(LectureVO le : lectureList) {
+			for(CourseVO co : courseList) {
+				if(le.getLe_num() == co.getCo_le_num())
+					le.setTakeClass(true);
+			}
+		}
+		return lectureList;
 	}
 
 
 	@Override
-	public boolean insertCourse(int coLeNum, int coMeId) {
-		CourseVO couVo = classDao.selectCourse(coLeNum,coMeId);
-		if(couVo !=null)
-			return false;
+	public boolean insertCourse(int coLeNum, String id) {
+		CourseVO couVo = classDao.selectCourse(coLeNum,id);
 		
-		return classDao.insertCourse(coLeNum,coMeId);
+		if(couVo !=null) {
+			return false;
+		}
+		
+		
+		return classDao.insertCourse(coLeNum,id);
 	}
 
 
@@ -93,6 +108,31 @@ public class ClassServiceImp implements ClassService {
 	public boolean deleteLecture(int le_num) {
 		return classDao.deleteLecture(le_num);
 	}
+
+
+	@Override
+	public boolean insertLec(LectureVO lec) {
+		return classDao.insertLec(lec);
+	}
+
+
+	@Override
+	public boolean updateLecture(LectureVO lec) {
+		return classDao.updateLec(lec);
+	}
+
+
+	@Override
+	public List<CourseVO> checkCourseStudent(String me_id) {
+		if(me_id == null)
+			return null;
+		return classDao.selectCourseStudent(me_id);
+	}
+
+
+
+
+	
 
 	
 

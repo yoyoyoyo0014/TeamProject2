@@ -34,6 +34,7 @@ public class subjectList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 등록된 커뮤니티 목록을 가져와서 화면에 전달
 		List<SubjectVO> list = subjectService.getSubjectList();
+		System.out.println(list);
 		
 		JSONObject jobj = new JSONObject();
 		jobj.put("list", list);

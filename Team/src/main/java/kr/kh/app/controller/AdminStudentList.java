@@ -13,9 +13,6 @@ import kr.kh.app.model.vo.CourseVO;
 import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
 
-/**
- * Servlet implementation class AdminStudentList
- */
 @WebServlet("/admin/studentlist")
 public class AdminStudentList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
