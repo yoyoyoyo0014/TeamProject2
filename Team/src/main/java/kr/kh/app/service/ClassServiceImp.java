@@ -37,6 +37,13 @@ public class ClassServiceImp implements ClassService {
 		}
 	}
 
+	@Override
+	public List<LectureVO> getLectureListByProfessor(MemberVO user) {
+		if(user == null) {
+			return null;
+		}
+		return classDao.selectLectureListByProfessor(user.getMe_id());
+	}
 
 	@Override
 	public List<CourseVO> getStudentList(String le_num) {

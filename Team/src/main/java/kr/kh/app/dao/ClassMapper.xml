@@ -37,6 +37,10 @@
 		from lecture 
 		left join subject on le_su_num = su_num
 		where su_name like concat('%',#{cri.search},'%')
+	<select id="selectLectureListByProfessor" resultMap="LectureMap">
+		select * from lecture 
+		join subject on le_su_num = su_num	
+		where le_me_id = #{me_id}
 	</select>
 	
 	<resultMap id="CourseMap" type="CourseVO">

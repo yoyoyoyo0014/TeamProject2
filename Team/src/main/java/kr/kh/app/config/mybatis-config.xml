@@ -30,5 +30,6 @@
 		<mapper resource="kr/kh/app/dao/GradeMapper.xml"/>
 		<mapper resource="kr/kh/app/dao/ClassMapper.xml"/>
 		<mapper resource="kr/kh/app/dao/SubjectMapper.xml"/>
+		<mapper resource="kr/kh/app/dao/NoticeMapper.xml"/>
 	</mappers>
 </configuration>

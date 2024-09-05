@@ -14,7 +14,7 @@ public class PageMaker {
 	private Criteria cri;//현재 페이지 정보
 	
 	//시작 페이지, 마지막 페이지, 이전 버튼 활성화 여부, 다음 버튼 활성화 여부를 계산하는 메소드
-	public void calculte() {
+	public void calculate() {
 		//마지막 페이지 번호를 계산 => 최대 페이지 번호
 		endPage = (int)(Math.ceil(cri.getPage()/(double)displayPageNum) * displayPageNum);
 		
@@ -39,9 +39,7 @@ public class PageMaker {
 		this.totalCount = totalCount;
 		this.displayPageNum = displayPageNum;
 		this.cri = cri;
-		calculte();
+		calculate();
 	}
-
-	
 	
 }

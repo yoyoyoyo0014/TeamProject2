@@ -33,4 +33,9 @@ public interface ClassService {
 	boolean insertCourse(int coLeNum, String id);
 
 	List<CourseVO> checkCourseStudent(String me_id);
+
+
+	List<LectureVO> getLectureListByProfessor(MemberVO user);
+
+
 }

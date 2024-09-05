@@ -20,7 +20,7 @@
 					<div class="form-group">
 						<label for="me_id" class="form-text-label">학번</label>
 						<div class="form_input_item">
-							<i class="ic_people"></i>
+							<i class="ic_login_person"></i>
 							<input type="text" name="me_id" value="" id="me_id" placeholder="학번을 입력해주세요." maxlength="9">
 						</div>
 					</div>

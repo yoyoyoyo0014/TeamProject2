@@ -37,4 +37,7 @@ public interface ClassDAO {
 
 	List<CourseVO> selectCourseStudent(@Param("me_id")String me_id);
 
+	List<LectureVO> selectLectureListByProfessor(@Param("me_id")String me_id);
+
+
 }
