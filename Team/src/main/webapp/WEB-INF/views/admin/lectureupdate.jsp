@@ -14,16 +14,16 @@
 <div class="container">
 	<h1>${lec.subject.su_name}</h1>
 	<form action="<c:url value="/admin/lecture/update"/>" method ="post">
-		<input type = "hidden" id ="num" name = "le_num" value ="${lec.le_num }">
-		<label for="room">강의실:</label>
+		<input  type = "hidden" id ="num" name = "le_num" value ="${lec.le_num }">
+		<label class ="mt-3" for="room" class = "m">강의실:</label>
 		<input type="text" class="form-control" id="room" name="le_room" value="${lec.le_room}">
-		<label for="schedule">강의시간:</label>
+		<label class ="mt-3" for="schedule">강의시간:</label>
 		<input type="text" class="form-control" id="schedule" name="le_schedule" value="${lec.le_schedule}">
-		<label for="semester">학기:</label>
+		<label class ="mt-3" for="semester">학기:</label>
 		<input type="text" class="form-control" id="semester" name="le_semester" value="${lec.le_semester}">
 		
 		
-		<label for = "subject">과목 이름</label>
+		<label class ="mt-3" for = "subject">과목 이름</label>
 		<select class="form-control lec-sub-list" name="le_subject" id = "subject">
 			
 			<c:forEach items="${list}" var="list">
@@ -35,7 +35,7 @@
 				</c:if>
 			</c:forEach>
 		</select>
-		<label for = "professor"> 교수 이름</label>
+		<label class ="mt-3" for = "professor"> 교수 이름</label>
 		<select class="form-control lec-sub-list" name="le_professor" id = "professor">
 			<c:forEach items="${meList}" var="list">
 			<c:if test="${list.me_id eq lec.le_me_id}">
@@ -46,7 +46,7 @@
 				</c:if>
 			</c:forEach>
 		</select>
-		<button class="btn btn-outline-info col-12 mb-3"> 강의 수정</button>
+		<button  class="btn btn-outline-info col-12 mb-3 mt-5"> 강의 수정</button>
 	</form>
 	
 </div>
