@@ -24,7 +24,7 @@
 		</div>
 		<div class="form-group">
 			<label for="email">이메일:</label>
-			<input type="text" class="form-control" id="email" name="me_eamil">
+			<input type="text" class="form-control" id="email" name="me_email">
 		</div>
 		<div class="form-group">
 			<label for="major">전공:</label>
@@ -37,7 +37,7 @@
 		</div>
 		<div class="form-group">
 		    <label for="authority">권한:</label>
-		    <select id="authority" name="authority">
+		    <select id="authority" name="me_authority">
 		        <option value="">선택하세요</option>
 		        <option value="Student">학생</option>
 		        <option value="Admin">관리자</option>

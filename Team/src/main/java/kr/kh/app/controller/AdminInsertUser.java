@@ -33,7 +33,7 @@ public class AdminInsertUser extends HttpServlet {
         String me_authority = request.getParameter("me_authority");
         String ma_num = request.getParameter("major");
         MemberVO user = new MemberVO(me_id, me_name, me_email, me_authority, ma_num);
-        
+        System.out.println(user);
         boolean success = adminService.insertUser(user);
         
 		if(success) {

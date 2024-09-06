@@ -15,6 +15,6 @@
 	</insert>
 	<insert id="insertUser">
         insert into member (me_id, me_name, me_email, me_authority)
-        values (#{user.me_id}, #{user.me_pw}, #{user.me_name}, #{user.me_email}, #{user.me_authority})
+        values (#{user.me_id}, #{user.me_name}, #{user.me_email}, #{user.me_authority})
     </insert>
 </mapper>
