@@ -31,6 +31,7 @@ public class AdminLectureDelete extends HttpServlet {
 		try {
 			le_num = Integer.parseInt(le_numStr);
 			lecVo = classService.getLecture(le_num);
+			classService.deleteCourse(le_num);
 			//coNum = Integer.parseInt(coNumStr);
 		}catch(Exception e) {
 			request.setAttribute("msg", "성공적으로 삭제 실패되었습니다.");
