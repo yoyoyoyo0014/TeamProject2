@@ -30,7 +30,7 @@
 						</a>
 					</li>
 					<li class="lnb_item">
-						<a href="<c:url value="/"/>" class="lnb_link">
+						<a href="<c:url value="/student/lecturelist"/>" class="lnb_link">
 							<i class="ic_class"></i>
 							<span>수강신청</span>
 						</a>
@@ -86,7 +86,7 @@
 						</a>
 					</li>
 					<li class="lnb_item">
-						<a href="<c:url value="/"/>" class="lnb_link">
+						<a href="<c:url value="/admin/lecturelist"/>" class="lnb_link">
 							<i class="ic_lecture"></i>
 							<span>강의조회</span>
 						</a>
