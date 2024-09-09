@@ -41,5 +41,11 @@ public class LectureVO {
 		this.le_me_id = professorMemId;
 	}
 	
-	
+	public LectureVO(String room, String schedule, String semester, int subjectNum, String professorMemId) {
+		this.le_room = room;
+		this.le_schedule = schedule;
+		this.le_semester = semester;
+		this.le_su_num = subjectNum;
+		this.le_me_id = professorMemId;
+	}
 }

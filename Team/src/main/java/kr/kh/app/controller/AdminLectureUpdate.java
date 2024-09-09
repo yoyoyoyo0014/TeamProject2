@@ -27,6 +27,7 @@ public class AdminLectureUpdate extends HttpServlet {
 	
 	private ClassService classService = new ClassServiceImp();
 	private SubjectService subjectService = new SubjectServiceImp();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String le_numStr = request.getParameter("co_le_num");
 		
@@ -59,6 +60,13 @@ public class AdminLectureUpdate extends HttpServlet {
 		String semester = request.getParameter("le_semester");
 		String subjectNumStr = request.getParameter("le_subject");
 		String professorMemId = request.getParameter("le_professor");
+		
+		System.out.println(numStr);
+		System.out.println(room);
+		System.out.println(schedule);
+		System.out.println(semester);
+		System.out.println(subjectNumStr);
+		System.out.println(professorMemId);
 		
 		int num = 0;
 		int subjectNum = 0;

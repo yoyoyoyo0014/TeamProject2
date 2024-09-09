@@ -38,29 +38,54 @@ private MemberService memberService = new MemberServiceImp();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String numStr = request.getParameter("num");
-		String room = request.getParameter("room");
-		String schedule = request.getParameter("schedule");
-		String semester = request.getParameter("semester");
-		String subjectNumStr = request.getParameter("subject");
-		String professorMemId = request.getParameter("professor");
-		int num = 0;
+		
+		String room = request.getParameter("le_room");
+		String schedule = request.getParameter("le_schedule");
+		String semester = request.getParameter("le_semester");
+		String subjectNumStr = request.getParameter("le_subject");
+		String professorMemId = request.getParameter("le_professor");
+		
+		
+		if(!checkNull(room,schedule,semester,subjectNumStr,professorMemId)) {
+			request.setAttribute("msg", "비어있는 문자가 있습니다.");
+			request.setAttribute("url", "/admin/lecturelist");
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
+		}
+		
+		System.out.println(room);
+		System.out.println(schedule);
+		System.out.println(semester);
+		System.out.println(subjectNumStr);
+		System.out.println(professorMemId);
+		
+		
 		int subjectNum = 0;
 		try {
-			num =  Integer.parseInt(numStr);
+			
 			subjectNum = Integer.parseInt(subjectNumStr);
 		}catch(Exception e) {
 			
 		}
-		LectureVO lec = new LectureVO(num,room,schedule,semester,subjectNum,professorMemId);
+		LectureVO lec = new LectureVO(room,schedule,semester,subjectNum,professorMemId);
 		if(classService.insertLec(lec)) {
 			request.setAttribute("msg", "성공적으로 추가했습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 		}else {
-			request.setAttribute("msg", " 추가 실패했습니다.");
+			request.setAttribute("msg", "추가에 실패했습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 		}
-		request.getRequestDispatcher("/WEB-INF/message.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 	}
-
+	static boolean checkNull(String ...str) {
+		for(String s : str) {
+			
+			if(s==null) {
+				System.out.println(s);
+				return false;
+			}
+				
+		}
+		return true;
+	}
 }

@@ -40,7 +40,7 @@ public class AdminLectureList extends HttpServlet {
 		}
 		Criteria cri = new Criteria(page, 5, search);
 		
-		PageMaker pm = classService.getPageMaker(cri,2);
+		PageMaker pm = classService.getPageMaker(cri,5);
 		
 		List<LectureVO> list = classService.getLectureListByStudent(cri,user.getMe_id());
 		

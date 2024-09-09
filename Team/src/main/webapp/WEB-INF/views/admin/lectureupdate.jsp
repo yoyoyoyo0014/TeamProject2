@@ -10,9 +10,13 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
+<div class="layout">
+<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 <div class="container">
+<div class="main_layout">
+<div class="main_container">
 	<h1>${lec.subject.su_name}</h1>
+	<h1 class = "d-flex justify-content-center mt-5">강의 수정</h1>
 	<form action="<c:url value="/admin/lecture/update"/>" method ="post">
 		<input  type = "hidden" id ="num" name = "le_num" value ="${lec.le_num }">
 		<label class ="mt-3" for="room" class = "m">강의실:</label>
@@ -46,9 +50,11 @@
 				</c:if>
 			</c:forEach>
 		</select>
-		<button  class="btn btn-outline-info col-12 mb-3 mt-5"> 강의 수정</button>
+		<button type ="submit" class="btn btn-outline-info col-12 mb-3 mt-5" style ="height : 50px"> 강의 수정</button>
 	</form>
-	
+	</div>
+	</div>
+	</div>
 </div>
 </body>
 </html>
