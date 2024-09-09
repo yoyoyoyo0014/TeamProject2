@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>커뮤니티</title>
+<title>과목조회</title>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 					<%-- 검색창 --%>
 					<form action="<c:url value="/professor/subjectlist"/>">
 						<div class="input-group mb-3">
-							<input type="text" name="search" class="form-control" placeholder="검색어를 입력하세요.">
+							<input type="text" name="search" class="form-control" placeholder="검색어를 입력하세요." value="${pm.cri.search}">
 							<div class="input-group-append">
 								<button class="btn btn-success" type="submit">검색</button>
 							</div>
@@ -130,7 +130,7 @@
 							</ul>
 						</c:if>
 						<div class="ft_info_right_wrap">
-							<a href="<c:url value="/professor/subjectinsert" />" class="btn btn-outline-primary">강의 개설</a>
+							<a href="<c:url value="/professor/lectureinsert" />" class="btn btn-outline-primary">강의 개설</a>
 						</div>
 					</div>
 				</div>

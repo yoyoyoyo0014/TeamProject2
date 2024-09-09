@@ -87,4 +87,10 @@ public class SubjectServiceImp implements SubjectService {
 		return subjectDao.subjectList();
 	}
 
+	@Override
+	public List<SubjectVO> getSubjectList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

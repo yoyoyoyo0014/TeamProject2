@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>커뮤니티</title>
+<title>과목추가</title>
 </head>
 <body>
 	<div class="layout">
@@ -21,7 +21,7 @@
 			
 			<div class="main_container">
 				<div class="container-fluid">
-					<h1 class="mb-3">과목 관리 페이지</h1>
+					<h1 class="mb-3">과목 추가</h1>
 					<form action="<c:url value="/admin/subjectinsert" />" method="post">
 						<div class="form-group">
 							<label for="su_status">전공</label>
