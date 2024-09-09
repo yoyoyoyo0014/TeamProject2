@@ -13,7 +13,6 @@ import kr.kh.app.model.vo.CourseVO;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.pagination.Criteria;
-import kr.kh.app.pagination.LectureCriteria;
 import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
@@ -49,7 +48,6 @@ public class StudentLectureList extends HttpServlet {
 		List<LectureVO> list = classService.getLectureListByStudent(cri,user.getMe_id());
 				
 		
-		System.out.println();
 		request.setAttribute("list", list);
 		request.setAttribute("pm", pm);
 		request.setAttribute("applyLecList", courseList);

@@ -14,7 +14,6 @@
 	<div class="layout">
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		<div class="main_layout">
-			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			<div class="main_container">
 			<div class="container">
 				<h1 class="mb-3" >강의 목록</h1>

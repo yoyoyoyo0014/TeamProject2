@@ -22,7 +22,6 @@ public class subjectList extends HttpServlet {
 	private SubjectService subjectService = new SubjectServiceImp();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("subjectList 커민~");
 		//등록된 커뮤니티 목록을 가져와서 화면에 전달
     	List<SubjectVO> subjectList = subjectService.getSubjectList();
     	request.setAttribute("subjectList", subjectList);

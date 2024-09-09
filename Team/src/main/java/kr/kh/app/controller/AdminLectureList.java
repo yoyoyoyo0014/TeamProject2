@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.pagination.Criteria;
-import kr.kh.app.pagination.LectureCriteria;
 import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
@@ -47,7 +46,6 @@ public class AdminLectureList extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		request.setAttribute("pm", pm);
-		//System.out.println("start page" + pm.getStartPage() + "end Page" + pm.getEndPage());
 		request.getRequestDispatcher("/WEB-INF/views/admin/lecturelist.jsp").forward(request, response);
 	}
 	static boolean checkEqualsString(String A, String... B) {
