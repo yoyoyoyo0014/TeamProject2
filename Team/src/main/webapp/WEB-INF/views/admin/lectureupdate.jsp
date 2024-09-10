@@ -17,7 +17,7 @@
 <div class="main_container">
 	<h1>${lec.subject.su_name}</h1>
 	<h1 class = "d-flex justify-content-center mt-5">강의 수정</h1>
-	<form action="<c:url value="/admin/lecture/update"/>" method ="post">
+	<form action="<c:url value="/admin/lectureupdate"/>" method ="post">
 		<input  type = "hidden" id ="num" name = "le_num" value ="${lec.le_num }">
 		<label class ="mt-3" for="room" class = "m">강의실:</label>
 		<input type="text" class="form-control" id="room" name="le_room" value="${lec.le_room}">

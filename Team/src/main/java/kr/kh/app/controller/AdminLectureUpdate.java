@@ -71,10 +71,10 @@ public class AdminLectureUpdate extends HttpServlet {
 		LectureVO lec = new LectureVO(num,room,schedule,semester,subjectNum,professorMemId);
 		
 		if(classService.updateLecture(lec)) {
-			request.setAttribute("msg", " 추가 성공했습니다.");
+			request.setAttribute("msg", "강의 수정을 성공했습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 		}else {
-			request.setAttribute("msg", " 추가 실패했습니다.");
+			request.setAttribute("msg", "강의 수정을 실패했습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
