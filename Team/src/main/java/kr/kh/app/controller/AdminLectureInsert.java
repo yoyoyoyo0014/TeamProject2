@@ -19,7 +19,7 @@ import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
-@WebServlet("/admin/lecture/insert")
+@WebServlet("/admin/lectureinsert")
 public class AdminLectureInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 private MemberService memberService = new MemberServiceImp();
@@ -52,13 +52,6 @@ private MemberService memberService = new MemberServiceImp();
 			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 			return;
 		}
-		
-		System.out.println(room);
-		System.out.println(schedule);
-		System.out.println(semester);
-		System.out.println(subjectNumStr);
-		System.out.println(professorMemId);
-		
 		
 		int subjectNum = 0;
 		try {

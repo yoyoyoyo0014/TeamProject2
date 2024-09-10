@@ -49,11 +49,11 @@
 						<td>${lecture.le_schedule}</td>
 						<td>${lecture.le_room}</td>
 						<td>
-							<a href ="<c:url value = "/admin/lecture/update?co_le_num=${lecture.le_num}"/>"
+							<a href ="<c:url value = "/admin/lectureupdate?co_le_num=${lecture.le_num}"/>"
 							 class="btn btn-outline-warning">수정</a>
 						</td>
 						<td>
-							<a href ="<c:url value = "/admin/lecture/delete?co_le_num=${lecture.le_num}"/>" 
+							<a href ="<c:url value = "/admin/lecturedelete?co_le_num=${lecture.le_num}"/>" 
 							class="btn btn-outline-danger">삭제</a>
 						</td>
 					</tr>
@@ -61,7 +61,7 @@
 			</tbody>
 		</table>
 		
-			<a href ="<c:url value ="/admin/lecture/insert"/>" class="btn btn-outline-success ml-5">강의 추가</a>
+			<a href ="<c:url value ="/admin/lectureinsert"/>" class="btn btn-outline-success ml-5">강의 추가</a>
 
 			<ul class="pagination justify-content-center">
 				<c:if test="${pm.prev}">

@@ -20,7 +20,7 @@ import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
-@WebServlet("/admin/lecture/update")
+@WebServlet("/admin/lectureupdate")
 public class AdminLectureUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberServiceImp();
@@ -42,11 +42,9 @@ public class AdminLectureUpdate extends HttpServlet {
 		
 		List<SubjectVO> list = subjectService.subjectList();
 		List<MemberVO> memList = memberService.perMemberList();
-		System.out.println(list);
 		request.setAttribute("lec", lecture);
 		request.setAttribute("list", list);
 		request.setAttribute("meList", memList);
-		System.out.println("교수 : " + memList);
 		
 		request.getRequestDispatcher("/WEB-INF/views/admin/lectureupdate.jsp").forward(request, response);
 	}
@@ -61,12 +59,6 @@ public class AdminLectureUpdate extends HttpServlet {
 		String subjectNumStr = request.getParameter("le_subject");
 		String professorMemId = request.getParameter("le_professor");
 		
-		System.out.println(numStr);
-		System.out.println(room);
-		System.out.println(schedule);
-		System.out.println(semester);
-		System.out.println(subjectNumStr);
-		System.out.println(professorMemId);
 		
 		int num = 0;
 		int subjectNum = 0;

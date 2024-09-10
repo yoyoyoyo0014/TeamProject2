@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
-<title>수강생 목록</title>
+<title>강의 수정</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>

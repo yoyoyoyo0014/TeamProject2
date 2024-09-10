@@ -22,13 +22,11 @@
 				<div class="container-fluid">
 					<h1 class="mb-3">성적 조회</h1>
 					<form class="input-group mb-3" action="<c:url value="/admin/gradelist"/>">
-						<div class="input-group-prepend">
-							<select class="form-control" name="type">
-								<option value="me_id" <c:if test="${pm.cri.type == 'me_id'}">selected</c:if>>학번</option>
-								<option value="me_name" <c:if test="${pm.cri.type == 'me_name'}">selected</c:if>>학생 이름</option>
-								<option value="su_name" <c:if test="${pm.cri.type == 'su_name'}">selected</c:if>>과목 이름</option>
-							</select>
-						</div>
+						<select class="form-control" name="type">
+							<option value="me_id" <c:if test="${pm.cri.type == 'me_id'}">selected</c:if>>학번</option>
+							<option value="me_name" <c:if test="${pm.cri.type == 'me_name'}">selected</c:if>>학생 이름</option>
+							<option value="su_name" <c:if test="${pm.cri.type == 'su_name'}">selected</c:if>>과목 이름</option>
+						</select>
 						<input type="text" class="form-control" placeholder="검색어를 입력하세요." name="search" value="${param.search}" style="z-index:0;">
 						<div class="input-group-append">
 						    <button class="btn btn-success" type="submit" style="z-index:1">검색</button>
