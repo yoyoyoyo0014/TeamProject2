@@ -17,4 +17,11 @@ public class MemberVO {
 		this.me_id = me_id;
 		this.me_pw = me_pw;
 	}
+
+	public MemberVO(String me_id, String me_pw, String me_name, String me_email) {
+		this.me_id = me_id;
+		this.me_pw = me_pw;
+		this.me_name = me_name;
+		this.me_email = me_email;
+	}
 }

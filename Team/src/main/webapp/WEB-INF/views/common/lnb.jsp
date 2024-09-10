@@ -42,7 +42,7 @@
 						</a>
 					</li>
 					<li class="lnb_item">
-						<a href="<c:url value="/"/>" class="lnb_link">
+						<a href="<c:url value="/student/mypage"/>" class="lnb_link">
 							<i class="ic_user-modify"></i>
 							<span>개인정보수정</span>
 						</a>
@@ -67,7 +67,7 @@
 						</a>
 					</li>
 					<li class="lnb_item">
-						<a href="<c:url value="/"/>" class="lnb_link">
+						<a href="<c:url value="/professor/mypage"/>" class="lnb_link">
 							<i class="ic_user-modify"></i>
 							<span>개인정보수정</span>
 						</a>

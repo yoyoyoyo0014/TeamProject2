@@ -10,4 +10,10 @@ public interface MemberService {
 
 	List<MemberVO> perMemberList();
 
+	boolean updateMember(MemberVO user);
+
+	MemberVO getMember(MemberVO user);
+
+	boolean updateMemberPw(MemberVO user, String newPw);
+
 }
