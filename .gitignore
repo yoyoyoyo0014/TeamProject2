@@ -9,3 +9,4 @@ MANIFEST.MF
 
 *.jar
 /.metadata/
+/bin/
