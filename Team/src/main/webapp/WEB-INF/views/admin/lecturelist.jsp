@@ -19,7 +19,7 @@
 		<div class="main_container">
 			<h1 class = "d-flex justify-content-center mt-5">강의 목록</h1>
 			
-			<form action="<c:url value="/professor/lecturelist"/>">
+			<form action="<c:url value="/admin/lecturelist"/>">
 					<div class="input-group mb-3 d-flex justify-content-center">
 						<input type="text" class="justify-content-center form-control col-8 ml-5 mt-5 mb-3" placeholder="검색어" name="search" value="${pm.cri.search }">
 						<div class="input-group-append">
