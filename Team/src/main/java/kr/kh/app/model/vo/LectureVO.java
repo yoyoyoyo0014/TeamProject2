@@ -16,8 +16,7 @@ public class LectureVO {
 	private String le_me_id;
 	
 	private SubjectVO subject;
-<<<<<<< HEAD
-=======
+
 	
 	boolean takeClass;
 
@@ -50,5 +49,4 @@ public class LectureVO {
 		this.le_su_num = subjectNum;
 		this.le_me_id = professorMemId;
 	}
->>>>>>> main
 }

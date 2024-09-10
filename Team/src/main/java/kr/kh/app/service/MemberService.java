@@ -1,13 +1,13 @@
 package kr.kh.app.service;
 
+import java.util.List;
+
 import kr.kh.app.model.vo.MemberVO;
 
 public interface MemberService {
 
 	MemberVO login(MemberVO member);
 
-<<<<<<< HEAD
-=======
 	List<MemberVO> perMemberList();
 
 	boolean updateMember(MemberVO user);
@@ -16,5 +16,4 @@ public interface MemberService {
 
 	boolean updateMemberPw(MemberVO user, String newPw);
 
->>>>>>> main
 }
