@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.SubjectDAO;
 import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
@@ -88,9 +89,8 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public List<SubjectVO> getSubjectList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<MemberVO> professorList() {
+		return subjectDao.professorList();
 	}
 
 }

@@ -28,4 +28,6 @@ public interface SubjectService {
 
 	List<SubjectVO> subjectList();
 
+	List<MemberVO> professorList();
+
 }
