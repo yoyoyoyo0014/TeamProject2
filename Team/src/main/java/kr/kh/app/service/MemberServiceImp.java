@@ -2,6 +2,7 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -47,9 +48,7 @@ public class MemberServiceImp implements MemberService {
 		
 		return null;
 	}
-<<<<<<< HEAD
-
-=======
+	
 	@Override
 	public List<MemberVO> perMemberList() {
 		return memberDao.perMemberList();
@@ -104,5 +103,4 @@ public class MemberServiceImp implements MemberService {
 		
 		return memberDao.updateMemberPw(user.getMe_id(), newPw);
 	}
->>>>>>> main
 }

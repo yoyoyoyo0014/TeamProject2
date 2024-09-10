@@ -47,10 +47,9 @@
 		join member on co_me_id = me_id
 		where co_le_num = #{le_num}
 	</select>
-<<<<<<< HEAD
 	<select id="selectMajorList" resultType="MajorVO">
 		select * from major
-=======
+	</select>		
 	<insert id="insertCourse"> INSERT into course(co_le_num,co_me_id) values(${le_num},${id}) </insert>
 	<select id="selectCourse" resultType="CourseVO"> select * from course where co_le_num = #{le_num} and co_me_id = #{id} </select>
 	<delete id="deleteCourse"> delete from course where co_le_num =#{co_num} </delete>
@@ -62,6 +61,5 @@
 	
 	<select id="selectCourseStudent" resultType="CourseVO">
 		select * from course where co_me_id = #{me_id}
->>>>>>> main
 	</select>
 </mapper>

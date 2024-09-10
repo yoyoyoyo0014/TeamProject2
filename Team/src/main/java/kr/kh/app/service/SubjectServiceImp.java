@@ -9,12 +9,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.SubjectDAO;
-<<<<<<< HEAD
-=======
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
->>>>>>> main
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 
 public class SubjectServiceImp implements SubjectService {
 
@@ -35,10 +34,6 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-<<<<<<< HEAD
-	public List<SubjectVO> getSubjectList() {
-		return subjectDao.selectSubjectList();
-=======
 	public List<SubjectVO> getSubjectStatusList() {
 		return subjectDao.selectSubjectStatusList();
 	}
@@ -96,6 +91,6 @@ public class SubjectServiceImp implements SubjectService {
 	@Override
 	public List<MemberVO> professorList() {
 		return subjectDao.professorList();
->>>>>>> main
 	}
+
 }
