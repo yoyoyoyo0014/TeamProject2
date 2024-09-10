@@ -28,4 +28,10 @@ public interface SubjectService {
 
 	List<MemberVO> professorList();
 
+	boolean deleteSubject(String su_num);
+
+	List<SubjectVO> subjectList(String su_num);
+
+	boolean subjectUpdate(SubjectVO subject);
+
 }

@@ -93,4 +93,22 @@ public class SubjectServiceImp implements SubjectService {
 		return subjectDao.professorList();
 	}
 
+	@Override
+	public boolean deleteSubject(String su_num) {
+		return subjectDao.deleteSubject(su_num);
+	}
+
+	@Override
+	public List<SubjectVO> subjectList(String su_num) {
+		return subjectDao.getSubjectList(su_num);
+	}
+
+	@Override
+	public boolean subjectUpdate(SubjectVO subject) {
+		if(subject == null) {
+			return false;
+		}
+		return subjectDao.updateSubject(subject);
+	}
+
 }

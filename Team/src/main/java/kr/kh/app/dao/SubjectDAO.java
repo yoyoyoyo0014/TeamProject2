@@ -29,4 +29,10 @@ public interface SubjectDAO {
 
 	List<MemberVO> professorList();
 
+	boolean deleteSubject(@Param("su_num")String su_num);
+
+	List<SubjectVO> getSubjectList(@Param("su_num")String su_num);
+
+	boolean updateSubject(@Param("su")SubjectVO subject);
+
 }

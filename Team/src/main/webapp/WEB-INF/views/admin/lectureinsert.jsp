@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>커뮤니티</title>
+<title>강의 개설</title>
 </head>
 <body>
 

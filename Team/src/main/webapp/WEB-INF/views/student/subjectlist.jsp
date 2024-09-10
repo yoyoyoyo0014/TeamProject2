@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>과목조회</title>
+<title>과목 조회</title>
 </head>
 <body>
 
