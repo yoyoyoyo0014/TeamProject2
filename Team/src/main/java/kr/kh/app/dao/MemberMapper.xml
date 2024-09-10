@@ -7,6 +7,7 @@
 	<select id="selectMember" resultType="MemberVO">
 		select * from member where me_id = #{me_id}
 	</select>
+<<<<<<< HEAD
 	<insert id="insertStudent">
 		insert into student (me_id, st_ma_num) values (#{me_id}, #{st_ma_num})
 	</insert>
@@ -17,4 +18,26 @@
         insert into member (me_id, me_name, me_email, me_authority)
         values (#{user.me_id}, #{user.me_name}, #{user.me_email}, #{user.me_authority})
     </insert>
+=======
+	<select id="perMemberList" resultType="MemberVO">
+		select * from member where SUBSTRING(me_id, 1, 1) = 'P';
+	</select>
+	<update id="updateMember">
+		update 
+			member 
+		set 
+			me_name = #{user.me_name},
+			me_email = #{user.me_email}
+		where
+			me_id = #{user.me_id} 
+	</update>
+	<update id="updateMemberPw">
+		update
+			member
+		set
+			me_pw = #{newPw}
+		where
+			me_id = #{me_id}
+	</update>
+>>>>>>> main
 </mapper>

@@ -20,13 +20,14 @@ import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
-@WebServlet("/admin/lecture/update")
+@WebServlet("/admin/lectureupdate")
 public class AdminLectureUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService = new MemberServiceImp();
 	
 	private ClassService classService = new ClassServiceImp();
 	private SubjectService subjectService = new SubjectServiceImp();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String le_numStr = request.getParameter("co_le_num");
 		
@@ -41,11 +42,9 @@ public class AdminLectureUpdate extends HttpServlet {
 		
 		List<SubjectVO> list = subjectService.subjectList();
 		List<MemberVO> memList = memberService.perMemberList();
-		System.out.println(list);
 		request.setAttribute("lec", lecture);
 		request.setAttribute("list", list);
 		request.setAttribute("meList", memList);
-		System.out.println("교수 : " + memList);
 		
 		request.getRequestDispatcher("/WEB-INF/views/admin/lectureupdate.jsp").forward(request, response);
 	}
@@ -60,6 +59,7 @@ public class AdminLectureUpdate extends HttpServlet {
 		String subjectNumStr = request.getParameter("le_subject");
 		String professorMemId = request.getParameter("le_professor");
 		
+		
 		int num = 0;
 		int subjectNum = 0;
 		try {
@@ -71,10 +71,10 @@ public class AdminLectureUpdate extends HttpServlet {
 		LectureVO lec = new LectureVO(num,room,schedule,semester,subjectNum,professorMemId);
 		
 		if(classService.updateLecture(lec)) {
-			request.setAttribute("msg", " 추가 성공했습니다.");
+			request.setAttribute("msg", "강의 수정을 성공했습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 		}else {
-			request.setAttribute("msg", " 추가 실패했습니다.");
+			request.setAttribute("msg", "강의 수정을 실패했습니다.");
 			request.setAttribute("url", "/admin/lecturelist");
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);

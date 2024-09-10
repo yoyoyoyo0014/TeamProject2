@@ -160,3 +160,21 @@ ALTER TABLE `subject` ADD CONSTRAINT `FK_major_TO_subject_1` FOREIGN KEY (
 REFERENCES `major` (
 	`ma_num`
 );
+
+ALTER TABLE `university_management`.`course` 
+DROP FOREIGN KEY `FK_lecture_TO_course_1`;
+ALTER TABLE `university_management`.`course` 
+ADD CONSTRAINT `FK_lecture_TO_course_1`
+  FOREIGN KEY (`co_le_num`)
+  REFERENCES `university_management`.`lecture` (`le_num`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+ALTER TABLE `university_management`.`lecture` 
+DROP FOREIGN KEY `FK_subject_TO_lecture_1`;
+ALTER TABLE `university_management`.`lecture` 
+ADD CONSTRAINT `FK_subject_TO_lecture_1`
+  FOREIGN KEY (`le_su_num`)
+  REFERENCES `university_management`.`subject` (`su_num`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;

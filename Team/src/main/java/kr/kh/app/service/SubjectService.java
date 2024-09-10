@@ -5,10 +5,13 @@ import java.util.List;
 import kr.kh.app.model.vo.SubjectVO;
 
 public interface SubjectService {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 
 	List<SubjectVO> getSubjectList();
 =======
+=======
+>>>>>>> main
 	
 	List<SubjectVO> getSubjectStatusList();
 
@@ -27,6 +30,9 @@ public interface SubjectService {
 	List<SubjectVO> subjectList();
 
 	List<MemberVO> professorList();
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
 
 }

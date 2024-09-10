@@ -47,5 +47,62 @@ public class MemberServiceImp implements MemberService {
 		
 		return null;
 	}
+<<<<<<< HEAD
 
+=======
+	@Override
+	public List<MemberVO> perMemberList() {
+		return memberDao.perMemberList();
+	}
+
+	@Override
+	public boolean updateMember(MemberVO user) {
+		if(user == null) {
+			return false;
+		}
+		if(!checkPw(user)) {
+			return false;
+		}
+		if(user.getMe_name() == null || user.getMe_name().trim().length() == 0) {
+			return false;
+		}
+		if(user.getMe_email() == null || user.getMe_email().trim().length() == 0) {
+			return false;
+		}
+		try {
+			return memberDao.updateMember(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	private boolean checkPw(MemberVO user) {
+		MemberVO checkUser = memberDao.selectMember(user.getMe_id());
+		
+		return checkUser.getMe_pw().equals(user.getMe_pw());
+	}
+
+	@Override
+	public MemberVO getMember(MemberVO user) {
+		if(user == null) {
+			return null;
+		}
+		return memberDao.selectMember(user.getMe_id());
+	}
+
+	@Override
+	public boolean updateMemberPw(MemberVO user, String newPw) {
+		if(user == null) {
+			System.out.println("user is null");
+			return false;
+		}
+		if(user.getMe_pw().equals(newPw)) {
+			System.out.println("pw same newPw");
+			return false;
+		}
+		
+		return memberDao.updateMemberPw(user.getMe_id(), newPw);
+	}
+>>>>>>> main
 }

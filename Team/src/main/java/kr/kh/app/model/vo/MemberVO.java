@@ -19,6 +19,7 @@ public class MemberVO {
 		this.me_pw = me_pw;
 	}
 
+<<<<<<< HEAD
 	public MemberVO(String me_id, String me_name, String me_email, String me_authority, String ma_num) {
 		this.me_id = me_id;
 		this.me_name = me_name;
@@ -29,5 +30,12 @@ public class MemberVO {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+=======
+	public MemberVO(String me_id, String me_pw, String me_name, String me_email) {
+		this.me_id = me_id;
+		this.me_pw = me_pw;
+		this.me_name = me_name;
+		this.me_email = me_email;
+>>>>>>> main
 	}
 }

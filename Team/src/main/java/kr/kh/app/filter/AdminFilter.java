@@ -14,13 +14,20 @@ import javax.servlet.http.HttpSession;
 
 import kr.kh.app.model.vo.MemberVO;
 
-@WebFilter("/admin/*")
+@WebFilter({"/admin/*", "/notice/insert", "/notice/update"})
 public class AdminFilter extends HttpFilter implements Filter {
        
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest hrequest = (HttpServletRequest)request;
 		HttpSession session = hrequest.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user");
+		
+		if(user == null) {
+			request.setAttribute("msg",	"로그인이 필요한 서비스입니다.");
+			request.setAttribute("url", "/login");
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
+		}
 		
 		if(!user.getMe_authority().equals("ADMIN")) {
 			request.setAttribute("msg", "관리자만 조회할 수 있습니다.");

@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>커뮤니티</title>
+<title>과목조회</title>
 </head>
 <body>
 
@@ -130,7 +130,7 @@
 							</ul>
 						</c:if>
 						<div class="ft_info_right_wrap">
-							<a href="<c:url value="/professor/subjectinsert" />" class="btn btn-outline-primary">강의 개설</a>
+							<a href="<c:url value="/professor/lectureinsert" />" class="btn btn-outline-primary">강의 개설</a>
 						</div>
 					</div>
 				</div>

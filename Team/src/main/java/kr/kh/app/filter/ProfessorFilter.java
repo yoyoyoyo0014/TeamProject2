@@ -22,6 +22,13 @@ public class ProfessorFilter extends HttpFilter implements Filter {
 		HttpSession session = hrequest.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		
+		if(user == null) {
+			request.setAttribute("msg",	"로그인이 필요한 서비스입니다.");
+			request.setAttribute("url", "/login");
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
+		}
+		
 		if(!user.getMe_authority().equals("PROFESSOR")) {
 			request.setAttribute("msg", "교수만 조회할 수 있습니다.");
 			request.setAttribute("url", "/main");
