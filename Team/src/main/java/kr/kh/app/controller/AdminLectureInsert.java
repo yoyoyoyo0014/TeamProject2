@@ -12,73 +12,51 @@ import javax.servlet.http.HttpServletResponse;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
-import kr.kh.app.service.ClassService;
-import kr.kh.app.service.ClassServiceImp;
-import kr.kh.app.service.MemberService;
-import kr.kh.app.service.MemberServiceImp;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
 @WebServlet("/admin/lectureinsert")
 public class AdminLectureInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-private MemberService memberService = new MemberServiceImp();
 	
-	private ClassService classService = new ClassServiceImp();
 	private SubjectService subjectService = new SubjectServiceImp();
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<SubjectVO> list = subjectService.subjectList();
-		List<MemberVO> memList = memberService.perMemberList();
 		
-		request.setAttribute("list", list);
-		request.setAttribute("meList", memList);
+		// 전공 이름 리스트를 가져옴
+		List<SubjectVO> subjectList = subjectService.subjectList();
 		
+		List<MemberVO> professorList = subjectService.professorList();
+		
+		request.setAttribute("subjectList", subjectList);
+		request.setAttribute("professorList", professorList);
+    	
 		request.getRequestDispatcher("/WEB-INF/views/admin/lectureinsert.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String su_num = request.getParameter("su_num");
+		String le_room = request.getParameter("le_room");
+		String le_schedule = request.getParameter("le_schedule");
+		String le_year = request.getParameter("le_year");
+		String le_semester = request.getParameter("le_semester");
+		String le_me_id = request.getParameter("me_id");
 		
-		String room = request.getParameter("le_room");
-		String schedule = request.getParameter("le_schedule");
-		String semester = request.getParameter("le_semester");
-		String subjectNumStr = request.getParameter("le_subject");
-		String professorMemId = request.getParameter("le_professor");
 		
+		LectureVO lecture = new LectureVO(su_num, le_room, le_schedule, le_year, le_semester, le_me_id);
 		
-		if(!checkNull(room,schedule,semester,subjectNumStr,professorMemId)) {
-			request.setAttribute("msg", "비어있는 문자가 있습니다.");
-			request.setAttribute("url", "/admin/lecturelist");
-			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
-			return;
-		}
+		System.out.println(lecture);
 		
-		int subjectNum = 0;
-		try {
-			
-			subjectNum = Integer.parseInt(subjectNumStr);
-		}catch(Exception e) {
-			
-		}
-		LectureVO lec = new LectureVO(room,schedule,semester,subjectNum,professorMemId);
-		if(classService.insertLec(lec)) {
-			request.setAttribute("msg", "성공적으로 추가했습니다.");
-			request.setAttribute("url", "/admin/lecturelist");
+		// 과목 추가 여부에 따른 알림 처리
+		if(subjectService.professorSubjectInsert(lecture)) {
+			request.setAttribute("msg", "강의 개설에 성공했습니다.");
+			request.setAttribute("url", "/admin/subjectlist");
 		}else {
-			request.setAttribute("msg", "추가에 실패했습니다.");
-			request.setAttribute("url", "/admin/lecturelist");
+			request.setAttribute("msg", "강의 개설에 실패했습니다.");
+			request.setAttribute("url", "/admin/lectureinsert");
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
-	}
-	static boolean checkNull(String ...str) {
-		for(String s : str) {
-			
-			if(s==null) {
-				System.out.println(s);
-				return false;
-			}
-				
-		}
-		return true;
+		
 	}
 }
