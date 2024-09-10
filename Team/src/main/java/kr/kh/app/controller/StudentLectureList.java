@@ -17,9 +17,7 @@ import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.ClassService;
 import kr.kh.app.service.ClassServiceImp;
 
-/**
- * Servlet implementation class StudentLectureApply
- */
+
 @WebServlet("/student/lecturelist")
 public class StudentLectureList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,7 +31,7 @@ public class StudentLectureList extends HttpServlet {
 		String search = request.getParameter("search");
 		
 		
-		search = search ==null ? "" : search;
+		search = search == null ? "" : search;
 		int page = 0;
 		try {
 			page = Integer.parseInt(pageStr);
