@@ -29,17 +29,17 @@
 							<c:if test="${lec.le_semester.equals('1학기')}">
 								<option value="1학기" selected>1학기</option>
 								<option value="2학기">2학기</option>
-								<option value="3학기">3학기</option>
+								<option value="여름방학">여름방학</option>
 							</c:if>
 							<c:if test="${lec.le_semester.equals('2학기')}">
 								<option value="1학기" >1학기</option>
 								<option value="2학기" selected>2학기</option>
-								<option value="3학기">3학기</option>
+								<option value="여름방학">여름방학</option>
 							</c:if>
 							<c:if test="${lec.le_semester.equals('여름방학')}">
 								<option value="1학기">1학기</option>
 								<option value="2학기">2학기</option>
-								<option value="3학기" selected>여름방학</option>
+								<option value="여름방학" selected>여름방학</option>
 							</c:if>
 							
 						</select>
