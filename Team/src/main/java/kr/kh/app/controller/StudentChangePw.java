@@ -42,7 +42,7 @@ public class StudentChangePw extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 		}
 		
-		if(memberService.updateMemberPw(user, newPw)) {
+		if(memberService.updateMemberPw(userInfo, newPw)) {
 			request.setAttribute("msg", "비밀번호 변경에 성공했습니다.");
 			request.setAttribute("url", "/notice/list");
 		} else {
