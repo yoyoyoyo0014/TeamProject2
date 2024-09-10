@@ -34,7 +34,7 @@ public class Login extends HttpServlet {
 		
 		if(user != null) {
 			request.setAttribute("msg", "로그인을 완료했습니다.");
-			request.setAttribute("url", "/main");
+			request.setAttribute("url", "/notice/list");
 		} else {
 			request.setAttribute("msg", "로그인을 완료하지 못했습니다.");
 			request.setAttribute("url", "/login");
