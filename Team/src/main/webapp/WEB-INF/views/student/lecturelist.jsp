@@ -9,25 +9,36 @@
 <title>강의 목록</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 	<div class="layout">
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		<div class="main_layout">
+		
+			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			
 			<div class="main_container">
 			<div class="container">
 				<h1 class="mb-3" >강의 목록</h1>
 				
 				<form action="<c:url value="/student/lecturelist"/>">
-						<div class="input-group mb-3 d-flex justify-content-center">
-							<input type="text" class="justify-content-center form-control col-8 ml-5 mt-5 mb-3" placeholder="검색어" name="search" value="${pm.cri.search }">
-							<div class="input-group-append">
-								<button type="submit" class="btn btn-outline-info col-12 mt-5 mb-3">검색</button>
+						<div class="input-group mb-3 mt-3">
+							<input type="text" name="search" class="form-control mt-3 mb-3" placeholder="검색어를 입력하세요." value="${pm.cri.search}">
+							<div class="input-group-append mt-3 mb-3">
+								<button class="btn btn-success" type="submit">검색</button>
 							</div>
 						</div>
 					</form>
 					
 				<table class="table">
+					<colgroup>
+								<col style="width: auto; ">
+								<col style="width: auto;">
+								<col style="width: auto;">
+								<col style="width: auto;">
+								<col style="width: auto;">
+								<col style="width: auto;">
+								<col style="width: auto;">
+					</colgroup>
 					<thead>
 						<tr>
 							<th>연도</th>

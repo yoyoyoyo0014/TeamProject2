@@ -10,25 +10,35 @@
 <title>강의 목록</title>
 </head>
 <body>
-
-
 	<div class="layout">
+	
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		<div class="main_layout">
+		
 			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			
 			<div class="main_container">
-				<h1 class = "d-flex justify-content-center mt-5">강의 목록</h1>
+				<h1 class = "mb-3">강의 목록</h1>
 				
 				<form action="<c:url value="/admin/lecturelist"/>">
-						<div class="input-group mb-3 d-flex justify-content-center">
-							<input type="text" class="justify-content-center form-control col-8 ml-5 mt-5 mb-3" placeholder="검색어" name="search" value="${pm.cri.search }">
-							<div class="input-group-append">
-								<button type="submit" class="btn btn-outline-info col-12 mt-5 mb-3">검색</button>
+						<div class="input-group mb-3 mt-3">
+							<input type="text" name="search" class="form-control mt-3 mb-3" placeholder="검색어를 입력하세요." value="${pm.cri.search}">
+							<div class="input-group-append mt-3 mb-3">
+								<button class="btn btn-success" type="submit">검색</button>
 							</div>
 						</div>
 					</form>
 					
-				<table class="table">
+				<table class="table table-hover">
+				<colgroup>
+							<col style="width: auto; ">
+							<col style="width: auto;">
+							<col style="width: auto;">
+							<col style="width: auto;">
+							<col style="width: auto;">
+							<col style="width: auto;">
+							<col style="width: auto;">
+				</colgroup>
 				<thead>
 					<tr>
 						<th>연도</th>
@@ -36,8 +46,7 @@
 						<th>강의명</th>
 						<th>강의시간</th>
 						<th>강의실</th>
-						<th><th>
-						<th><th>
+						<th>수정/삭제<th>
 					</tr>
 				</thead>
 				<tbody>
@@ -53,9 +62,7 @@
 							<td>
 								<a href ="<c:url value = "/admin/lectureupdate?co_le_num=${lecture.le_num}"/>"
 								 class="btn btn-outline-warning">수정</a>
-							</td>
-							<td>
-								<a href ="<c:url value = "/admin/lecturedelete?co_le_num=${lecture.le_num}"/>" 
+								 <a href ="<c:url value = "/admin/lecturedelete?co_le_num=${lecture.le_num}"/>" 
 								class="btn btn-outline-danger">삭제</a>
 							</td>
 						</tr>
