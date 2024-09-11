@@ -116,6 +116,10 @@ public class SubjectServiceImp implements SubjectService {
 		if(subject == null) {
 			return false;
 		}
+		SubjectVO checkSubject = getSubject(subject.getSu_name());
+		if(checkSubject != null) {
+			return false;
+		}
 		return subjectDao.updateSubject(subject);
 	}
 
