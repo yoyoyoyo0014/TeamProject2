@@ -40,7 +40,7 @@
 		values(#{su.su_name}, #{su.su_time}, #{su.su_point}, #{su.su_status}, #{su.su_ma_num})
 	</insert>
 	 
-	<insert id="professorSubjectInsert">
+	<insert id="lectureInsert">
 		insert into lecture(le_room, le_schedule, le_year, le_semester, le_su_num, le_me_id)
 		values(#{le.le_room},#{le.le_schedule},#{le.le_year},#{le.le_semester},#{le.le_su_num},#{le.le_me_id})
 	</insert>
@@ -79,4 +79,17 @@
 		where
 			su_num = #{su.su_num}
 	</update>
+	<select id="getLecture" resultType="LectureVO">
+		select * 
+		from 
+			lecture 
+		where 
+			le_me_id = #{le.le_me_id} and 
+			le_su_num = #{le.le_su_num} and
+			le_year = #{le.le_year} and
+			le_semester = #{le.le_semester} 
+	</select>
+	<select id="getSubject" resultType="SubjectVO">
+		select * from subject where su_name = #{su_name}
+	</select>
 </mapper>

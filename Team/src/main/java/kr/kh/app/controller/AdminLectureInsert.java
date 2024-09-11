@@ -49,7 +49,7 @@ public class AdminLectureInsert extends HttpServlet {
 		System.out.println(lecture);
 		
 		// 과목 추가 여부에 따른 알림 처리
-		if(subjectService.professorSubjectInsert(lecture)) {
+		if(subjectService.lectureInsert(lecture)) {
 			request.setAttribute("msg", "강의 개설에 성공했습니다.");
 			request.setAttribute("url", "/admin/subjectlist");
 		}else {
