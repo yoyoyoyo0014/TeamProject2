@@ -30,6 +30,7 @@ public class MemberVO {
 			e.printStackTrace();
 		}
 	}
+		
 	public MemberVO(String me_id, String me_pw, String me_name, String me_email) {
 		this.me_id = me_id;
 		this.me_pw = me_pw;

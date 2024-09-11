@@ -49,7 +49,7 @@
 	</select>
 	<select id="selectMajorList" resultType="MajorVO">
 		select * from major
-	</select>
+	</select>		
 	<insert id="insertCourse"> INSERT into course(co_le_num,co_me_id) values(${le_num},${id}) </insert>
 	<select id="selectCourse" resultType="CourseVO"> select * from course where co_le_num = #{le_num} and co_me_id = #{id} </select>
 	<delete id="deleteCourse"> delete from course where co_le_num =#{co_num} </delete>

@@ -23,7 +23,7 @@ public class ProfessorLectureList extends HttpServlet {
 		
 		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
 		
-		List<LectureVO> list = classService.getLectureList(user);
+		List<LectureVO> list = classService.getLectureListByProfessor(user);
 		
 		request.setAttribute("list", list);
 		

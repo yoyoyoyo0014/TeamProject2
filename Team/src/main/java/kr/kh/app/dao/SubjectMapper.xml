@@ -9,4 +9,5 @@
 	<select id="professorList" resultType="MemberVO">
 		select * from member where me_authority = 'PROFESSOR'
 	</select>
+	
 </mapper>

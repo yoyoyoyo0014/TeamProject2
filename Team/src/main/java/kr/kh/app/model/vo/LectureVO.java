@@ -16,7 +16,6 @@ public class LectureVO {
 	private String le_me_id;
 	
 	private SubjectVO subject;
-
 	
 	boolean takeClass;
 

@@ -9,9 +9,7 @@ import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
 
 public interface SubjectService {
-
-	List<SubjectVO> getSubjectList();
-
+	
 	List<SubjectVO> getSubjectStatusList();
 
 	List<SubjectVO> subjectSuMaNumList();
