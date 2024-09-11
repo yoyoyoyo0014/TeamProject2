@@ -13,6 +13,8 @@ import kr.kh.app.dao.SubjectDAO;
 import kr.kh.app.model.vo.LectureVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
+import kr.kh.app.pagination.Criteria;
+import kr.kh.app.pagination.PageMaker;
 
 public class SubjectServiceImp implements SubjectService {
 
