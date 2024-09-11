@@ -10,8 +10,6 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-
-<<<<<<< HEAD
 <div class="container">
 	<h1>${su_name} 수강생 목록</h1>
 	<table class="table">

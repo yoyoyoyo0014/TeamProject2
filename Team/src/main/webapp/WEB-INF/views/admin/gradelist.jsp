@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<<<<<<< HEAD
+
 <div class="container">
 	<h1>성적 조회</h1>
 	<form class="input-group mb-3" action="<c:url value="/admin/gradelist"/>">
@@ -21,7 +21,7 @@
 				<option value="me_name" <c:if test="${param.type == 'me_name'}">selected</c:if>>학생 이름</option>
 				<option value="su_name" <c:if test="${param.type == 'su_name'}">selected</c:if>>과목 이름</option>
 			</select>
-=======
+		</div>
 	<div class="layout">
 		<%-- lnb 메뉴 --%>
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
@@ -120,8 +120,8 @@
 					</ul>
 				</div>
 			</div>
->>>>>>> main
 		</div>
+	</div>
 		<input type="text" class="form-control" placeholder="검색어를 입력하세요." name="search" value="${param.search}">
 		<div class="input-group-append">
 		    <button class="btn btn-primary" type="submit">검색</button>
