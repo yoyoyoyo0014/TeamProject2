@@ -9,8 +9,6 @@ import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
 
 public interface SubjectService {
-	
-	List<SubjectVO> getSubjectList();
 
 	List<SubjectVO> getSubjectStatusList();
 
@@ -27,5 +25,13 @@ public interface SubjectService {
 	List<SubjectVO> getSubjectList(Criteria cri);
 
 	List<SubjectVO> subjectList();
+
+	List<MemberVO> professorList();
+
+	boolean deleteSubject(String su_num);
+
+	List<SubjectVO> subjectList(String su_num);
+
+	boolean subjectUpdate(SubjectVO subject);
 
 }

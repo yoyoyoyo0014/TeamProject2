@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.pagination.Criteria;
 
@@ -25,5 +26,13 @@ public interface SubjectDAO {
 	int selectSubjectTotalCount(@Param("cri")Criteria cri);
 
 	List<SubjectVO> subjectList();
+
+	List<MemberVO> professorList();
+
+	boolean deleteSubject(@Param("su_num")String su_num);
+
+	List<SubjectVO> getSubjectList(@Param("su_num")String su_num);
+
+	boolean updateSubject(@Param("su")SubjectVO subject);
 
 }

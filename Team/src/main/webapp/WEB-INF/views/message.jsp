@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홈페이지</title>
+<title>알림메세지</title>
 </head>
 <body>
 <script type="text/javascript">

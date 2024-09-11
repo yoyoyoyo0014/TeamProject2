@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>커뮤니티</title>
+<title>과목조회</title>
 </head>
 <body>
 
@@ -39,7 +39,8 @@
 							<col style="width: auto;">
 							<col style="width: 10%;">
 							<col style="width: 10%;">
-							<col style="width: 20%;">
+							<col style="width: 15%;">
+							<col style="width: 10%;">
 							<col style="width: 15%;">
 						</colgroup>
 						<thead>
@@ -50,6 +51,7 @@
 								<th scope="col">학점</th>
 								<th scope="col">전공</th>
 								<th scope="col">전공여부</th>
+								<th scope="col">수정/삭제</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -61,11 +63,15 @@
 									<td>${suList.su_point}학점</td>
 									<td>${suList.ma_name}</td>
 									<td>${suList.su_status}</td>
+									<td>
+										<a href="<c:url value="/admin/subjectupdate?su_num=${suList.su_num}&su_ma_num=${suList.su_ma_num}&su_status=${suList.su_status}" />" class="btn btn-outline-warning">수정</a>
+										<a href="<c:url value="/admin/subjectdelete?su_num=${suList.su_num}" />" class="btn btn-outline-danger">삭제</a>
+									</td>
 								</tr>
 							</c:forEach>
 							<c:if test="${subjectList.size() == 0}">
 								<tr>
-									<th colspan="5" class="text-center">등록된 게시글이 없습니다.</th>
+									<th colspan="7" class="text-center">등록된 게시글이 없습니다.</th>
 								</tr>
 							</c:if>
 						</tbody>
@@ -114,6 +120,7 @@
 							</ul>
 						</c:if>
 						<div class="ft_info_right_wrap">
+							<a href="<c:url value="/admin/lectureinsert" />" class="btn btn-outline-primary">강의 개설</a>
 							<a href="<c:url value="/admin/subjectinsert" />" class="btn btn-outline-primary">과목 추가</a>
 						</div>
 					</div>

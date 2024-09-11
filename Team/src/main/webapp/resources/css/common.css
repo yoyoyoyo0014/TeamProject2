@@ -448,6 +448,10 @@ i{
 .main_container div[class*="container"] .input-group .btn{
   font-size: 12px;
 }
+.main_container .table td,
+.main_container .table th{
+  vertical-align: middle;
+}
 /* 테이블 레이아웃 끝 */
 
 /* 페이지네이션 시작 */

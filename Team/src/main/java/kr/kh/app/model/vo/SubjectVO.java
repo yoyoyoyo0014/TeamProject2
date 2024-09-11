@@ -28,5 +28,19 @@ public class SubjectVO {
 		}
 		this.su_status = su_status;
 	}
+
+	public SubjectVO(int su_num, String su_name, String su_time
+			, String su_point, String su_status, String su_ma_num) {
+		this.su_num = su_num;
+		this.su_name = su_name;
+		try {
+			this.su_time = Integer.parseInt(su_time);
+			this.su_point = Integer.parseInt(su_point);
+			this.su_ma_num = Integer.parseInt(su_ma_num);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		this.su_status = su_status;
+	}
 	
 }

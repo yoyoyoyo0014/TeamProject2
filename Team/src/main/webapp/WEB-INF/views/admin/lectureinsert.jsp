@@ -5,39 +5,71 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
-<title>강의 추가</title>
+
+<title>강의 개설</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-<div class="container">
-	<h1>${lec.subject.su_name}</h1>
-	<form action="<c:url value="/admin/lecture/insert"/>">
-		<label for="room">강의실:</label>
-		<input type="text" class="form-control" id="room" name="le_room">
-		<label for="schedule">강의시간:</label>
-		<input type="text" class="form-control" id="schedule" name="le_schedule">
-		<label for="semester">학기:</label>
-		<input type="text" class="form-control" id="semester" name="le_semester">
-		
-		
-		<label form = "subject">과목 </label>
-		<select class="form-control lec-sub-list" name="le_subject" id = "subject">
-			<c:forEach items="${list}" var="list">
-			<option value="${list.su_num }">${list.su_name}</option>
-			</c:forEach>
-		</select>
-		<label form = "professor">교수 </label>
-		<select class="form-control lec-sub-list" name="le_professor" id = "professor">
-			<c:forEach items="${meList}" var="list">
-			<option value="${list.me_id }">${list.me_name }</option>
-			</c:forEach>
-		</select>
-		
-		<button class="btn btn-outline-info col-12 mb-3"> 강의 추가</button>
-	</form>
+<div class="layout">
+	<%-- lnb 메뉴 --%>
+	<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 	
+	<div class="main_layout">
+		<%-- 헤더 --%>
+		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+		<div class="main_container">
+			<div class="container-fluid">
+				<h1 class="mb-3">과목 관리 페이지</h1>
+				<form action="<c:url value="/admin/lectureinsert" />" method="post">
+					<div class="form-group">
+						<label for="su_name">과목명</label>
+						<select class="form-control" name="su_num" id="su_name">
+							<c:forEach items="${subjectList}" var="su">
+								<option value="${su.su_num}">${su.su_name}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="le_room">강의실</label>
+						<input type="text" name="le_room" id="le_room" class="form-control" placeholder="강의실을 입력해주세요. 예) A관 104호">
+					</div>
+					<div class="form-group">
+						<label for="le_schedule">강의 시간</label>
+						<input type="text" name="le_schedule" id="le_schedule" class="form-control" placeholder="강의 시간을 입력해주세요. 예) 월 1,2,3교시">
+					</div>
+					<div class="form-group">
+						<label for="le_year">강의 년도</label>
+						<select class="form-control" name="le_year" id="le_year">
+							<option value="2024">2024</option>
+							<option value="2024">2023</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="le_semester">강의 학기</label>
+						<select class="form-control" name="le_semester">
+							<option value="1학기">1학기</option>
+							<option value="2학기">2학기</option>
+							<option value="여름방학">여름방학</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="le_semester">강의 교수</label>
+						<select class="form-control" name="me_id">
+							<c:forEach items="${professorList}" var="p_list">
+								<option value="${p_list.me_id}">${p_list.me_name}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-outline-primary">등록</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
+
 </body>
 </html>

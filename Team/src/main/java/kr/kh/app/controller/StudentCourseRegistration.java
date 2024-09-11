@@ -19,8 +19,6 @@ public class StudentCourseRegistration extends HttpServlet {
 		MemberVO user = (MemberVO)request.getSession().getAttribute("user");
 		String id = user.getMe_id();
 		String coLeNumStr = request.getParameter("co_le_num");
-		System.out.println(id);
-		System.out.println(coLeNumStr);
 		int coLeNum =0;
 		
 		try {

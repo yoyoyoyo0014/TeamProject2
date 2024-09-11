@@ -18,8 +18,8 @@ import kr.kh.app.pagination.PageMaker;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
 
-@WebServlet("/professor/subjectinsert")
-public class ProfessorSubjectInsert extends HttpServlet {
+@WebServlet("/professor/lectureinsert")
+public class ProfessorLectureInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private SubjectService subjectService = new SubjectServiceImp();
@@ -30,7 +30,7 @@ public class ProfessorSubjectInsert extends HttpServlet {
 		List<SubjectVO> subjectList = subjectService.subjectList();
 		request.setAttribute("subjectList", subjectList);
     	
-		request.getRequestDispatcher("/WEB-INF/views/professor/subjectinsert.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/professor/lectureinsert.jsp").forward(request, response);
 		
 	}
 
@@ -49,10 +49,10 @@ public class ProfessorSubjectInsert extends HttpServlet {
 		// 과목 추가 여부에 따른 알림 처리
 		if(subjectService.professorSubjectInsert(lecture)) {
 			request.setAttribute("msg", "강의 개설에 성공했습니다.");
-			request.setAttribute("url", "/admin/subjectlist");
+			request.setAttribute("url", "/professor/subjectlist");
 		}else {
 			request.setAttribute("msg", "강의 개설에 실패했습니다.");
-			request.setAttribute("url", "/admin/subjectinsert");
+			request.setAttribute("url", "/professor/lectureinsert");
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 		
