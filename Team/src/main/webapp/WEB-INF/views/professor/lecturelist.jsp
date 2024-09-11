@@ -19,31 +19,33 @@
 			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 			<div class="main_container">
-				<h1>강의 목록</h1>
-				<table class="table">
-					<thead>
-						<tr>
-							<th>연도</th>
-							<th>학기</th>
-							<th>강의명</th>
-							<th>강의시간</th>
-							<th>강의실</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="lecture" items="${list}">
+				<div class="container-fluid">
+					<h1>강의 목록</h1>
+					<table class="table">
+						<thead>
 							<tr>
-								<td>${lecture.le_year}</td>
-								<td>${lecture.le_semester}</td>
-								<td>
-									<a href="<c:url value="/professor/studentlist?le_num=${lecture.le_num}&su_name=${lecture.subject.su_name}"/>">${lecture.subject.su_name}</a>
-								</td>
-								<td>${lecture.le_schedule}</td>
-								<td>${lecture.le_room}</td>
+								<th>연도</th>
+								<th>학기</th>
+								<th>강의명</th>
+								<th>강의시간</th>
+								<th>강의실</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<c:forEach var="lecture" items="${list}">
+								<tr>
+									<td>${lecture.le_year}</td>
+									<td>${lecture.le_semester}</td>
+									<td>
+										<a href="<c:url value="/professor/studentlist?le_num=${lecture.le_num}&su_name=${lecture.subject.su_name}"/>">${lecture.subject.su_name}</a>
+									</td>
+									<td>${lecture.le_schedule}</td>
+									<td>${lecture.le_room}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
