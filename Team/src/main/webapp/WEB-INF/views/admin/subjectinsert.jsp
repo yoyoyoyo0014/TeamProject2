@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>과목추가</title>
+<title>과목 추가</title>
 </head>
 <body>
 	<div class="layout">
@@ -44,12 +44,12 @@
 							<input type="text" class="form-control" id="su_name" name="su_name" placeholder="과목명을 입력해주세요.">
 						</div>
 						<div class="form-group">
-							<label for="su_name">시수</label>
-							<input type="number" class="form-control" id="su_name" name="su_time" placeholder="시수을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10">
+							<label for="su_time">시수</label>
+							<input type="number" class="form-control" id="su_time" name="su_time" placeholder="시수을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10">
 						</div>
 						<div class="form-group">
-							<label for="su_name">학점</label>
-							<input type="number" class="form-control" id="su_name" name="su_point" placeholder="학점을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10">
+							<label for="su_point">학점</label>
+							<input type="number" class="form-control" id="su_point" name="su_point" placeholder="학점을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10">
 						</div>
 						<div>
 							<button type="submit" class="btn btn-outline-primary">등록</button>

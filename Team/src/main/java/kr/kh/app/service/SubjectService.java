@@ -9,7 +9,7 @@ import kr.kh.app.pagination.Criteria;
 import kr.kh.app.pagination.PageMaker;
 
 public interface SubjectService {
-	
+
 	List<SubjectVO> getSubjectStatusList();
 
 	List<SubjectVO> subjectSuMaNumList();
@@ -18,7 +18,7 @@ public interface SubjectService {
 
 	List<SubjectVO> getSubjectLectureList();
 
-	boolean professorSubjectInsert(LectureVO lecture);
+	boolean lectureInsert(LectureVO lecture);
 
 	PageMaker getPageMaker(Criteria cri, int displayPageNum);
 
@@ -27,5 +27,13 @@ public interface SubjectService {
 	List<SubjectVO> subjectList();
 
 	List<MemberVO> professorList();
+
+	boolean deleteSubject(String su_num);
+
+	List<SubjectVO> subjectList(String su_num);
+
+	boolean subjectUpdate(SubjectVO subject);
+
+	SubjectVO getSubject(String su_name);
 
 }

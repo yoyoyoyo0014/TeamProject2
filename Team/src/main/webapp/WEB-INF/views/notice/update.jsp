@@ -22,7 +22,7 @@
 			
 			<div class="main_container">
 				<div class="container" style="min-height: calc(100vh - 240px)">
-					<h1 class="mt-3">공지사항 등록</h1>
+					<h1 class="mt-3">공지사항 수정</h1>
 					<form action="<c:url value="/notice/update"/>" method="post">
 						<input type="hidden" name="no_num" value="${notice.no_num}">
 						<div class="form-group">

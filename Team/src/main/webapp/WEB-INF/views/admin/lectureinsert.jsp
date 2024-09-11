@@ -8,7 +8,7 @@
 
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 
-<title>커뮤니티</title>
+<title>강의 개설</title>
 </head>
 <body>
 
@@ -42,8 +42,8 @@
 					<div class="form-group">
 						<label for="le_year">강의 년도</label>
 						<select class="form-control" name="le_year" id="le_year">
+							<option value="2025">2025</option>
 							<option value="2024">2024</option>
-							<option value="2024">2023</option>
 						</select>
 					</div>
 					<div class="form-group">
@@ -52,6 +52,7 @@
 							<option value="1학기">1학기</option>
 							<option value="2학기">2학기</option>
 							<option value="여름방학">여름방학</option>
+							<option value="겨울방학">겨울방학</option>
 						</select>
 					</div>
 					<div class="form-group">

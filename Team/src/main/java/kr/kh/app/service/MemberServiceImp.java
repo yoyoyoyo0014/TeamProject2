@@ -93,11 +93,9 @@ public class MemberServiceImp implements MemberService {
 	@Override
 	public boolean updateMemberPw(MemberVO user, String newPw) {
 		if(user == null) {
-			System.out.println("user is null");
 			return false;
 		}
 		if(user.getMe_pw().equals(newPw)) {
-			System.out.println("pw same newPw");
 			return false;
 		}
 		

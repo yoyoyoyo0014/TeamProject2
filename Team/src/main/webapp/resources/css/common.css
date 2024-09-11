@@ -37,7 +37,7 @@
   display: inline-block;
   min-width: 80px;
   height: 32px;
-  padding: .2rem .75rem;
+  padding: .1rem .2rem;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
@@ -48,11 +48,22 @@
   border-radius: .25rem;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+.main_container .form-group select+.btn
+, .main_container .form-group select+label
+, .main_container .form-group select{
+  margin-left: 5px;
+}
+.main_container label{
+  margin: 0;
+}
 .main_container .form-control{
   font-size: 14px;
 }
 .main_container .input-group-text{
   font-size: 14px;
+}
+.main_container .container-fluid{
+  padding: 0px;
 }
 
 /* 전체 공통 끝 */
@@ -240,7 +251,7 @@ i{
 
 /* 버튼 시작 */
 .main_container .btn{
-  padding: 4.5px 12px;
+  padding: 4.5px 10px;
   font-size: 14px;
 }
 .btn_invisible{
@@ -422,6 +433,7 @@ i{
 .main_container h1{
   font-size: 28px;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 /* 메인 레이아웃 끝 */
 
@@ -456,10 +468,68 @@ i{
 
 /* 페이지네이션 시작 */
 .main_container .pagination {
+  margin-bottom: 0px;
   padding: 0px;
   font-size: .875rem;
   line-height: 1.5;
 }
+.ft_info_wrap{
+  align-items: center;
+}
 /* 페이지네이션 끝 */
+
+/* 공지사항 상세페이지 시작 */
+.detail_group{
+  border: 1px solid #E3E4E4;
+  border-right: 0px;
+  border-radius: 4px;
+}
+.detail_wrap{
+	display: flex;
+	font-size: 14px;
+  border-bottom: 1px solid #E3E4E4;
+}
+.detail_group .detail_wrap:last-child{
+  border-bottom: none;
+}
+.flex33>.d-flex{
+	flex: 1 1 33%;
+}
+.detail_border_bt{
+
+}
+.detail_main_title{
+  font-size: 18px;
+  font-weight: bold;
+}
+.detail_title{
+  flex: 1 1 20%;
+  min-width: 120px;
+  width: 120px;
+  max-width: 120px;
+  border-right: 1px solid #E3E4E4;
+  padding: 14px;
+  background: #F9FAFC;
+  color: #93969F;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.26px;
+  text-align: center;
+}
+.detail_content{
+  flex: 1 1 auto;
+  border-right: 1px solid #E3E4E4;
+  padding: 14px 20px;
+}
+.con_min_h{
+	min-height: 100px;
+}
+.btn_wrap{
+	display: flex;
+  justify-content: space-between;
+	margin-top: 12px;
+}
+/* 공지사항 상세페이지 끝 */
 
 /* 공통 레이아웃 끝 */

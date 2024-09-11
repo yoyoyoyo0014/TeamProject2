@@ -6,7 +6,7 @@
 	<header class="kh_header">
 		<div class="breadCrumb_wrap">
 			<span class="breadCrumb_item">KH UNIVERSITY</span>
-			<span class="breadCrumb_item">메인</span>
+			<!-- <span class="breadCrumb_item">메인</span> -->
 			<span class="breadCrumb_item">과목조회</span>
 		</div>
 		<div class="search_wrap">

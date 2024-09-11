@@ -9,61 +9,71 @@
 <title>강의 목록</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 	<div class="layout">
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		<div class="main_layout">
+		
+			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			
 			<div class="main_container">
-			<div class="container">
-				<h1 class="mb-3" >강의 목록</h1>
-				
-				<form action="<c:url value="/student/lecturelist"/>">
-						<div class="input-group mb-3 d-flex justify-content-center">
-							<input type="text" class="justify-content-center form-control col-8 ml-5 mt-5 mb-3" placeholder="검색어" name="search" value="${pm.cri.search }">
-							<div class="input-group-append">
-								<button type="submit" class="btn btn-outline-info col-12 mt-5 mb-3">검색</button>
-							</div>
-						</div>
-					</form>
+				<div class="container-fluid">
+					<h1 class="mb-3">강의 목록</h1>
 					
-				<table class="table">
-					<thead>
-						<tr>
-							<th>연도</th>
-							<th>학기</th>
-							<th>강의명</th>
-							<th>강의시간</th>
-							<th>강의실</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="lecture" items="${list}">
+					<form action="<c:url value="/student/lecturelist"/>">
+							<div class="input-group mb-3">
+								<input type="text" name="search" class="form-control" placeholder="검색어를 입력하세요." value="${pm.cri.search}">
+								<div class="input-group-append">
+									<button class="btn btn-success" type="submit">검색</button>
+								</div>
+							</div>
+						</form>
+						
+					<table class="table">
+						<colgroup>
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: auto;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 15%;">
+						</colgroup>
+						<thead>
 							<tr>
-								<td>${lecture.le_year}</td>
-								<td>${lecture.le_semester}</td>
-								<td>${lecture.subject.su_name}</td>
-								<td>${lecture.le_schedule}</td>
-								<td>${lecture.le_room}</td>
-								<td>
-									<c:if test="${!lecture.takeClass}">
-										<a href="<c:url value="/student/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
-												type="button" class="btn btn-success">수강신청</a>
-									</c:if>
-									<c:if test="${lecture.takeClass}">
-										<a href="<c:url value="/student/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
-												type="button" class="btn btn-success disabled">수강신청</a>
-									</c:if>
-								</td>
+								<th>연도</th>
+								<th>학기</th>
+								<th>강의명</th>
+								<th>강의시간</th>
+								<th>강의실</th>
+								<th>수강신청</th> 
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+						</thead>
+						<tbody>
+							<c:forEach var="lecture" items="${list}">
+								<tr>
+									<td>${lecture.le_year}</td>
+									<td>${lecture.le_semester}</td>
+									<td>${lecture.subject.su_name}</td>
+									<td>${lecture.le_schedule}</td>
+									<td>${lecture.le_room}</td>
+									<td>
+										<c:if test="${!lecture.takeClass}">
+											<a href="<c:url value="/student/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
+													type="button" class="btn btn-success">수강신청</a>
+										</c:if>
+										<c:if test="${lecture.takeClass}">
+											<a href="<c:url value="/student/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
+													type="button" class="btn btn-success disabled">수강신청</a>
+										</c:if>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			
 			
-			<ul class="pagination justify-content-center">
+				<ul class="pagination justify-content-center">
 					<c:if test="${pm.prev}">
 						<li class="page-item">
 							<c:url var="url" value="/student/lecturelist">
@@ -100,7 +110,8 @@
 						</li>
 					</c:if>
 				</ul>
-		</div></div>
+			</div>
+		</div>
 	</div>
 	
 </body>
