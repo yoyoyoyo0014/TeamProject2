@@ -2,6 +2,9 @@ package kr.kh.app.service;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import kr.kh.app.model.vo.MemberVO;
 
 public interface MemberService {
@@ -15,5 +18,9 @@ public interface MemberService {
 	MemberVO getMember(MemberVO user);
 
 	boolean updateMemberPw(MemberVO user, String newPw);
+
+	Cookie createCookie(MemberVO user, HttpServletRequest request);
+
+	MemberVO getMemberBySid(String sid);
 
 }

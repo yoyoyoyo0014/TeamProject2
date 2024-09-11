@@ -36,7 +36,7 @@
 					</div>
 					<div class="form-group form-check">
 						<label class="form-check-label">
-							<input class="form-check-input" type="checkbox"> 로그인 상태 유지
+							<input class="form-check-input" type="checkbox" value="true" name="auto"> 로그인 상태 유지
 						</label>
 						<div>
 							<a href="#" class="forget_pw_link">비밀번호 찾기</a>

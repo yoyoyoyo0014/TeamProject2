@@ -2,7 +2,12 @@ package kr.kh.app.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -99,5 +104,27 @@ public class MemberServiceImp implements MemberService {
 		}
 		
 		return memberDao.updateMemberPw(user.getMe_id(), newPw);
+	}
+
+	@Override
+	public Cookie createCookie(MemberVO user, HttpServletRequest request) {
+		if(user == null)
+			return null;
+		HttpSession session = request.getSession();
+		String me_cookie = session.getId();
+		Cookie cookie = new Cookie("AL",me_cookie);
+		cookie.setPath("/");
+		int time = 60 * 60 * 24 * 7;
+		cookie.setMaxAge(time);
+		user.setMe_cookie(me_cookie);
+		Date date = new Date(System.currentTimeMillis() + time * 1000);
+		user.setMe_limit(date);
+		memberDao.updateMemberCookie(user);
+		return cookie;
+	}
+
+	@Override
+	public MemberVO getMemberBySid(String sid) {
+		return memberDao.selectMemberBySid(sid);
 	}
 }
