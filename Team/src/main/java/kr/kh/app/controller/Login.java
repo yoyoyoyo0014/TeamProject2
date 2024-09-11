@@ -20,6 +20,25 @@ public class Login extends HttpServlet {
 	private MemberService memberService = new MemberServiceImp();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		Cookie cookie = getCookie(request,"AL");
+		MemberVO user = null; 
+		if(cookie != null) {
+			String sid = cookie.getValue();
+			user = memberService.getMemberBySid(sid);
+			if(user != null) {
+				request.getSession().setAttribute("user", user);
+				
+				request.setAttribute("msg", "로그인을 완료했습니다.");
+				request.setAttribute("url", "/notice/list");
+				
+				request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+				return;
+			}
+			
+		}
+		
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 	
@@ -35,11 +54,28 @@ public class Login extends HttpServlet {
 		if(user != null) {
 			request.setAttribute("msg", "로그인을 완료했습니다.");
 			request.setAttribute("url", "/notice/list");
+			
+			String auto = request.getParameter("auto");
+			if(auto != null && auto.equals("true")) {
+				Cookie cookie = memberService.createCookie(user,request);
+				response.addCookie(cookie);
+			}
 		} else {
 			request.setAttribute("msg", "로그인을 완료하지 못했습니다.");
 			request.setAttribute("url", "/login");
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 	}
-
+	private Cookie getCookie(HttpServletRequest hrequest, String name) {
+		Cookie [] cookies = hrequest.getCookies();
+		if(cookies == null || cookies.length == 0) {
+			return null;
+		}
+		for(Cookie cookie : cookies) {
+			if(name.equals(cookie.getName())) {
+				return cookie;
+			}
+		}
+		return null;
+	}
 }

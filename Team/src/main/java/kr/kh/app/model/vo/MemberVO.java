@@ -2,6 +2,7 @@ package kr.kh.app.model.vo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -12,6 +13,8 @@ public class MemberVO {
 	private String me_name;
 	private String me_email; 
 	private String me_authority;
+	private String me_cookie; 
+	private Date me_limit; 
 	
 	public MemberVO(String me_id, String me_pw) {
 		this.me_id = me_id;
