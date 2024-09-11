@@ -47,7 +47,7 @@ public class ProfessorLectureInsert extends HttpServlet {
 		LectureVO lecture = new LectureVO(su_num, le_room, le_schedule, le_year, le_semester, user.getMe_id());
 		
 		// 과목 추가 여부에 따른 알림 처리
-		if(subjectService.professorSubjectInsert(lecture)) {
+		if(subjectService.lectureInsert(lecture)) {
 			request.setAttribute("msg", "강의 개설에 성공했습니다.");
 			request.setAttribute("url", "/professor/subjectlist");
 		}else {
