@@ -20,28 +20,33 @@
 			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 			<div class="main_container">
-				<h1 class="mt-3">공지사항 상세</h1>
+				<h1 class="mb-3">공지사항 상세</h1>
 				<c:if test="${notice != null}">
-					<div class="form-group">
-						<label>제목 : </label>
-						<div class="form-control">${notice.no_title}</div>
+					
+					<div class="detail_group">
+						<div class="detail_wrap">
+							<div class="detail_content detail_main_title">${notice.no_title}</div>
+						</div>
+						<div class="detail_wrap flex33">
+							<div class="d-flex">
+								<span class="detail_title">작성자</span>
+								<div class="detail_content">${notice.member.me_name}</div>
+							</div>
+							<div class="d-flex">
+								<span class="detail_title">작성일</span>
+								<div class="detail_content"><fmt:formatDate value="${notice.no_date}" pattern="yyyy-MM-dd" /></div>
+							</div>
+							<div class="d-flex">
+								<span class="detail_title">조회수</span>
+								<div class="detail_content">${notice.no_view}</div>
+							</div>
+						</div>
+						<div class="detail_wrap">
+							<span class="detail_title">내용</span>
+							<div class="detail_content con_min_h">${notice.no_content}</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label>작성자 : </label>
-						<div class="form-control">${notice.member.me_name}</div>
-					</div>
-					<div class="form-group">
-						<label>작성일 : </label>
-						<div class="form-control"><fmt:formatDate value="${notice.no_date}" pattern="yyyy.MM.dd."/></div>
-					</div>
-					<div class="form-group">
-						<label>조회수</label>
-						<div class="form-control">${notice.no_view}</div>
-					</div>
-					<div class="form-group">
-						<label>내용</label>
-						<div class="form-control" style="min-height: 400px; height: auto">${notice.no_content}</div>
-					</div>
+					
 				</c:if>
 				<c:if test="${notice == null}">
 					<h3>삭제되거나 등록되지 않은 게시글입니다.</h3>
@@ -50,11 +55,17 @@
 					<c:param name="search" value="${search}"/>
 					<c:param name="page" value="${page}"/>
 				</c:url>
-				<a href="${url}" class="btn btn-outline-info">목록</a>
-				<c:if test="${user.me_id == notice.no_me_id}">
-					<a href="<c:url value="/notice/update?no_num=${notice.no_num}"/>" class="btn btn-outline-success">수정</a>
-					<a href="<c:url value="/notice/delete?no_num=${notice.no_num}"/>" class="btn btn-outline-danger">삭제</a>		
-				</c:if>
+				<div class="btn_wrap">
+					<div class="btn_left_wrap">
+						<a href="${url}" class="btn btn-outline-dark">목록</a>
+					</div>
+					<div class="btn_right_wrap">
+					<c:if test="${user.me_id == notice.no_me_id}">
+						<a href="<c:url value="/notice/update?no_num=${notice.no_num}"/>" class="btn btn-outline-warning">수정</a>
+						<a href="<c:url value="/notice/delete?no_num=${notice.no_num}"/>" class="btn btn-outline-danger">삭제</a>		
+					</c:if>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

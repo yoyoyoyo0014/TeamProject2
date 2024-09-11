@@ -29,6 +29,13 @@
 						</div>
 					</form>					
 					<table class="table">
+						<colgroup>
+							<col style="width: 10%;">
+							<col style="width: auto;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+						</colgroup>
 						<thead>
 							<tr>
 								<th>번호</th>
@@ -53,7 +60,7 @@
 										</td>
 										<td>${notice.member.me_name}</td>
 										<td>
-											<fmt:formatDate value="${notice.no_date}" pattern="yyyy.MM.dd."/>
+											<fmt:formatDate value="${notice.no_date}" pattern="yyyy-MM-dd"/>
 										</td>
 										<td>${notice.no_view}</td>
 									</tr>
@@ -67,47 +74,53 @@
 						</tbody>
 					</table>
 					
-					<c:if test="${user.me_authority == 'ADMIN'}">
-						<a href="<c:url value="/notice/insert"/>" class="btn btn-outline-info">공지사항 등록</a>
-					</c:if>
-					
-					<ul class="pagination justify-content-center">
-						<c:if test="${pm.prev}">
-							<c:url var="url" value="/notice">
-								<c:param name="page" value="${pm.startPage - 1}"/>
-								<c:param name="search" value="${pm.cri.search}"/>
-							</c:url>
-							<li class="page-item">
-								<a class="page-link" href="${url}">이전</a>
-							</li>
-						</c:if>
-						<c:forEach begin="${pm.startPage}" end="${pm.endPage}" var="i">
-							<c:url var="url" value="/notice/list">
-								<c:param name="page" value="${i}"/>
-								<c:param name="search" value="${pm.cri.search}"/>
-							</c:url>
-							<c:choose>
-								<c:when test="${pm.cri.page eq i}">
-									<c:set var="active" value="active"/>
-								</c:when>
-								<c:otherwise>
-									<c:set var="active" value=""/>
-								</c:otherwise>
-							</c:choose>
-							<li class="page-item ${active}">
-								<a class="page-link" href="${url}">${i}</a>
-							</li>
-						</c:forEach>
-						<c:if test="${pm.next}">
-							<c:url var="url" value="/notice/list">
-								<c:param name="page" value="${pm.endPage + 1}"/>
-								<c:param name="search" value="${pm.cri.search}"/>
-							</c:url>
-							<li class="page-item">
-								<a class="page-link" href="${url}">다음</a>
-							</li>
-						</c:if>
-					</ul>
+					<div class="ft_info_wrap d-flex justify-content-between">
+						<div class="ft_info_left_wrap">
+						</div>
+						<ul class="pagination justify-content-center">
+							<c:if test="${pm.prev}">
+								<c:url var="url" value="/notice">
+									<c:param name="page" value="${pm.startPage - 1}"/>
+									<c:param name="search" value="${pm.cri.search}"/>
+								</c:url>
+								<li class="page-item">
+									<a class="page-link" href="${url}">이전</a>
+								</li>
+							</c:if>
+							<c:forEach begin="${pm.startPage}" end="${pm.endPage}" var="i">
+								<c:url var="url" value="/notice/list">
+									<c:param name="page" value="${i}"/>
+									<c:param name="search" value="${pm.cri.search}"/>
+								</c:url>
+								<c:choose>
+									<c:when test="${pm.cri.page eq i}">
+										<c:set var="active" value="active"/>
+									</c:when>
+									<c:otherwise>
+										<c:set var="active" value=""/>
+									</c:otherwise>
+								</c:choose>
+								<li class="page-item ${active}">
+									<a class="page-link" href="${url}">${i}</a>
+								</li>
+							</c:forEach>
+							<c:if test="${pm.next}">
+								<c:url var="url" value="/notice/list">
+									<c:param name="page" value="${pm.endPage + 1}"/>
+									<c:param name="search" value="${pm.cri.search}"/>
+								</c:url>
+								<li class="page-item">
+									<a class="page-link" href="${url}">다음</a>
+								</li>
+							</c:if>
+						</ul>
+						
+						<div class="ft_info_right_wrap">
+							<c:if test="${user.me_authority == 'ADMIN'}">
+								<a href="<c:url value="/notice/insert"/>" class="btn btn-outline-primary">공지사항 등록</a>
+							</c:if>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

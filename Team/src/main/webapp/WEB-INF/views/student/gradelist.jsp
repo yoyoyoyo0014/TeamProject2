@@ -23,7 +23,7 @@
 				<div class="container-fluid">
 					<h1 class="mb-3">성적 조회</h1>
 					<form action="<c:url value="/student/gradelist"/>" method="post">
-						<div class="form-group">
+						<div class="form-group d-flex align-items-center">
 							<label for="year">연도:</label>
 							<select id="yearSelect" name="year">
 								<option value="2024" <c:if test="${selectedYear == '2024'}">selected</c:if>>2024</option>
