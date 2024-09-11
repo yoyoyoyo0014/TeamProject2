@@ -79,8 +79,10 @@
 											<c:when test="${grade.co_grade == 'D'}"><c:set var="gradeValue" value="1.0" /></c:when>
 											<c:when test="${grade.co_grade == 'F'}"><c:set var="gradeValue" value="0.0" /></c:when>
 										</c:choose>
-									<c:set var="totalPoints" value="${totalPoints + (grade.su_point * gradeValue)}" />
-									<c:set var="totalCredits" value="${totalCredits + grade.su_point}" />
+									<c:if test="${grade.co_grade ne null}">
+										<c:set var="totalPoints" value="${totalPoints + (grade.su_point * gradeValue)}" />
+										<c:set var="totalCredits" value="${totalCredits + grade.su_point}" />
+									</c:if>
 								</c:forEach>
 							</c:if>
 							<c:if test="${list == null}">
