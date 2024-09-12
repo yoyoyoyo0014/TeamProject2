@@ -153,6 +153,9 @@ i{
 .ic_search{
   background-image: url("../image/icon/ic_search.png");
 }
+.ic_sidebar{
+  background-image: url("../image/icon/ic_sidebar.png");
+}
 /* 아이콘(icon) 끝 */
 
 /* 로그인(login) 페이지 시작 */
@@ -276,11 +279,16 @@ i{
   height: 100%;
 }
 .lnb_wrap{
+  display: block;
   position: relative;
   width: 212px;
   height: 100vh;
   padding: 16px;;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transition: .3s;
+}
+.lnb_wrap._off{
+  margin-left: -212px;
 }
 .user_info_wrap{
   display: flex;
@@ -381,6 +389,16 @@ i{
   height: 68px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 28px;
+}
+.sidebar_menu{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  padding: 0;
+  background-color: #fff;
 }
 .breadCrumb_wrap .breadCrumb_item{
   position: relative;
