@@ -148,12 +148,6 @@ public class ClassServiceImp implements ClassService {
 				return false;
 			}
 		
-		LectureVO checkLecture = classDao.selectLectureByAdmin(lec);
-		
-		if(checkLecture != null) {
-			return false;
-		}
-		
 		return classDao.updateLec(lec);
 	}
 	@Override
