@@ -8,9 +8,6 @@
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
-<style type="text/css">
-	.error{color : red;}
-</style>
 <title>개인정보수정</title>
 </head>
 <body>
@@ -41,8 +38,11 @@
 							</div>
 							<div class="form-group">
 					  			<label for="pw">현재 비밀번호:</label>
-					  			<input type="password" class="form-control" id="me_pw" name="me_pw">
-					  			<a class="btn btn-outline-danger col-12" href="<c:url value="/student/changepw"/>">비밀번호 변경</a>
+					  			<div class="d-flex align-items-center">
+						  			<input type="password" class="form-control" id="me_pw" name="me_pw">
+					  				<a class="btn btn-outline-danger ml-2" href="<c:url value="/student/changepw"/>">비밀번호 변경</a>
+					  			</div>
+					  			<label id="me_pw-error" class="error" for="me_pw" style="display: none;">필수 항목입니다.</label>
 							</div>
 							<div class="form-group">
 					  			<label for="name">이름:</label>
