@@ -178,3 +178,7 @@ ADD CONSTRAINT `FK_subject_TO_lecture_1`
   REFERENCES `university_management`.`subject` (`su_num`)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
+  
+ALTER TABLE `university_management`.`member` 
+ADD COLUMN `me_cookie` VARCHAR(255) NULL DEFAULT NULL AFTER `me_authority`,
+ADD COLUMN `me_limit` DATETIME NULL DEFAULT NULL AFTER `me_cookie`;

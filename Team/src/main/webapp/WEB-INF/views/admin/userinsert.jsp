@@ -74,7 +74,8 @@
 				me_id : {
 					required : true,
 					regex : /^\d{8}$/,
-					matchMajor : true
+					matchMajor : true,
+					matchYear : true
 				},
 				me_name : {
 					required : true					
@@ -91,7 +92,8 @@
 				me_id : {
 					required : '필수 항목입니다.',
 					regex : '학번은 \'숫자\'로만 이루어져야 하며 규칙에 따른 8글자만 가능합니다.',
-					matchMajor: '학번의 3번째부터 5번째까지의 숫자와 전공 번호가 일치해야 합니다.'
+					matchMajor: '학번의 3번째부터 5번째까지의 숫자와 전공 번호가 일치해야 합니다.',
+					matchYear: '학번의 앞 두 글자는 현재 연도와 일치해야 합니다.'
 				},
 				me_name : {
 					required : '필수 항목입니다.'
@@ -132,6 +134,12 @@
 			}
 			return true;
 		}, "선택한 전공에 맞는 권한을 선택해야 합니다.");
+		
+		$.validator.addMethod('matchYear', function(value, element){
+			var currentYear = new Date().getFullYear().toString().substring(2, 4); // 현재 연도의 마지막 두 자리 (예: 2024 -> "24")
+			var inputYear = value.substring(0, 2); // 학번의 앞 두 자리
+			return inputYear === currentYear; // 앞 두 자리가 현재 연도와 같은지 비교
+		}, "학번의 앞 두 글자는 현재 연도와 일치해야 합니다.");
 	</script>
 </body>
 </html>
