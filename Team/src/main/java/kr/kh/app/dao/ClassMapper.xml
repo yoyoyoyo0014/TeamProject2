@@ -21,8 +21,12 @@
             <result property="su_status" column="su_status" />
             <result property="su_ma_num" column="su_ma_num" />
         </association>
+    <association property="member" javaType="kr.kh.app.model.vo.MemberVO">
+            <id property="me_id" column="me_id" />
+            <result property="me_name" column="me_name" />
+        </association>
     </resultMap>
-<select id="selectLectureListByStudent" resultMap="LectureMap"> select * from lecture left join subject on le_su_num = su_num where su_name like concat('%',#{cri.search},'%') order by le_num limit #{cri.pageStart},#{cri.perPageNum} </select>
+<select id="selectLectureListByStudent" resultMap="LectureMap"> select * from lecture left join subject on le_su_num = su_num join member on le_me_id = me_id where su_name like concat('%',#{cri.search},'%') order by le_num limit #{cri.pageStart},#{cri.perPageNum} </select>
 <select id="selectLectureTotalCount" resultType="int"> select count(*) from lecture left join subject on le_su_num = su_num where su_name like concat('%',#{cri.search},'%') </select>
 	<select id="selectLectureListByProfessor" resultMap="LectureMap">
 		select * from lecture 
