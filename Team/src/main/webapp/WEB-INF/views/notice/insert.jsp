@@ -28,7 +28,7 @@
 			</header>
 			
 			<div class="main_container">
-				<div class="container" style="min-height: calc(100vh - 240px)">
+				<div class="container">
 					<h1 class="mt-3">공지사항 등록</h1>
 					<form action="<c:url value="/notice/insert"/>" method="post">
 						<div class="form-group">
@@ -39,7 +39,9 @@
 				  			<label for="content">내용:</label>
 				  			<textarea class="form-control" id="content" name="no_content"></textarea>
 						</div>
-						<button type="submit" class="btn btn-outline-info col-12">등록</button>
+						<div class="text-right">
+							<button type="submit" class="btn btn-outline-primary">등록</button>
+						</div>
 					</form>
 				</div>
 			</div>

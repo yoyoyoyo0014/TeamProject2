@@ -28,7 +28,7 @@
 		</header>
 		
 		<div class="main_container">
-			<div class="container-fluid">
+			<div class="container">
 				<h1 class="mb-3">과목 관리 페이지</h1>
 				<form action="<c:url value="/professor/lectureinsert" />" method="post">
 					<div class="form-group">
@@ -63,7 +63,7 @@
 							<option value="겨울방학">겨울방학</option>
 						</select>
 					</div>
-					<div>
+					<div class="text-right">
 						<button type="submit" class="btn btn-outline-primary">등록</button>
 					</div>
 				</form>

@@ -66,11 +66,11 @@
 									<td>
 										<c:if test="${!lecture.takeClass}">
 											<a href="<c:url value="/student/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
-													type="button" class="btn btn-success">수강신청</a>
+													type="button" class="btn btn-primary">수강신청</a>
 										</c:if>
 										<c:if test="${lecture.takeClass}">
 											<a href="<c:url value="/student/courseRegistration?co_le_num=${lecture.le_num}&co_me_id=${user_id}"/>" 
-													type="button" class="btn btn-success disabled">수강신청</a>
+													type="button" class="btn btn-primary disabled">수강신청</a>
 										</c:if>
 									</td>
 								</tr>

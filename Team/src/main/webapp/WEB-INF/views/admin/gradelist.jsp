@@ -41,6 +41,15 @@
 					</form>
 					
 					<table class="table">
+						<colgroup>
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: auto;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+						</colgroup>
 						<thead>
 							<tr>
 								<th>학번</th>

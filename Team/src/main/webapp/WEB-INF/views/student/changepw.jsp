@@ -31,7 +31,7 @@
 			</header>
 			
 			<div class="main_container">
-				<div class="container-fluid">
+				<div class="container">
 					<h1 class="mt-3">비밀번호변경</h1>
 					<c:if test="${user ne null}">
 						<form action="<c:url value="/student/changepw"/>" method="post" id="form">
@@ -46,8 +46,10 @@
 							<div class="form-group">
 					  			<label for="newPw2">변경할 비밀번호 확인:</label>
 					  			<input type="password" class="form-control" id="newPw2" name="newPw2">
-							</div>														
-							<button type="submit" class="btn btn-outline-info col-12">비밀번호 변경</button>
+							</div>
+							<div class="text-right">
+								<button type="submit" class="btn btn-outline-warning">비밀번호 변경</button>
+							</div>
 						</form>
 					</c:if>
 				</div>
