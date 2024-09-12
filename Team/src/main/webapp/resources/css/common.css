@@ -59,7 +59,8 @@
 .main_container .form-control{
   font-size: 14px;
 }
-.main_container .form-group label+.form-control{
+.main_container .form-group label+.form-control
+,.main_container .form-group input+.form-control{
   margin-top: 5px;
 }
 .main_container .input-group-text{

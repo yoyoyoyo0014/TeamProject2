@@ -133,6 +133,6 @@
 			
 			$(".lnb_item").find(".lnb_link").each(function(){
 				$(this).toggleClass("_active", $(this).attr("href") == url);
-			})
+			});
 		});
 	</script>
