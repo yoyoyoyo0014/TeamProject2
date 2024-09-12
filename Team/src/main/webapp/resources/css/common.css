@@ -178,7 +178,7 @@ i{
   height: 100%;
   font-family: 'notosans', sans-serif;
 }
-.kh_logo{
+.login_container .kh_logo{
   position: absolute;
   top: 20px;
   left: 20px;

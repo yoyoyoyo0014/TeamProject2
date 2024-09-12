@@ -11,7 +11,11 @@
 </head>
 <body>
 	<div class="login_container">
-		<h1 class="kh_logo">KH UNIVERSITY</h1>
+		<h1 class="kh_logo_wrap">
+			<a class="kh_logo kh_ft_logo" title="KH UNIVERSITY LOGO" href="<c:url value="/main"/>">
+				<span class="blind">KH UNIVERSITY</span>
+			</a>
+		</h1>
 		<div class="login_bg"></div>
 		<div class="login_group">
 			<div class="login_wrap">
