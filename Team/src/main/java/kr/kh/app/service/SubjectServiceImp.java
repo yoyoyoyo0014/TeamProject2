@@ -114,7 +114,7 @@ public class SubjectServiceImp implements SubjectService {
 
 	@Override
 	public boolean subjectUpdate(SubjectVO subject) {
-		if(subject == null) {
+		if(subject == null || subject.getSu_name() == "") {
 			return false;
 		}
 		return subjectDao.updateSubject(subject);
