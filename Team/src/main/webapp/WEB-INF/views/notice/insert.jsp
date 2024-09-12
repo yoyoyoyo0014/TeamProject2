@@ -32,11 +32,11 @@
 					<h1 class="">공지사항 등록</h1>
 					<form action="<c:url value="/notice/insert"/>" method="post">
 						<div class="form-group">
-				  			<label for="title">제목:</label>
+				  			<label for="title">제목</label>
 				  			<input type="text" class="form-control" id="title" name="no_title" placeholder="제목을 입력하세요.">
 						</div>
 						<div class="form-group">
-				  			<label for="content">내용:</label>
+				  			<label for="content">내용</label>
 				  			<textarea class="form-control" id="content" name="no_content"></textarea>
 						</div>
 						<div class="text-right">
