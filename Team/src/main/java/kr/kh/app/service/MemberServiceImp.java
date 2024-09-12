@@ -15,6 +15,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.MemberDAO;
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.MemberVO;
 
 public class MemberServiceImp implements MemberService {
@@ -126,5 +127,46 @@ public class MemberServiceImp implements MemberService {
 	@Override
 	public MemberVO getMemberBySid(String sid) {
 		return memberDao.selectMemberBySid(sid);
+	}
+
+	@Override
+	public List<MajorVO> getMajorList() {
+		return memberDao.selectMajorList();
+	}
+
+	@Override
+	public boolean insertUser(MemberVO user, String ma_num) {
+		if(user == null ||
+			user.getMe_id() == null || user.getMe_id().trim().length() == 0 ||
+			user.getMe_name() == null || user.getMe_name().trim().length() == 0 ||
+			user.getMe_authority() == null || user.getMe_authority().trim().length() == 0) {
+			return false;
+		}
+		
+		try {
+			if(!memberDao.insertUser(user)) {
+				return false;
+			}
+			
+			switch(user.getMe_authority()) {
+			
+				case "STUDENT":
+					return memberDao.insertStudent(user.getMe_id(), ma_num);
+				
+				case "PROFESSOR":
+					return memberDao.insertProfessor(user.getMe_id(), ma_num);
+					
+				case "ADMIN":
+					return memberDao.insertAdmin(user.getMe_id());
+				
+				default:
+					return false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;			
+		}
+		
 	}
 }

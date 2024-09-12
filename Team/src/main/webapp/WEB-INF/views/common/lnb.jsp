@@ -98,7 +98,7 @@
 						</a>
 					</li>
 					<li class="lnb_item">
-						<a href="<c:url value="/"/>" class="lnb_link">
+						<a href="<c:url value="/admin/userinsert"/>" class="lnb_link">
 							<i class="ic_people"></i>
 							<span>회원등록</span>
 						</a>
