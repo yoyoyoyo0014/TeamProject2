@@ -33,7 +33,7 @@
 					<form action="<c:url value="/notice/insert"/>" method="post">
 						<div class="form-group">
 				  			<label for="title">제목:</label>
-				  			<input type="text" class="form-control" id="title" name="no_title">
+				  			<input type="text" class="form-control" id="title" name="no_title" placeholder="제목을 입력하세요.">
 						</div>
 						<div class="form-group">
 				  			<label for="content">내용:</label>
@@ -48,7 +48,7 @@
 	
 	<script>
 		$('#content').summernote({
-			placeholder: '게시글을 작성해주세요.',
+			placeholder: '내용을 입력하세요.',
 			tabsize: 2,
 			height: 400
 		});
