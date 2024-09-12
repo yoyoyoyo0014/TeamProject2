@@ -66,7 +66,16 @@
 	</select>
 	
 	
-	
+	<select id="selectLectureByAdmin" resultType="LectureVO">
+		select *
+		from
+			lecture
+		where
+			le_me_id = #{le.le_me_id} and 
+			le_su_num = #{le.le_su_num} and
+			le_year = #{le.le_year} and
+			le_semester = #{le.le_semester}
+	</select>
 	
 	
 	
