@@ -47,6 +47,7 @@ public class AdminSubjectInsert extends HttpServlet {
 			request.setAttribute("msg", "이미 존재하는 과목 이름입니다.");
 			request.setAttribute("url", "/admin/subjectinsert");
 			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
 		}
 		
 		

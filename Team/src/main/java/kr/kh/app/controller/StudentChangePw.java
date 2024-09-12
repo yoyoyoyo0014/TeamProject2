@@ -34,12 +34,14 @@ public class StudentChangePw extends HttpServlet {
 			request.setAttribute("msg", "현재 비밀번호가 올바르지 않습니다.");
 			request.setAttribute("url", "/student/changepw");
 			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
 		}
 		
 		if(me_pw.equals(newPw)) {
 			request.setAttribute("msg", "현재 비밀번호와 변경된 비밀번호는 같을 수 없습니다.");
 			request.setAttribute("url", "/student/changepw");
 			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
 		}
 		
 		if(memberService.updateMemberPw(userInfo, newPw)) {
