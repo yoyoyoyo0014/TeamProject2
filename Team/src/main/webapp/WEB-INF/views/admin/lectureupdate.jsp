@@ -36,6 +36,7 @@
 						<br>
 						<label class ="mt-3" for="year">연도:</label>
 						<input type="number" class="form-control" id="year" name="le_year" value="${lec.le_year}" placeholder ="강의연도를 입력헤주세요. 예) 2024">
+						<br>
 						<label class ="mt-3" for="semester">학기:</label>
 						<select  class="form-control" id="semester" name="le_semester">
 						
@@ -107,6 +108,9 @@
 			le_schedule : {
 				required : true,
 				regex : /[월,화,수,목,금,토,일] *[0-9,0-9]+ *교시/
+			},
+			le_year : {
+				required : true
 			}
 		},
 		messages : {
@@ -117,6 +121,9 @@
 			le_schedule : {
 				required : '필수 항목입니다.',
 				regex : '규칙에 맞게 강의시간을 입력헤주세요. 예) 월 1,2,3교시'
+			},
+			le_year : {
+				required : '필수 항목입니다.',
 			}
 		},
 		submitHandler : function(){

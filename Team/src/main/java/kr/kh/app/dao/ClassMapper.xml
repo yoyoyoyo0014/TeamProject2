@@ -21,13 +21,8 @@
             <result property="su_status" column="su_status" />
             <result property="su_ma_num" column="su_ma_num" />
         </association>
-        
-        <association property="member" javaType="kr.kh.app.model.vo.MemberVO">
-            <id property="me_id" column="me_id" />
-            <result property="me_name" column="me_name" />
-        </association>
     </resultMap>
-<select id="selectLectureListByStudent" resultMap="LectureMap"> select * from lecture left join subject on le_su_num = su_num join member on le_me_id = me_id where su_name like concat('%',#{cri.search},'%') order by le_num limit #{cri.pageStart},#{cri.perPageNum} </select>
+<select id="selectLectureListByStudent" resultMap="LectureMap"> select * from lecture left join subject on le_su_num = su_num where su_name like concat('%',#{cri.search},'%') order by le_num limit #{cri.pageStart},#{cri.perPageNum} </select>
 <select id="selectLectureTotalCount" resultType="int"> select count(*) from lecture left join subject on le_su_num = su_num where su_name like concat('%',#{cri.search},'%') </select>
 	<select id="selectLectureListByProfessor" resultMap="LectureMap">
 		select * from lecture 
@@ -59,23 +54,14 @@
 	<select id="selectLecture" resultType="LectureVO"> select * from lecture where le_num = #{le_num} </select>
 	<delete id="deleteSubject"> delete from subject where su_num = #{su_num} </delete>
 	<delete id="deleteLecture"> delete from lecture where le_num = #{le_num} </delete>
-	<insert id="insertLec"> insert into lecture(le_year,le_room,le_schedule,le_semester,le_su_num,le_me_id) values('2024',#{lec.le_room},#{lec.le_schedule},#{lec.le_semester},#{lec.le_su_num},#{lec.le_me_id}) </insert>
-	<update id="updateLec"> update lecture set le_room=#{lec.le_room}, le_schedule = #{lec.le_schedule},le_semester = #{lec.le_semester},le_su_num = #{lec.le_su_num},le_me_id = #{lec.le_me_id} where le_num = #{lec.le_num} </update>
+	<insert id="insertLec"> insert into lecture(le_year,le_room,le_schedule,le_semester,le_su_num,le_me_id) values(#{lec.le_year},#{lec.le_room},#{lec.le_schedule},#{lec.le_semester},#{lec.le_su_num},#{lec.le_me_id}) </insert>
+	<update id="updateLec"> update lecture set le_year = #{lec.le_year},le_room=#{lec.le_room}, le_schedule = #{lec.le_schedule},le_semester = #{lec.le_semester},le_su_num = #{lec.le_su_num},le_me_id = #{lec.le_me_id} where le_num = #{lec.le_num} </update>
 	
 	<select id="selectCourseStudent" resultType="CourseVO">
 		select * from course where co_me_id = #{me_id}
 	</select>
 	
-	<select id="selectLectureByAdmin" resultType="LectureVO">
-		select *
-		from
-			lecture
-		where
-			le_me_id = #{le.le_me_id} and 
-			le_su_num = #{le.le_su_num} and
-			le_year = #{le.le_year} and
-			le_semester = #{le.le_semester}
-	</select>
+	
 	
 	
 	
