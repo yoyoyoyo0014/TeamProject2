@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.MemberVO;
 
 public interface MemberService {
@@ -22,5 +23,9 @@ public interface MemberService {
 	Cookie createCookie(MemberVO user, HttpServletRequest request);
 
 	MemberVO getMemberBySid(String sid);
+
+	List<MajorVO> getMajorList();
+
+	boolean insertUser(MemberVO user, String ma_num);
 
 }
