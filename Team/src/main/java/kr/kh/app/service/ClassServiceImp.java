@@ -123,12 +123,37 @@ public class ClassServiceImp implements ClassService {
 
 	@Override
 	public boolean insertLec(LectureVO lec) {
+		if(lec == null ||
+			lec.getLe_room() == null || lec.getLe_room().trim().length() == 0 ||
+			lec.getLe_schedule() == null || lec.getLe_schedule().trim().length() == 0) {
+			return false;
+		}
+		
+		LectureVO checkLecture = classDao.selectLectureByAdmin(lec);
+		
+		if(checkLecture != null) {
+			return false;
+		}
+
+		
 		return classDao.insertLec(lec);
 	}
 
 
 	@Override
 	public boolean updateLecture(LectureVO lec) {
+		if(lec == null ||
+				lec.getLe_room() == null || lec.getLe_room().trim().length() == 0 ||
+				lec.getLe_schedule() == null || lec.getLe_schedule().trim().length() == 0) {
+				return false;
+			}
+		
+		LectureVO checkLecture = classDao.selectLectureByAdmin(lec);
+		
+		if(checkLecture != null) {
+			return false;
+		}
+		
 		return classDao.updateLec(lec);
 	}
 	@Override

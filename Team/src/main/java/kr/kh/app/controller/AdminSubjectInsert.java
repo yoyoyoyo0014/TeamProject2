@@ -3,13 +3,13 @@ package kr.kh.app.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.security.auth.Subject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
@@ -23,7 +23,7 @@ public class AdminSubjectInsert extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// 전공번호(넘버) 리스트를 가져옴
-    	List<SubjectVO> subjectSuMaNumList = subjectService.subjectSuMaNumList();
+    	List<MajorVO> subjectSuMaNumList = subjectService.subjectSuMaNumList();
     	request.setAttribute("suMaNumList", subjectSuMaNumList);
     	
 		// 전공여부(이름) 리스트를 가져옴
@@ -42,7 +42,7 @@ public class AdminSubjectInsert extends HttpServlet {
 		
 		SubjectVO subject = new SubjectVO(su_name, su_time, su_point, su_status, su_ma_num);
 		
-		SubjectVO checkSubject = subjectService.getSubject(su_name);
+		SubjectVO checkSubject = subjectService.getSubjectByName(su_name);
 		if(checkSubject != null) {
 			request.setAttribute("msg", "이미 존재하는 과목 이름입니다.");
 			request.setAttribute("url", "/admin/subjectinsert");

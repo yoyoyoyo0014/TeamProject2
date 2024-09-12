@@ -44,6 +44,7 @@
 							<th>연도</th>
 							<th>학기</th>
 							<th>강의명</th>
+							<th>교수명</th>
 							<th>강의시간</th>
 							<th>강의실</th>
 							<th>수정/삭제</th>
@@ -57,6 +58,7 @@
 								<td>
 									<a href="<c:url value="/admin/studentlist?le_num=${lecture.le_num}&su_name=${lecture.subject.su_name}"/>">${lecture.subject.su_name}</a>
 								</td>
+								<td>${lecture.member.me_name }</td>
 								<td>${lecture.le_schedule}</td>
 								<td>${lecture.le_room}</td>
 								<td>
