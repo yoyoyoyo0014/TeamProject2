@@ -130,7 +130,6 @@
 	<script type="text/javascript">
 		$(function(){
 			var url = window.location.pathname;
-			console.log(url);
 			
 			$(".lnb_item").find(".lnb_link").each(function(){
 				$(this).toggleClass("_active", $(this).attr("href") == url);
