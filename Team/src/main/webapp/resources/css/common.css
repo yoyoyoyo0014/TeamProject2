@@ -63,7 +63,7 @@
 }
 .main_container .form-control{
   font-size: 14px;
-  height: calc(1.5em + .5rem + 2px);
+  height: 32px;
 }
 .main_container .form-group label+.form-control
 , .main_container .form-group input+.form-control
