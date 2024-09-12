@@ -36,7 +36,7 @@
 							</div>
 						</form>
 						
-					<table class="table">
+					<table class="table table-hover">
 						<colgroup>
 							<col style="width: 10%;">
 							<col style="width: 10%;">
@@ -56,6 +56,7 @@
 							</tr>
 						</thead>
 						<tbody>
+							
 							<c:forEach var="lecture" items="${list}">
 								<tr>
 									<td>${lecture.le_year}</td>

@@ -14,15 +14,8 @@
 	
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		<div class="main_layout">
-			<%-- 메인 헤더 --%>
-			<header class="kh_header">
-				<button type="button" class="sidebar_menu js-sidebar_menu"><i class="ic_sidebar"></i><span class="blind">햄버거 메뉴</span></button>
-				<div class="breadCrumb_wrap">
-					<span class="breadCrumb_item">KH UNIVERSITY</span>
-					<!-- <span class="breadCrumb_item">메인</span> -->
-					<span class="breadCrumb_item">강의 목록</span>
-				</div>
-			</header>
+		
+			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 			<div class="main_container">
 				<div class="container-fluid">
@@ -58,6 +51,11 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:if test ="${list.size()==0 }">
+							<tr>
+								<th colspan="7" class="text-center">검색 결과가 없습니다.</th>
+							</tr>
+						</c:if>
 						<c:forEach var="lecture" items="${list}">
 							<tr>
 								<td>${lecture.le_year}</td>
@@ -76,11 +74,6 @@
 								</td>
 							</tr>
 						</c:forEach>
-						<c:if test="${list.size() == 0 }">
-							<tr>
-								<td colspan="7" class="text-center">조회된 강의가 없습니다.</td>
-							</tr>
-						</c:if>
 					</tbody>
 				</table>
 				
