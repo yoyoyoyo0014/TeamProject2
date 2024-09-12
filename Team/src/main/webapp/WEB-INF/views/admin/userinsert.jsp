@@ -36,16 +36,16 @@
 					
 					<form action="<c:url value="/admin/userinsert"/>" method="post" id="form">
 						<div class="form-group">
-				  			<label for="id">학번:</label>
-				  			<input type="text" class="form-control" name="me_id">
+				  			<label for="id">학번 ([연도 2자리]+[전공번호 3자리]+[회원별 개인 3자리])</label>
+				  			<input type="text" class="form-control" name="me_id" placeholder="학번을 입력하세요. 예) 24123001">
 						</div>
 						<div class="form-group">
 				  			<label for="name">이름:</label>
-				  			<input type="text" class="form-control" name="me_name">
+				  			<input type="text" class="form-control" name="me_name" placeholder="이름을 입력하세요.">
 						</div>
 						<div class="form-group">
 				  			<label for="email">이메일:</label>
-				  			<input type="text" class="form-control" name="me_email">
+				  			<input type="text" class="form-control" name="me_email" placeholder="이메일을 입력하세요.">
 						</div>
 						<div class="form-group">
 							<label for="major">전공:</label>

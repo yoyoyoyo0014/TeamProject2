@@ -37,15 +37,15 @@
 						<form action="<c:url value="/professor/changepw"/>" method="post" id="form">
 							<div class="form-group">
 					  			<label for="pw">현재 비밀번호:</label>
-					  			<input type="password" class="form-control" id="me_pw" name="me_pw">
+					  			<input type="password" class="form-control" id="me_pw" name="me_pw" placeholder="비밀번호를 입력하세요.">
 							</div>
 							<div class="form-group">
 					  			<label for="newPw">변경할 비밀번호:</label>
-					  			<input type="password" class="form-control" id="newPw" name="newPw">
+					  			<input type="password" class="form-control" id="newPw" name="newPw" placeholder="비밀번호를 입력하세요.">
 							</div>
 							<div class="form-group">
 					  			<label for="newPw2">변경할 비밀번호 확인:</label>
-					  			<input type="password" class="form-control" id="newPw2" name="newPw2">
+					  			<input type="password" class="form-control" id="newPw2" name="newPw2" placeholder="비밀번호를 입력하세요.">
 							</div>
 							<div class="text-right">
 								<button type="submit" class="btn btn-outline-warning">비밀번호 변경</button>
