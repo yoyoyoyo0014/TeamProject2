@@ -72,7 +72,7 @@
   padding: 0px;
 }
 
-.error{
+.main_container label.error{
   margin-top: 5px;
   color: red;
 }

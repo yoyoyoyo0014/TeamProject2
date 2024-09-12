@@ -42,7 +42,7 @@
 						  			<input type="password" class="form-control" id="me_pw" name="me_pw">
 						  			<a class="btn btn-outline-danger ml-2" href="<c:url value="/professor/changepw"/>">비밀번호 변경</a>
 					  			</div>
-					  			<label id="me_pw-error" class="error mt-2" for="me_pw" style="display: none;">필수 항목입니다.</label>
+					  			<label id="me_pw-error" class="error" for="me_pw" style="display: none;">필수 항목입니다.</label>
 							</div>
 							<div class="form-group">
 					  			<label for="name">이름:</label>
