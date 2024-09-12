@@ -42,6 +42,14 @@ public class AdminSubjectInsert extends HttpServlet {
 		
 		SubjectVO subject = new SubjectVO(su_name, su_time, su_point, su_status, su_ma_num);
 		
+		SubjectVO checkSubject = subjectService.getSubject(su_name);
+		if(checkSubject != null) {
+			request.setAttribute("msg", "이미 존재하는 과목 이름입니다.");
+			request.setAttribute("url", "/admin/subjectinsert");
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+		}
+		
+		
 		// 과목 추가 여부에 따른 알림 처리
 		if(subjectService.subjectInsert(subject)) {
 			request.setAttribute("msg", "과목 추가에 성공했습니다.");

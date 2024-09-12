@@ -21,7 +21,7 @@ public interface SubjectDAO {
 
 	List<SubjectVO> selectSubjectLectureList();
 
-	boolean professorSubjectInsert(@Param("le")LectureVO lecture);
+	boolean lectureInsert(@Param("le")LectureVO lecture);
 
 	int selectSubjectTotalCount(@Param("cri")Criteria cri);
 
@@ -34,5 +34,9 @@ public interface SubjectDAO {
 	List<SubjectVO> getSubjectList(@Param("su_num")String su_num);
 
 	boolean updateSubject(@Param("su")SubjectVO subject);
+
+	LectureVO getLecture(@Param("le")LectureVO lecture);
+
+	SubjectVO getSubject(@Param("su_name")String su_name);
 
 }

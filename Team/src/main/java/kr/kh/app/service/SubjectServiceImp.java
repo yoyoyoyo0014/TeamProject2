@@ -57,13 +57,21 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public boolean professorSubjectInsert(LectureVO lecture) {
+	public boolean lectureInsert(LectureVO lecture) {
 		if(lecture.getLe_me_id() == null || lecture.getLe_room().trim().length() == 0
 				|| lecture.getLe_schedule().trim().length() == 0 || lecture.getLe_year() == 0
 				|| lecture.getLe_semester().trim().length() == 0) {
 			return false;
 		}
-		return subjectDao.professorSubjectInsert(lecture);
+		LectureVO myLecture = subjectDao.getLecture(lecture);
+		
+		System.out.println(myLecture);
+		
+		if(myLecture != null) {
+			return false;
+		}
+		
+		return subjectDao.lectureInsert(lecture);
 	}
 
 	@Override
@@ -108,7 +116,16 @@ public class SubjectServiceImp implements SubjectService {
 		if(subject == null) {
 			return false;
 		}
+		SubjectVO checkSubject = getSubject(subject.getSu_name());
+		if(checkSubject != null) {
+			return false;
+		}
 		return subjectDao.updateSubject(subject);
+	}
+
+	@Override
+	public SubjectVO getSubject(String su_name) {
+		return subjectDao.getSubject(su_name);
 	}
 
 }

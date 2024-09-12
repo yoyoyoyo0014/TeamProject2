@@ -68,6 +68,13 @@ public class AdminSubjectUpdate extends HttpServlet {
 		SubjectVO subject = new SubjectVO(su_num, su_name, su_time, su_point, su_status, su_ma_num);
 		System.out.println(subject);
 		
+		SubjectVO checkSubject = subjectService.getSubject(su_name);
+		if(checkSubject != null) {
+			request.setAttribute("msg", "이미 존재하는 과목 이름입니다.");
+			request.setAttribute("url", "/admin/subjectupdate");
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+		}
+		
 		// 과목 추가 여부에 따른 알림 처리
 		if(subjectService.subjectUpdate(subject)) {
 			request.setAttribute("msg", "과목 수정에 성공했습니다.");

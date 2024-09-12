@@ -15,7 +15,8 @@
 			member 
 		set 
 			me_name = #{user.me_name},
-			me_email = #{user.me_email}
+			me_email = #{user.me_email},
+			me_cookie = #{user.me_cookie}
 		where
 			me_id = #{user.me_id} 
 	</update>
@@ -27,4 +28,10 @@
 		where
 			me_id = #{me_id}
 	</update>
+	<update id="updateMemberCookie">
+		update member set me_cookie = #{user.me_cookie}, me_limit = #{user.me_limit} where me_id = #{user.me_id}
+	</update>
+	<select id="selectMemberBySid" resultType="MemberVO">
+	 	select * from member where me_cookie = #{sid} and me_limit > now() 
+	 </select>
 </mapper>

@@ -18,7 +18,7 @@ public interface SubjectService {
 
 	List<SubjectVO> getSubjectLectureList();
 
-	boolean professorSubjectInsert(LectureVO lecture);
+	boolean lectureInsert(LectureVO lecture);
 
 	PageMaker getPageMaker(Criteria cri, int displayPageNum);
 
@@ -33,5 +33,7 @@ public interface SubjectService {
 	List<SubjectVO> subjectList(String su_num);
 
 	boolean subjectUpdate(SubjectVO subject);
+
+	SubjectVO getSubject(String su_name);
 
 }
