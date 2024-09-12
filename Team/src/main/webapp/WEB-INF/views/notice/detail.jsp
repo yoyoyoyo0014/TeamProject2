@@ -16,8 +16,25 @@
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		
 		<div class="main_layout">
-			<%-- 헤더 --%>
-			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			<%-- 메인 헤더 --%>
+			<header class="kh_header">
+				<div class="breadCrumb_wrap">
+					<span class="breadCrumb_item">KH UNIVERSITY</span>
+					<!-- <span class="breadCrumb_item">메인</span> -->
+					<span class="breadCrumb_item">공지사항</span>
+				</div>
+				<div class="search_wrap">
+					<form class="search_group" action="/">
+						<div class="search_bar_wrap">
+							<input class="search_bar" id="search" type="text" placeholder="Search" name="search">
+							<button class="btn btn_search p-0" type="submit">
+								<i class="ic_search"></i>
+								<span class="blind">검색</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</header>
 			
 			<div class="main_container">
 				<h1 class="mb-3">공지사항 상세</h1>
@@ -25,7 +42,7 @@
 					
 					<div class="detail_group">
 						<div class="detail_wrap">
-							<div class="detail_content detail_main_title">${notice.no_title}</div>
+							<div class="detail_main_title">${notice.no_title}</div>
 						</div>
 						<div class="detail_wrap flex33">
 							<div class="d-flex">

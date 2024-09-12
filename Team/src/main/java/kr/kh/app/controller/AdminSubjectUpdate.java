@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.service.SubjectService;
 import kr.kh.app.service.SubjectServiceImp;
@@ -22,30 +23,18 @@ public class AdminSubjectUpdate extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 화면에서 넘겨준 su_ma_num, su_status, su_num 값을 가져옴
-		String su_ma_num = request.getParameter("su_ma_num");
-		String su_status = request.getParameter("su_status");
+		// 화면에서 넘겨준 su_num 값을 가져옴
 		String su_num = request.getParameter("su_num");
-		
-//		int su_num = 0;
-//		try {
-//			su_num = Integer.parseInt(suNum);
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//		}
 
 		// 전공여부(이름) 리스트를 가져옴
+		List<MajorVO> majorList = subjectService.subjectSuMaNumList();
 		List<SubjectVO> subjectStatusList = subjectService.getSubjectStatusList();
-		List<SubjectVO> subjectSuMaNumList = subjectService.subjectSuMaNumList();
-		List<SubjectVO> subjectList = subjectService.subjectList(su_num);
+		SubjectVO subject = subjectService.getSubjectByNum(su_num);
 		
-		System.out.println(subjectList);
 		
-		request.setAttribute("su_status", su_status);
-		request.setAttribute("su_ma_num", su_ma_num);
-		request.setAttribute("suMaNumList", subjectSuMaNumList);
+		request.setAttribute("majorList", majorList);
 		request.setAttribute("statusList", subjectStatusList);
-		request.setAttribute("subjectList", subjectList);
+		request.setAttribute("subject", subject);
 		
 		request.getRequestDispatcher("/WEB-INF/views/admin/subjectupdate.jsp").forward(request, response);
 	}
@@ -66,7 +55,14 @@ public class AdminSubjectUpdate extends HttpServlet {
 		}
 		
 		SubjectVO subject = new SubjectVO(su_num, su_name, su_time, su_point, su_status, su_ma_num);
-		System.out.println(subject);
+		
+		SubjectVO checkSubject = subjectService.getSubjectByName(su_name);
+		if(checkSubject != null) {
+			request.setAttribute("msg", "이미 존재하는 과목 이름입니다.");
+			request.setAttribute("url", "/admin/subjectupdate?su_num="+su_num);
+			request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
+			return;
+		}
 		
 		// 과목 추가 여부에 따른 알림 처리
 		if(subjectService.subjectUpdate(subject)) {
@@ -74,7 +70,7 @@ public class AdminSubjectUpdate extends HttpServlet {
 			request.setAttribute("url", "/admin/subjectlist");
 		}else {
 			request.setAttribute("msg", "과목 수정에 실패했습니다.");
-			request.setAttribute("url", "/admin/subjectupdate");
+			request.setAttribute("url", "/admin/subjectupdate?su_num="+su_num);
 		}
 		request.getRequestDispatcher("/WEB-INF/views/message.jsp").forward(request, response);
 	}

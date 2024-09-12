@@ -24,7 +24,7 @@
 				<%-- 학생 메뉴 --%>
 				<c:if test="${user.me_authority == 'STUDENT'}">
 					<li class="lnb_item">
-						<a href="<c:url value="/student/subjectlist"/>" class="lnb_link">
+						<a href="<c:url value="/student/subjectlist"/>" class="lnb_link subject">
 							<i class="ic_subject"></i>
 							<span>과목조회</span>
 						</a>
@@ -98,7 +98,7 @@
 						</a>
 					</li>
 					<li class="lnb_item">
-						<a href="<c:url value="/admin/insertUser"/>" class="lnb_link">
+						<a href="<c:url value="/admin/userinsert"/>" class="lnb_link">
 							<i class="ic_people"></i>
 							<span>회원등록</span>
 						</a>
@@ -126,3 +126,13 @@
 			</h1>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$(function(){
+			var url = window.location.pathname;
+			
+			$(".lnb_item").find(".lnb_link").each(function(){
+				$(this).toggleClass("_active", $(this).attr("href") == url);
+			});
+		});
+	</script>

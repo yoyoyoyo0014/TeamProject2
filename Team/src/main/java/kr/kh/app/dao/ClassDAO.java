@@ -41,4 +41,6 @@ public interface ClassDAO {
 
 	List<MajorVO> selectMajorList();
 
+	LectureVO selectLectureByAdmin(@Param("le")LectureVO lec);
+
 }

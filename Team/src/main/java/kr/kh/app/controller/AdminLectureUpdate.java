@@ -59,16 +59,19 @@ public class AdminLectureUpdate extends HttpServlet {
 		String subjectNumStr = request.getParameter("le_subject");
 		String professorMemId = request.getParameter("le_professor");
 		
+		String yearStr = request.getParameter("le_year");
 		
+		int year = 0;
 		int num = 0;
 		int subjectNum = 0;
 		try {
+			year = Integer.parseInt(yearStr);
 			num =  Integer.parseInt(numStr);
 			subjectNum = Integer.parseInt(subjectNumStr);
 		}catch(Exception e) {
 			
 		}
-		LectureVO lec = new LectureVO(num,room,schedule,semester,subjectNum,professorMemId);
+		LectureVO lec = new LectureVO(num,room,schedule,semester,subjectNum,professorMemId,year);
 		
 		if(classService.updateLecture(lec)) {
 			request.setAttribute("msg", "강의 수정을 성공했습니다.");

@@ -32,13 +32,14 @@ public class LectureVO {
 		this.le_semester = le_semester;
 		this.le_me_id = me_id;
 	}
-	public LectureVO(int num,String room, String schedule, String semester, int subjectNum, String professorMemId) {
+	public LectureVO(int num,String room, String schedule, String semester, int subjectNum, String professorMemId,int year) {
 		this.le_num = num;
 		this.le_room = room;
 		this.le_schedule = schedule;
 		this.le_semester = semester;
 		this.le_su_num = subjectNum;
 		this.le_me_id = professorMemId;
+		this.le_year = year;
 	}
 	
 	public LectureVO(String room, String schedule, String semester, int subjectNum, String professorMemId) {

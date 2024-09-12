@@ -17,8 +17,25 @@
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		
 		<div class="main_layout">
-			<%-- 헤더 --%>
-			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			<%-- 메인 헤더 --%>
+			<header class="kh_header">
+				<div class="breadCrumb_wrap">
+					<span class="breadCrumb_item">KH UNIVERSITY</span>
+					<!-- <span class="breadCrumb_item">메인</span> -->
+					<span class="breadCrumb_item">과목조회</span>
+				</div>
+				<div class="search_wrap">
+					<form class="search_group" action="/">
+						<div class="search_bar_wrap">
+							<input class="search_bar" id="search" type="text" placeholder="Search" name="search">
+							<button class="btn btn_search p-0" type="submit">
+								<i class="ic_search"></i>
+								<span class="blind">검색</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</header>
 			
 			<div class="main_container">
 				<div class="container-fluid">
@@ -64,7 +81,7 @@
 									<td>${suList.ma_name}</td>
 									<td>${suList.su_status}</td>
 									<td>
-										<a href="<c:url value="/admin/subjectupdate?su_num=${suList.su_num}&su_ma_num=${suList.su_ma_num}&su_status=${suList.su_status}" />" class="btn btn-outline-warning">수정</a>
+										<a href="<c:url value="/admin/subjectupdate?su_num=${suList.su_num}" />" class="btn btn-outline-warning">수정</a>
 										<a href="<c:url value="/admin/subjectdelete?su_num=${suList.su_num}" />" class="btn btn-outline-danger">삭제</a>
 									</td>
 								</tr>

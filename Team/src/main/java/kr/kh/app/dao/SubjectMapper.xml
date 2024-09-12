@@ -31,8 +31,8 @@
     </resultMap>
     -->
 	
-	<select id="subjectSuMaNumList" resultType="SubjectVO">
-		SELECT DISTINCT ma_num, ma_name, su_ma_num FROM subject join major on su_ma_num = ma_num
+	<select id="subjectSuMaNumList" resultType="MajorVO">
+		SELECT * FROM major
 	</select>
 	
 	<insert id="subjectInsert">
@@ -63,7 +63,7 @@
 		delete from subject where su_num = #{su_num}
 	</delete>
 	
-	<select id="getSubjectList" resultType="SubjectVO">
+	<select id="selectSubjectByNum" resultType="SubjectVO">
 		select * from subject where su_num = #{su_num}
 	</select>
 	
@@ -75,6 +75,7 @@
 			, su_time = #{su.su_time}
 			, su_point = #{su.su_point}
 			, su_status = #{su.su_status}
+			, su_ma_num = #{su.su_ma_num}
 		where
 			su_num = #{su.su_num}
 	</update>
@@ -88,7 +89,7 @@
 			le_year = #{le.le_year} and
 			le_semester = #{le.le_semester} 
 	</select>
-	<select id="getSubject" resultType="SubjectVO">
-		select * from subject where su_name = #{su_name}
+	<select id="selectSubjectByName" resultType="SubjectVO">
+		select * from subject where (select replace(su_name, ' ', '')) = (select replace(#{su_name}, ' ', ''))
 	</select>
 </mapper>
