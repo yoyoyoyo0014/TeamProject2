@@ -59,9 +59,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:if test ="${list.size()==0 }">
+						<c:if test="${list.size() == 0 }">
 							<tr>
-								<th colspan="7" class="text-center">검색 결과가 없습니다.</th>
+								<td colspan="7" class="text-center">조회된 강의가 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:forEach var="lecture" items="${list}">
