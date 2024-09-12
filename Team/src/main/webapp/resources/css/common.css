@@ -58,9 +58,11 @@
 }
 .main_container .form-control{
   font-size: 14px;
+  height: calc(1.5em + .5rem + 2px);
 }
 .main_container .form-group label+.form-control
-,.main_container .form-group input+.form-control{
+, .main_container .form-group input+.form-control
+, .main_container .form-group label+.d-flex{
   margin-top: 5px;
 }
 .main_container .input-group-text{
@@ -70,6 +72,10 @@
   padding: 0px;
 }
 
+.error{
+  margin-top: 5px;
+  color: red;
+}
 /* 전체 공통 끝 */
 
 /* 색상 시작 */
@@ -551,6 +557,9 @@ i{
 }
 .con_min_h{
 	min-height: 200px;
+}
+.form-control + .btn-outline-danger.ml-2{
+	min-width: 110px;
 }
 .btn_wrap{
 	display: flex;
