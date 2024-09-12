@@ -40,15 +40,15 @@
 				  			<input type="text" class="form-control" name="me_id" placeholder="학번을 입력하세요. 예) 24123001">
 						</div>
 						<div class="form-group">
-				  			<label for="name">이름:</label>
+				  			<label for="name">이름</label>
 				  			<input type="text" class="form-control" name="me_name" placeholder="이름을 입력하세요.">
 						</div>
 						<div class="form-group">
-				  			<label for="email">이메일:</label>
+				  			<label for="email">이메일</label>
 				  			<input type="text" class="form-control" name="me_email" placeholder="이메일을 입력하세요.">
 						</div>
 						<div class="form-group">
-							<label for="major">전공:</label>
+							<label for="major">전공</label>
 							<select class="form-control" id="major" name="major">
 								<c:forEach items="${list }" var="major">
 									<c:if test="${major.ma_name ne \"교양\" }">
@@ -60,7 +60,7 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="authority">권한:</label>
+							<label for="authority">권한</label>
 							<select class="form-control" id="authority" name="me_authority">
 								<option value="STUDENT">학생</option>
 								<option value="PROFESSOR">교수</option>

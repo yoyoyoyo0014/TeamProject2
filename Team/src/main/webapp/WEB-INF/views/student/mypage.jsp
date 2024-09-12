@@ -33,11 +33,11 @@
 					<c:if test="${user ne null}">
 						<form action="<c:url value="/student/mypage"/>" method="post" id="form">
 							<div class="form-group">
-					  			<label for="id">학번:</label>
+					  			<label for="id">학번</label>
 					  			<input type="text" class="form-control" id="me_id" name="me_id" readonly value="${user.me_id}">
 							</div>
 							<div class="form-group">
-					  			<label for="pw">현재 비밀번호:</label>
+					  			<label for="pw">현재 비밀번호</label>
 					  			<div class="d-flex align-items-center">
 						  			<input type="password" class="form-control" id="me_pw" name="me_pw" placeholder="비밀번호를 입력하세요.">
 					  				<a class="btn btn-outline-danger ml-2" href="<c:url value="/student/changepw"/>">비밀번호 변경</a>
@@ -45,11 +45,11 @@
 					  			<label id="me_pw-error" class="error" for="me_pw" style="display: none;">필수 항목입니다.</label>
 							</div>
 							<div class="form-group">
-					  			<label for="name">이름:</label>
+					  			<label for="name">이름</label>
 					  			<input type="text" class="form-control" id="me_name" name="me_name" value="${user.me_name}" placeholder="이름을 입력하세요.">
 							</div>
 							<div class="form-group">
-					  			<label for="email">이메일:</label>
+					  			<label for="email">이메일</label>
 					  			<input type="text" class="form-control" id="me_email" name="me_email" value="${user.me_email}" placeholder="이메일을 입력하세요.">
 							</div>
 							<div class="text-right">
