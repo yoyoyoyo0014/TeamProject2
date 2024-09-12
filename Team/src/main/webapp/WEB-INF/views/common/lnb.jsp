@@ -134,5 +134,9 @@
 			$(".lnb_item").find(".lnb_link").each(function(){
 				$(this).toggleClass("_active", $(this).attr("href") == url);
 			});
+			
+			$(".js-sidebar_menu").on("click", function(){
+				$(".lnb_wrap").toggleClass("_off");
+			});
 		});
 	</script>

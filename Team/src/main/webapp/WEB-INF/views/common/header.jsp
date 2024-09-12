@@ -4,11 +4,6 @@
 
 	<%-- 메인 헤더 --%>
 	<header class="kh_header">
-		<div class="breadCrumb_wrap">
-			<span class="breadCrumb_item">KH UNIVERSITY</span>
-			<!-- <span class="breadCrumb_item">메인</span> -->
-			<span class="breadCrumb_item">과목조회</span>
-		</div>
 		<div class="search_wrap">
 			<form class="search_group" action="/">
 				<div class="search_bar_wrap">
@@ -19,5 +14,10 @@
 					</button>
 				</div>
 			</form>
+		</div>
+		<div class="breadCrumb_wrap">
+			<span class="breadCrumb_item">KH UNIVERSITY</span>
+			<!-- <span class="breadCrumb_item">메인</span> -->
+			<span class="breadCrumb_item">과목조회</span>
 		</div>
 	</header>
