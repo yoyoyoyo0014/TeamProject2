@@ -48,9 +48,9 @@
   border-radius: .25rem;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-.main_container .form-group select+.btn
-, .main_container .form-group select+label
-, .main_container .form-group select{
+.main_container .form-group.d-flex.align-items-center select+.btn
+, .main_container .form-group.d-flex.align-items-center select+label
+, .main_container .form-group.d-flex.align-items-center select{
   margin-left: 5px;
 }
 .main_container label{
@@ -58,6 +58,9 @@
 }
 .main_container .form-control{
   font-size: 14px;
+}
+.main_container .form-group label+.form-control{
+  margin-top: 5px;
 }
 .main_container .input-group-text{
   font-size: 14px;
@@ -252,7 +255,8 @@ i{
 /* 버튼 시작 */
 .main_container .btn{
   padding: 4.5px 10px;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 1.75;
 }
 .btn_invisible{
   display: inline-flex;
@@ -470,7 +474,7 @@ i{
 .main_container .pagination {
   margin-bottom: 0px;
   padding: 0px;
-  font-size: .875rem;
+  font-size: .75rem;
   line-height: 1.5;
 }
 .ft_info_wrap{
@@ -499,7 +503,10 @@ i{
 
 }
 .detail_main_title{
-  font-size: 18px;
+  flex: 1 1 auto;
+  border-right: 1px solid #E3E4E4;
+  padding: 14px 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 .detail_title{
@@ -521,9 +528,10 @@ i{
   flex: 1 1 auto;
   border-right: 1px solid #E3E4E4;
   padding: 14px 20px;
+  font-size: 13px;
 }
 .con_min_h{
-	min-height: 100px;
+	min-height: 200px;
 }
 .btn_wrap{
 	display: flex;

@@ -25,7 +25,7 @@
 					
 					<div class="detail_group">
 						<div class="detail_wrap">
-							<div class="detail_content detail_main_title">${notice.no_title}</div>
+							<div class="detail_main_title">${notice.no_title}</div>
 						</div>
 						<div class="detail_wrap flex33">
 							<div class="d-flex">
