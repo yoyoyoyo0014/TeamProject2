@@ -15,8 +15,15 @@
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		
 		<div class="main_layout">
-			<%-- 헤더 --%>
-			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+			<%-- 메인 헤더 --%>
+			<header class="kh_header">
+				<button type="button" class="sidebar_menu js-sidebar_menu"><i class="ic_sidebar"></i><span class="blind">햄버거 메뉴</span></button>
+				<div class="breadCrumb_wrap">
+					<span class="breadCrumb_item">KH UNIVERSITY</span>
+					<!-- <span class="breadCrumb_item">메인</span> -->
+					<span class="breadCrumb_item">공지사항</span>
+				</div>
+			</header>
 			
 			<div class="main_container">
 				<div class="container-fluid">
