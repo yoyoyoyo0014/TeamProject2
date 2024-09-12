@@ -8,7 +8,7 @@
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
-<title>개인정보수정</title>
+<title>개인 정보 수정</title>
 </head>
 <body>
 
@@ -23,13 +23,13 @@
 				<div class="breadCrumb_wrap">
 					<span class="breadCrumb_item">KH UNIVERSITY</span>
 					<!-- <span class="breadCrumb_item">메인</span> -->
-					<span class="breadCrumb_item">공지사항</span>
+					<span class="breadCrumb_item">개인 정보 수정</span>
 				</div>
 			</header>
 			
 			<div class="main_container">
 				<div class="container">
-					<h1 class="mt-3">개인정보수정</h1>
+					<h1 class="">개인 정보 수정</h1>
 					<c:if test="${user ne null}">
 						<form action="<c:url value="/student/mypage"/>" method="post" id="form">
 							<div class="form-group">

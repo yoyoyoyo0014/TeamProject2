@@ -23,13 +23,13 @@
 			<div class="breadCrumb_wrap">
 				<span class="breadCrumb_item">KH UNIVERSITY</span>
 				<!-- <span class="breadCrumb_item">메인</span> -->
-				<span class="breadCrumb_item">공지사항</span>
+				<span class="breadCrumb_item">강의 개설</span>
 			</div>
 		</header>
 		
 		<div class="main_container">
 			<div class="container">
-				<h1 class="mb-3">과목 관리 페이지</h1>
+				<h1 class="mb-3">강의 개설</h1>
 				<form action="<c:url value="/admin/lectureinsert" />" method="post">
 					<div class="form-group">
 						<label for="su_name">과목명</label>

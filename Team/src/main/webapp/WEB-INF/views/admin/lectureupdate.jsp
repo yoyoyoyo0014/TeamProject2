@@ -9,13 +9,7 @@
 <title>강의 수정</title>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
-
-<style>
-	.error{
-			 color: red; 
-	}
-</style>
-
+<title>강의 수정</title>
 </head>
 <body>
 
@@ -28,7 +22,7 @@
 					<div class="breadCrumb_wrap">
 						<span class="breadCrumb_item">KH UNIVERSITY</span>
 						<!-- <span class="breadCrumb_item">메인</span> -->
-						<span class="breadCrumb_item">공지사항</span>
+						<span class="breadCrumb_item">강의 수정</span>
 					</div>
 				</header>
 				

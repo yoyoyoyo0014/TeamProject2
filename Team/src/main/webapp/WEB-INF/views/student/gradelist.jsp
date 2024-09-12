@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
-<title>성적조회</title>
+<title>성적 조회</title>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 				<div class="breadCrumb_wrap">
 					<span class="breadCrumb_item">KH UNIVERSITY</span>
 					<!-- <span class="breadCrumb_item">메인</span> -->
-					<span class="breadCrumb_item">공지사항</span>
+					<span class="breadCrumb_item">성적 조회</span>
 				</div>
 			</header>
 			

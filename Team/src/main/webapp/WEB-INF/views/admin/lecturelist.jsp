@@ -20,7 +20,7 @@
 				<div class="breadCrumb_wrap">
 					<span class="breadCrumb_item">KH UNIVERSITY</span>
 					<!-- <span class="breadCrumb_item">메인</span> -->
-					<span class="breadCrumb_item">공지사항</span>
+					<span class="breadCrumb_item">강의 목록</span>
 				</div>
 			</header>
 			

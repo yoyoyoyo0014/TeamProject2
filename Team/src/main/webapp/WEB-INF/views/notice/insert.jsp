@@ -29,7 +29,7 @@
 			
 			<div class="main_container">
 				<div class="container">
-					<h1 class="mt-3">공지사항 등록</h1>
+					<h1 class="">공지사항 등록</h1>
 					<form action="<c:url value="/notice/insert"/>" method="post">
 						<div class="form-group">
 				  			<label for="title">제목:</label>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="/WEB-INF/views/common/head.jsp"/>
-<title>공지사항 조회</title>
+<title>공지사항 상세</title>
 </head>
 <body>
 

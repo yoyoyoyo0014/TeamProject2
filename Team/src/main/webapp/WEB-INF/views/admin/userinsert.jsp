@@ -11,7 +11,7 @@
 <style type="text/css">
 	.error{color : red;}
 </style>
-<title>회원등록</title>
+<title>회원 등록</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
 			
 			<div class="main_container">
 				<div class="container">
-					<h1 class="mt-3">회원등록</h1>
+					<h1 class="">회원 등록</h1>
 					
 					<form action="<c:url value="/admin/userinsert"/>" method="post" id="form">
 						<div class="form-group">

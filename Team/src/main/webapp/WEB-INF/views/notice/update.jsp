@@ -23,13 +23,13 @@
 				<div class="breadCrumb_wrap">
 					<span class="breadCrumb_item">KH UNIVERSITY</span>
 					<!-- <span class="breadCrumb_item">메인</span> -->
-					<span class="breadCrumb_item">공지사항</span>
+					<span class="breadCrumb_item">공지사항 수정</span>
 				</div>
 			</header>
 			
 			<div class="main_container">
 				<div class="container">
-					<h1 class="mt-3">공지사항 수정</h1>
+					<h1 class="">공지사항 수정</h1>
 					<form action="<c:url value="/notice/update"/>" method="post">
 						<input type="hidden" name="no_num" value="${notice.no_num}">
 						<div class="form-group">
