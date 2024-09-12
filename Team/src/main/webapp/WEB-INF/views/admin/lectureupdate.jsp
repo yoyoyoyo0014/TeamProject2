@@ -32,22 +32,22 @@
 					<form action="<c:url value="/admin/lectureupdate"/>" method ="post" id = "form">
 						<input  type = "hidden" id ="num" name = "le_num" value ="${lec.le_num }">
 						<div class="form-group">
-							<label class ="mt-3" for="room" class = "m">강의실:</label>
+							<label class ="mt-3" for="room" class = "m">강의실</label>
 							<input type="text" class="form-control" id="room" name="le_room" value="${lec.le_room}"  placeholder ="강의실 입력헤주세요. 예) A관 104호">
 						</div>
 
 						<div class="form-group">
-							<label class ="mt-3" for="schedule">강의시간:</label>
+							<label class ="mt-3" for="schedule">강의시간</label>
 							<input type="text" class="form-control" id="schedule" name="le_schedule" value="${lec.le_schedule}" placeholder ="강의시간을 입력헤주세요. 예) 월 1,2,3교시">
 						</div>
 
 						<div class="form-group">
-							<label class ="mt-3" for="year">연도:</label>
+							<label class ="mt-3" for="year">연도</label>
 							<input type="number" class="form-control" id="year" name="le_year" value="${lec.le_year}" placeholder ="강의연도를 입력헤주세요. 예) 2024">
 						</div>
 
 						<div class="form-group">
-							<label class ="mt-3" for="semester">학기:</label>
+							<label class ="mt-3" for="semester">학기</label>
 							<select  class="form-control" id="semester" name="le_semester">
 								<c:if test="${lec.le_semester.equals('1학기')}">
 									<option value="1학기" selected>1학기</option>
