@@ -3,6 +3,7 @@ package kr.kh.app.service;
 import java.util.List;
 
 import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.pagination.Criteria;
@@ -12,7 +13,7 @@ public interface SubjectService {
 
 	List<SubjectVO> getSubjectStatusList();
 
-	List<SubjectVO> subjectSuMaNumList();
+	List<MajorVO> subjectSuMaNumList();
 
 	boolean subjectInsert(SubjectVO subject);
 
@@ -30,10 +31,10 @@ public interface SubjectService {
 
 	boolean deleteSubject(String su_num);
 
-	List<SubjectVO> subjectList(String su_num);
+	SubjectVO getSubjectByNum(String su_num);
 
 	boolean subjectUpdate(SubjectVO subject);
 
-	SubjectVO getSubject(String su_name);
+	SubjectVO getSubjectByName(String su_name);
 
 }

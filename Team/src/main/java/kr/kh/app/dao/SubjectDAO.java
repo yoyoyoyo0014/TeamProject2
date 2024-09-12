@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.pagination.Criteria;
@@ -15,7 +16,7 @@ public interface SubjectDAO {
 
 	List<SubjectVO> selectSubjectStatusList();
 
-	List<SubjectVO> subjectSuMaNumList();
+	List<MajorVO> subjectSuMaNumList();
 
 	boolean subjectInsert(@Param("su")SubjectVO subject);
 
@@ -31,12 +32,12 @@ public interface SubjectDAO {
 
 	boolean deleteSubject(@Param("su_num")String su_num);
 
-	List<SubjectVO> getSubjectList(@Param("su_num")String su_num);
+	SubjectVO selectSubjectByNum(@Param("su_num")String su_num);
 
 	boolean updateSubject(@Param("su")SubjectVO subject);
 
 	LectureVO getLecture(@Param("le")LectureVO lecture);
 
-	SubjectVO getSubject(@Param("su_name")String su_name);
+	SubjectVO selectSubjectByName(@Param("su_name")String su_name);
 
 }

@@ -23,6 +23,8 @@
 						<input type="text" class="form-control" id="room" name="le_room" value="${lec.le_room}"  placeholder ="강의실 입력헤주세요. 예) A관 104호">
 						<label class ="mt-3" for="schedule">강의시간:</label>
 						<input type="text" class="form-control" id="schedule" name="le_schedule" value="${lec.le_schedule}" placeholder ="강의시간을 입력헤주세요. 예) 월 1,2,3교시">
+						<label class ="mt-3" for="year">연도:</label>
+						<input type="text" class="form-control" id="year" name="le_year" value="${lec.le_year}" placeholder ="강의연도를 입력헤주세요. 예) 2024">
 						<label class ="mt-3" for="semester">학기:</label>
 						<select  class="form-control" id="semester" name="le_semester">
 						
@@ -30,18 +32,26 @@
 								<option value="1학기" selected>1학기</option>
 								<option value="2학기">2학기</option>
 								<option value="여름방학">여름방학</option>
+								<option value="겨울방학">겨울방학</option>
 							</c:if>
 							<c:if test="${lec.le_semester.equals('2학기')}">
 								<option value="1학기" >1학기</option>
 								<option value="2학기" selected>2학기</option>
 								<option value="여름방학">여름방학</option>
+								<option value="겨울방학">겨울방학</option>
 							</c:if>
 							<c:if test="${lec.le_semester.equals('여름방학')}">
 								<option value="1학기">1학기</option>
 								<option value="2학기">2학기</option>
 								<option value="여름방학" selected>여름방학</option>
+								<option value="겨울방학">겨울방학</option>
 							</c:if>
-							
+							<c:if test="${lec.le_semester.equals('겨울방학')}">
+								<option value="1학기">1학기</option>
+								<option value="2학기">2학기</option>
+								<option value="여름방학" >여름방학</option>
+								<option value="겨울방학" selected>겨울방학</option>
+							</c:if>
 						</select>
 						
 						<label class ="mt-3" for = "subject">과목 이름</label>

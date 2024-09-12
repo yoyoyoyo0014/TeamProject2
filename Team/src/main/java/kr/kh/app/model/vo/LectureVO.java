@@ -15,6 +15,7 @@ public class LectureVO {
 	private int le_su_num;
 	private String le_me_id;
 	
+	private MemberVO member;
 	private SubjectVO subject;
 	
 	boolean takeClass;
@@ -32,9 +33,10 @@ public class LectureVO {
 		this.le_semester = le_semester;
 		this.le_me_id = me_id;
 	}
-	public LectureVO(int num,String room, String schedule, String semester, int subjectNum, String professorMemId) {
+	public LectureVO(int num,String room, int yearNum, String schedule, String semester, int subjectNum, String professorMemId) {
 		this.le_num = num;
 		this.le_room = room;
+		this.le_year = yearNum;
 		this.le_schedule = schedule;
 		this.le_semester = semester;
 		this.le_su_num = subjectNum;
