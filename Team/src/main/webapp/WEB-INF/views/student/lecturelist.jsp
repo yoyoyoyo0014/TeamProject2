@@ -68,6 +68,11 @@
 									</td>
 								</tr>
 							</c:forEach>
+							<c:if test="${list.size() == 0 }">
+								<tr>
+									<td colspan="6" class="text-center">검색 결과가 없습니다.</td>
+								</tr>
+							</c:if>
 						</tbody>
 					</table>
 				</div>
