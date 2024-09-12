@@ -28,7 +28,7 @@
 			</header>
 			
 			<div class="main_container">
-				<div class="container" style="min-height: calc(100vh - 240px)">
+				<div class="container">
 					<h1 class="mt-3">공지사항 수정</h1>
 					<form action="<c:url value="/notice/update"/>" method="post">
 						<input type="hidden" name="no_num" value="${notice.no_num}">
@@ -40,7 +40,9 @@
 				  			<label for="content">내용:</label>
 				  			<textarea class="form-control" id="content" name="no_content">${notice.no_content}</textarea>
 						</div>
-						<button type="submit" class="btn btn-outline-info col-12">수정</button>
+						<div class="text-right">
+							<button type="submit" class="btn btn-outline-warning">수정</button>
+						</div>
 					</form>
 				</div>
 			</div>

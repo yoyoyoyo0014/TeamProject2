@@ -67,10 +67,10 @@
 												<option value="F" <c:if test="${course.co_grade == 'F'}">selected</c:if>>F</option>
 											</select>
 											<c:if test="${course.co_grade != null}">
-												<button type="submit" class="btn btn-danger">수정</button>
+												<button type="submit" class="btn btn-outline-warning">수정</button>
 											</c:if>
 											<c:if test="${course.co_grade == null}">
-												<button type="submit" class="btn btn-success">입력</button>
+												<button type="submit" class="btn btn-outline-primary">입력</button>
 											</c:if>
 										</form>
 									</td>

@@ -27,7 +27,7 @@
 			</header>
 			
 			<div class="main_container">
-				<div class="container-fluid">
+				<div class="container">
 					<h1 class="mb-3">과목 수정</h1>
 					<form action="<c:url value="/admin/subjectupdate" />" method="post">
 						<div class="form-group">
@@ -69,8 +69,8 @@
 							<label for="su_point">학점</label>
 							<input type="number" class="form-control" id="su_point" name="su_point" placeholder="학점을 입력해주세요. 1~10 사이만 입력 가능합니다." min="0" max="10" value="${subject.su_point}">
 						</div>
-						<div>
-							<button type="submit" class="btn btn-outline-primary">수정</button>
+						<div class="text-right">
+							<button type="submit" class="btn btn-outline-warning">수정</button>
 						</div>
 					</form>
 				</div>

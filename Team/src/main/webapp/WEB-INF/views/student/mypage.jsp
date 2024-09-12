@@ -28,7 +28,7 @@
 			</header>
 			
 			<div class="main_container">
-				<div class="container-fluid">
+				<div class="container">
 					<h1 class="mt-3">개인정보수정</h1>
 					<c:if test="${user ne null}">
 						<form action="<c:url value="/student/mypage"/>" method="post" id="form">
@@ -51,8 +51,10 @@
 							<div class="form-group">
 					  			<label for="email">이메일:</label>
 					  			<input type="text" class="form-control" id="me_email" name="me_email" value="${user.me_email}">
-							</div>												
-							<button type="submit" class="btn btn-outline-info col-12">수정</button>
+							</div>
+							<div class="text-right">
+								<button type="submit" class="btn btn-outline-warning">수정</button>
+							</div>
 						</form>
 					</c:if>
 				</div>
