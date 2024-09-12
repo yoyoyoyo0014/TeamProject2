@@ -24,7 +24,7 @@
 			<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 			
 			<div class="main_container">
-				<div class="container" style="min-height: calc(100vh - 240px)">
+				<div class="container-fluid">
 					<h1 class="mt-3">개인정보수정</h1>
 					<c:if test="${user ne null}">
 						<form action="<c:url value="/student/mypage"/>" method="post" id="form">
