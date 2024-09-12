@@ -53,29 +53,27 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:if test="${list != null}">
-								<c:forEach var="notice" items="${list}">
-									<tr>
-										<td>${notice.no_num}</td>
-										<td>
-											<c:url var="url" value="/notice/detail">
-												<c:param name="page" value="${pm.cri.page}"/>
-												<c:param name="search" value="${pm.cri.search}"/>
-												<c:param name="no_num" value="${notice.no_num}"/>
-											</c:url>
-											<a href="${url}">${notice.no_title}</a>
-										</td>
-										<td>${notice.member.me_name}</td>
-										<td>
-											<fmt:formatDate value="${notice.no_date}" pattern="yyyy-MM-dd"/>
-										</td>
-										<td>${notice.no_view}</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${list == null}">
+							<c:forEach var="notice" items="${list}">
 								<tr>
-									<td colspan="5">조회된 게시글이 없습니다.</td>
+									<td>${notice.no_num}</td>
+									<td>
+										<c:url var="url" value="/notice/detail">
+											<c:param name="page" value="${pm.cri.page}"/>
+											<c:param name="search" value="${pm.cri.search}"/>
+											<c:param name="no_num" value="${notice.no_num}"/>
+										</c:url>
+										<a href="${url}">${notice.no_title}</a>
+									</td>
+									<td>${notice.member.me_name}</td>
+									<td>
+										<fmt:formatDate value="${notice.no_date}" pattern="yyyy-MM-dd"/>
+									</td>
+									<td>${notice.no_view}</td>
+								</tr>
+							</c:forEach>
+							<c:if test="${list.size() == 0}">
+								<tr>
+									<td colspan="5" class="text-center">조회된 게시글이 없습니다.</td>
 								</tr>
 							</c:if>
 						</tbody>

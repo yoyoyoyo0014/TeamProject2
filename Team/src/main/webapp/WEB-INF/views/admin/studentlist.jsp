@@ -50,6 +50,11 @@
 								<td>${course.member.me_email}</td>
 							</tr>
 						</c:forEach>
+						<c:if test="${list.size() == 0}">
+							<tr>
+								<td colspan="4" class="text-center">수강중인 학생이 없습니다.</td>
+							</tr>
+						</c:if>
 					</tbody>
 				</table>
 			</div>

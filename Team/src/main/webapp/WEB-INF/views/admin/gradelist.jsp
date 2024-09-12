@@ -53,22 +53,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:if test="${list != null}">
-								<c:forEach var="grade" items="${list}">
-									<tr>
-										<td>${grade.me_id}</td>
-										<td>${grade.me_name}</td>
-										<td>${grade.le_year}</td>
-										<td>${grade.le_semester}</td>
-										<td>${grade.su_name}</td>
-										<td>${grade.su_point}</td>
-										<td>${grade.co_grade}</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${list == null}">
+							<c:forEach var="grade" items="${list}">
 								<tr>
-									<td colspan="7">조회된 성적이 없습니다.</td>
+									<td>${grade.me_id}</td>
+									<td>${grade.me_name}</td>
+									<td>${grade.le_year}</td>
+									<td>${grade.le_semester}</td>
+									<td>${grade.su_name}</td>
+									<td>${grade.su_point}</td>
+									<td>${grade.co_grade}</td>
+								</tr>
+							</c:forEach>
+							<c:if test="${list.size() == 0}">
+								<tr>
+									<td colspan="7" class="text-center">조회된 학생이 없습니다.</td>
 								</tr>
 							</c:if>
 						</tbody>

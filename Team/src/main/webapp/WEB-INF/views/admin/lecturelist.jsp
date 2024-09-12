@@ -76,6 +76,11 @@
 								</td>
 							</tr>
 						</c:forEach>
+						<c:if test="${list.size() == 0 }">
+							<tr>
+								<td colspan="7" class="text-center">조회된 강의가 없습니다.</td>
+							</tr>
+						</c:if>
 					</tbody>
 				</table>
 				
