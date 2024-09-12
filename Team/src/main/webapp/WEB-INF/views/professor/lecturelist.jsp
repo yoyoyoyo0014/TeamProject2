@@ -43,6 +43,11 @@
 									<td>${lecture.le_room}</td>
 								</tr>
 							</c:forEach>
+							<c:if test="${list.size() == 0}">
+								<tr>
+									<td colspan="5" class="text-center"> 개설된 강의가 없습니다.</td>
+								</tr>
+							</c:if>
 						</tbody>
 					</table>
 				</div>

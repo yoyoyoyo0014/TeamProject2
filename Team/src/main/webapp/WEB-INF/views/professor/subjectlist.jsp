@@ -98,7 +98,7 @@
 							</c:forEach>
 							<c:if test="${subjectList.size() == 0}">
 								<tr>
-									<th colspan="5" class="text-center">등록된 게시글이 없습니다.</th>
+									<th colspan="5" class="text-center">검색 결과가 없습니다.</th>
 								</tr>
 							</c:if>
 						</tbody>

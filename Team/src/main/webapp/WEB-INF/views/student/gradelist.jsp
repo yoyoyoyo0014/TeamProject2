@@ -85,21 +85,23 @@
 									</c:if>
 								</c:forEach>
 							</c:if>
-							<c:if test="${list == null}">
+							<c:if test="${list.size() == 0}">
 								<tr>
-									<td colspan="5">조회할 성적을 선택하세요.</td>
+									<td colspan="5" class="text-center">조회된 성적이 없습니다.</td>
 								</tr>
 							</c:if>
 						</tbody>
 						<tfoot>
-							<tr>
-								<th colspan="4">총 평점</th>
-								<th>
-									<c:if test="${totalCredits != 0}">
-										<fmt:formatNumber value="${totalPoints / totalCredits}" type="number" maxFractionDigits="2" minFractionDigits="2" />
-									</c:if>
-								</th>
-							</tr>
+							<c:if test="${list.size() != 0 }">
+								<tr>
+									<th colspan="4">총 평점</th>
+									<th>
+										<c:if test="${totalCredits != 0}">
+											<fmt:formatNumber value="${totalPoints / totalCredits}" type="number" maxFractionDigits="2" minFractionDigits="2" />
+										</c:if>
+									</th>
+								</tr>
+							</c:if>
 						</tfoot>
 						
 					</table>
