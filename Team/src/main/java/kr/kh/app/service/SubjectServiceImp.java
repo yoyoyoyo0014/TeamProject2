@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kr.kh.app.dao.SubjectDAO;
 import kr.kh.app.model.vo.LectureVO;
+import kr.kh.app.model.vo.MajorVO;
 import kr.kh.app.model.vo.MemberVO;
 import kr.kh.app.model.vo.SubjectVO;
 import kr.kh.app.pagination.Criteria;
@@ -39,7 +40,7 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public List<SubjectVO> subjectSuMaNumList() {
+	public List<MajorVO> subjectSuMaNumList() {
 		return subjectDao.subjectSuMaNumList();
 	}
 
@@ -107,8 +108,8 @@ public class SubjectServiceImp implements SubjectService {
 	}
 
 	@Override
-	public List<SubjectVO> subjectList(String su_num) {
-		return subjectDao.getSubjectList(su_num);
+	public SubjectVO getSubjectByNum(String su_num) {
+		return subjectDao.selectSubjectByNum(su_num);
 	}
 
 	@Override
@@ -116,16 +117,12 @@ public class SubjectServiceImp implements SubjectService {
 		if(subject == null) {
 			return false;
 		}
-		SubjectVO checkSubject = getSubject(subject.getSu_name());
-		if(checkSubject != null) {
-			return false;
-		}
 		return subjectDao.updateSubject(subject);
 	}
 
 	@Override
-	public SubjectVO getSubject(String su_name) {
-		return subjectDao.getSubject(su_name);
+	public SubjectVO getSubjectByName(String su_name) {
+		return subjectDao.selectSubjectByName(su_name);
 	}
 
 }

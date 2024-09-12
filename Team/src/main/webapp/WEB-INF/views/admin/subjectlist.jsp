@@ -64,7 +64,7 @@
 									<td>${suList.ma_name}</td>
 									<td>${suList.su_status}</td>
 									<td>
-										<a href="<c:url value="/admin/subjectupdate?su_num=${suList.su_num}&su_ma_num=${suList.su_ma_num}&su_status=${suList.su_status}" />" class="btn btn-outline-warning">수정</a>
+										<a href="<c:url value="/admin/subjectupdate?su_num=${suList.su_num}" />" class="btn btn-outline-warning">수정</a>
 										<a href="<c:url value="/admin/subjectdelete?su_num=${suList.su_num}" />" class="btn btn-outline-danger">삭제</a>
 									</td>
 								</tr>
